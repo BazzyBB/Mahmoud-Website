@@ -1,0 +1,21 @@
+{
+  "name": "scrim-s0stt0b8v8",
+  "description": "https://v2.scrimba.com/s0stt0b8v8",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^3.11.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router-dom": "6.4.4",
+    "scrim-s0stt0b8v8": "file:",
+    "vite": "^6.2.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "*"
+  }
+}
