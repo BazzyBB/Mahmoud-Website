@@ -223,7 +223,16 @@
   
   /* ===== GALLERY PAGE ===== */
   .van-list-container {
-    padding: 30px 23px;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .van-list-container h1 {
+    padding: 30px;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--light-black);
   }
   
   /* Loading animation for the gallery */
@@ -249,7 +258,11 @@
   
   /* Carousel section animation */
   .carousel-section {
-    margin-bottom: 80px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+    margin-bottom: 0;
     opacity: 0;
     transform: translateX(-100px);
     transition: opacity 1s ease, transform 1s ease;
@@ -265,10 +278,25 @@
     transform: translateX(0);
   }
   
+  /* Add a subtle divider between sections */
+  .carousel-section:not(:last-child) {
+    position: relative;
+  }
+  
+  .carousel-section:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--light-gray), transparent);
+  }
+  
   .carousel-container {
     width: 100%;
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 0;
   }
   
   .carousel-content {
@@ -279,8 +307,9 @@
   
   .carousel-images {
     position: relative;
-    width: 48%;
-    height: 300px;
+    width: 48vw; /* Half of viewport width */
+    height: 70vh; /* Taller for better visibility */
+    max-height: 600px;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: var(--carousel-shadow);
@@ -332,18 +361,19 @@
   }
   
   .carousel-text {
-    width: 48%;
-    padding: 20px;
+    width: 40vw; /* Slightly less than half to add some spacing */
+    padding: 0 40px;
   }
   
   .carousel-text h2 {
-    margin-bottom: 15px;
-    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-size: 2.2rem;
     color: var(--light-black);
   }
   
   .carousel-text p {
-    line-height: 1.6;
+    line-height: 1.8;
+    font-size: 1.1rem;
     color: var(--gray);
   }
   
@@ -550,6 +580,20 @@
   }
   
   /* ===== RESPONSIVE STYLES ===== */
+  @media (max-width: 1024px) {
+    .carousel-images {
+      height: 50vh;
+    }
+    
+    .carousel-text h2 {
+      font-size: 1.8rem;
+    }
+    
+    .carousel-text p {
+      font-size: 1rem;
+    }
+  }
+  
   @media (max-width: 768px) {
     /* Contact page responsive */
     .contact-page-container {
@@ -571,25 +615,9 @@
     }
     
     /* Carousel responsive */
-    .carousel-content {
-      flex-direction: column;
-    }
-    
-    .carousel-images,
-    .carousel-text {
-      width: 100%;
-    }
-    
-    .carousel-text {
-      margin-top: 20px;
-      order: 2;
-    }
-    
-    .carousel-images {
-      order: 1;
-    }
-    
     .carousel-section {
+      min-height: auto;
+      padding: 30px 0;
       transform: translateY(50px);
     }
     
@@ -599,5 +627,25 @@
     
     .carousel-section.visible {
       transform: translateY(0);
+    }
+    
+    .carousel-content {
+      flex-direction: column;
+    }
+    
+    .carousel-images,
+    .carousel-text {
+      width: 90vw;
+    }
+    
+    .carousel-images {
+      height: 40vh;
+      order: 1;
+    }
+    
+    .carousel-text {
+      margin-top: 30px;
+      padding: 0 20px;
+      order: 2;
     }
   }
