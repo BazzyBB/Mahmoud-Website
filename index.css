@@ -235,18 +235,21 @@
   }
   
   .home-container a {
+    display: inline-block;
     text-align: center;
     text-decoration: none;
     background-color: var(--brown);
     border: none;
-    width: 10%;
+    min-width: 150px;
+    width: auto;
     margin-top: 27px;
-    padding-block: 0.75rem;
+    padding: 0.75rem 1.5rem;
     color: white;
     font-weight: 700;
     border-radius: 5px;
     cursor: pointer;
     transition: transform 0.1s ease-in-out;
+    white-space: nowrap;
   }
   
   /* ===== ABOUT PAGE ===== */
@@ -679,6 +682,26 @@
   }
   
   @media (max-width: 768px) {
+    /* Home page mobile styles */
+    .home-container h1 {
+      font-size: 1.8rem;
+      line-height: 1.3;
+      padding: 0 20px;
+    }
+    
+    .home-container p {
+      font-size: 1rem;
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+    
+    .home-container a {
+      min-width: 180px;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      margin-top: 30px;
+    }
+    
     /* Gallery page title */
     .van-list-container h1 {
       font-size: 2rem;
@@ -776,6 +799,27 @@
   }
   
   @media (max-width: 480px) {
+    /* Home page extra small screens */
+    .home-container h1 {
+      font-size: 1.5rem;
+      line-height: 1.4;
+      padding: 0 15px;
+    }
+    
+    .home-container p {
+      font-size: 0.9rem;
+      padding: 0 15px;
+      margin-bottom: 25px;
+    }
+    
+    .home-container a {
+      min-width: 160px;
+      padding: 0.9rem 1.8rem;
+      font-size: 0.95rem;
+      margin-top: 25px;
+      border-radius: 8px;
+    }
+    
     /* Extra small screens */
     .van-list-container h1 {
       font-size: 1.7rem;
