@@ -44,18 +44,18 @@ export default function Header(){
                     Home 
                 </NavLink>
                 <NavLink
-                    to="/gallery"
+                    to="/Gallery"
                     style={({ isActive }) => isActive ? activeStyles : null}
                     onClick={closeMenu}
                 >
                     Gallery 
                 </NavLink>
                 <NavLink
-                    to="/AboutMe"
+                    to="/AboutUs"
                     style={({ isActive }) => isActive ? activeStyles : null}
                     onClick={closeMenu}
                 >
-                    About Me 
+                    About Us 
                 </NavLink>
                 <NavLink
                     to="/ContactUs"
