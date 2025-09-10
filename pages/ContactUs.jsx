@@ -168,7 +168,7 @@ export default function ContactUs() {
             </div>
             
             <div className="form-group">
-              <label htmlFor="message">Message <span className="required">*</span></label>
+              <label htmlFor="message">Request <span className="required">*</span></label>
               <textarea
                 id="message"
                 name="message"

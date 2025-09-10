@@ -1,38 +1,67 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 
 
 export default function Header(){
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    
     const activeStyles = {
         fontWeight: "bold",
         textDecoration: "underline",
         color: "#161616"
     }
+    
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
+    
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    }
+    
     return(
         <header>
-            <Link className="site-logo" to="/">Company Name</Link>
-                 <nav>
-                    <NavLink
+            {/* Hamburger Menu Button */}
+            <button 
+                className={`hamburger-menu ${isMenuOpen ? 'open' : ''}`}
+                onClick={toggleMenu}
+                aria-label="Toggle navigation menu"
+            >
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+            </button>
+            
+            <Link className="site-logo" to="/">Live Wood Studio</Link>
+            
+            {/* Navigation Menu */}
+            <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
+                <NavLink
                     to="/gallery"
                     style={({ isActive }) => isActive ? activeStyles : null}
+                    onClick={closeMenu}
                 >
                     Gallery 
-                    </NavLink>
-                        <NavLink
+                </NavLink>
+                <NavLink
                     to="/AboutMe"
                     style={({ isActive }) => isActive ? activeStyles : null}
+                    onClick={closeMenu}
                 >
-                    AboutMe 
-                    </NavLink>
-                        <NavLink
+                    About Me 
+                </NavLink>
+                <NavLink
                     to="/ContactUs"
                     style={({ isActive }) => isActive ? activeStyles : null}
+                    onClick={closeMenu}
                 >
-                    ContactUs 
-                    </NavLink>
-                 </nav>    
+                    Contact Us 
+                </NavLink>
+            </nav>
+            
+            {/* Overlay for mobile */}
+            {isMenuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
         </header>
-    
     )
 }
 
