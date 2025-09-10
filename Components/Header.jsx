@@ -37,6 +37,13 @@ export default function Header(){
             {/* Navigation Menu */}
             <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
                 <NavLink
+                    to="/"
+                    style={({ isActive }) => isActive ? activeStyles : null}
+                    onClick={closeMenu}
+                >
+                    Home 
+                </NavLink>
+                <NavLink
                     to="/gallery"
                     style={({ isActive }) => isActive ? activeStyles : null}
                     onClick={closeMenu}
