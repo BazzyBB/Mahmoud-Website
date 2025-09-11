@@ -168,7 +168,7 @@ export default function Gallery() {
   if (isLoading) {
     return (
       <div className="gallery-container">
-        <h1>Our Collections</h1>
+        <h1>Some of Our Work</h1>
         <div className="loading-indicator">
           <p>Loading our beautiful collections...</p>
         </div>
@@ -179,7 +179,7 @@ export default function Gallery() {
   if (error) {
     return (
       <div className="gallery-container">
-        <h1>Our Collections</h1>
+        <h1>Some of Our Work</h1>
         <div className="error-message">
           <p>We're sorry, but there was an error loading the gallery. Please try again later.</p>
         </div>
@@ -189,7 +189,7 @@ export default function Gallery() {
 
   return (
     <div className="gallery-container">
-      <h1>Our Collections</h1>
+      <h1>Some of Our Work</h1>
 
       {carouselData.map((carousel, index) => (
         <div 

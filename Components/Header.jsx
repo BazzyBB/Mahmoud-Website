@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
+import logo from "../Assets/Logo.jpg"
 
 
 export default function Header(){
@@ -32,7 +33,9 @@ export default function Header(){
                 <span className="hamburger-line"></span>
             </button>
             
-            <Link className="site-logo" to="/">Live Wood Studio</Link>
+            <Link className="site-logo" to="/">
+                <img src={logo} alt="Live Wood Studio" className="logo-image" />
+            </Link>
             
             {/* Navigation Menu */}
             <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>

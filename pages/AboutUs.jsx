@@ -23,8 +23,8 @@ export default function AboutUs() {
                 <p className="about-closing"><strong>Let's make something extraordinary—just for you.</strong></p>
             </div>
             <div className="about-page-cta">
-                <h2>Ready to start your custom project?<br />Explore our collections</h2>
-                <Link className="link-button" to="/Gallery">View Our Work</Link>
+                <h2>Ready to start your custom project?<br />Let's bring your vision to life</h2>
+                <Link className="link-button" to="/ContactUs">Contact Us</Link>
             </div>
         </div>
     );
