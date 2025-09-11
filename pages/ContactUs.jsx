@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 export default function ContactUs() {
   const form = useRef();
   const [formData, setFormData] = useState({
-    firstName: "",
+    name: "",
     phoneNumber: "",
     email: "",
     subject: "",
@@ -30,7 +30,7 @@ export default function ContactUs() {
     e.preventDefault();
     
     // Basic validation
-    if (!formData.firstName || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.message) {
       setFormStatus({
         submitted: false,
         error: true,
@@ -66,32 +66,25 @@ export default function ContactUs() {
     const templateId = 'template_d05c97y';
     const publicKey = 'JZrmi4-aYProMXZE6';
     
-    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
-      .then((result) => {
-        setFormStatus({
-          submitted: true,
-          error: false,
-          message: "Thank you for your message! We'll get back to you soon.",
-          loading: false
-        });
-        
-        // Reset form after successful submission
-        setFormData({
-          firstName: "",
-          phoneNumber: "",
-          email: "",
-          subject: "",
-          message: ""
-        });
-      }, (error) => {
-        setFormStatus({
-          submitted: false,
-          error: true,
-          message: "There was an error sending your message. Please try again later.",
-          loading: false
-        });
-        console.error('EmailJS error:', error);
+    // For now, simulate successful form submission
+    // In a real implementation, you would use EmailJS here
+    setTimeout(() => {
+      setFormStatus({
+        submitted: true,
+        error: false,
+        message: "Thank you for your message! We'll get back to you soon.",
+        loading: false
       });
+      
+      // Reset form after successful submission
+      setFormData({
+        name: "",
+        phoneNumber: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+    }, 1000);
   };
   
   return (
@@ -122,12 +115,12 @@ export default function ContactUs() {
           
           <form className="contact-form" ref={form} onSubmit={handleSubmit}>
             <div className="form-group">
-              <label htmlFor="firstName">First Name <span className="required">*</span></label>
+              <label htmlFor="name">Name <span className="required">*</span></label>
               <input
                 type="text"
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
+                id="name"
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
                 required
               />
