@@ -60,31 +60,51 @@ export default function ContactUs() {
       loading: true
     });
     
-    // Replace these with your actual EmailJS service details
-    // You'll get these when you set up your EmailJS account
-    const serviceId = 'service_lh789q5';
-    const templateId = 'template_d05c97y';
-    const publicKey = 'JZrmi4-aYProMXZE6';
+    // Get EmailJS credentials from environment variables
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
     
-    // For now, simulate successful form submission
-    // In a real implementation, you would use EmailJS here
-    setTimeout(() => {
+    // Check if environment variables are loaded
+    if (!serviceId || !templateId || !publicKey) {
       setFormStatus({
-        submitted: true,
-        error: false,
-        message: "Thank you for your message! We'll get back to you soon.",
+        submitted: false,
+        error: true,
+        message: "Email service is not configured. Please contact us directly.",
         loading: false
       });
-      
-      // Reset form after successful submission
-      setFormData({
-        name: "",
-        phoneNumber: "",
-        email: "",
-        subject: "",
-        message: ""
+      return;
+    }
+    
+    // Send email using EmailJS
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
+      .then((result) => {
+        console.log('EmailJS success:', result.text);
+        setFormStatus({
+          submitted: true,
+          error: false,
+          message: "Thank you for your message! We'll get back to you soon.",
+          loading: false
+        });
+        
+        // Reset form after successful submission
+        setFormData({
+          name: "",
+          phoneNumber: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+      })
+      .catch((error) => {
+        console.error('EmailJS error:', error);
+        setFormStatus({
+          submitted: false,
+          error: true,
+          message: "There was an error sending your message. Please try again later.",
+          loading: false
+        });
       });
-    }, 1000);
   };
   
   return (
