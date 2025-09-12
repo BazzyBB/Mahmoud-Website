@@ -61,9 +61,9 @@ export default function ContactUs() {
     });
     
     // Get EmailJS credentials from environment variables
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const serviceId = service_tzxgbqi
+    const templateId = template_abrxt9l
+    const publicKey = qjWhnWz3ioYy9OuWx
     
     // Check if environment variables are loaded
     if (!serviceId || !templateId || !publicKey) {
