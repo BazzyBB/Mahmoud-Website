@@ -60,21 +60,10 @@ export default function ContactUs() {
       loading: true
     });
     
-    // Get EmailJS credentials from environment variables
-    const serviceId = service_tzxgbqi
-    const templateId = template_abrxt9l
-    const publicKey = qjWhnWz3ioYy9OuWx
-    
-    // Check if environment variables are loaded
-    if (!serviceId || !templateId || !publicKey) {
-      setFormStatus({
-        submitted: false,
-        error: true,
-        message: "Email service is not configured. Please contact us directly.",
-        loading: false
-      });
-      return;
-    }
+    // Get EmailJS credentials (hardcoded)
+    const serviceId = 'service_tzxgbqi';
+    const templateId = 'template_abrxt9l';
+    const publicKey = 'qjWhnWz3ioYy9OuWx';
     
     // Send email using EmailJS
     emailjs.sendForm(serviceId, templateId, form.current, publicKey)
