@@ -5,5 +5,8 @@ export default defineConfig({
 	plugins: [
 		react()
 	],
-	assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.jpeg', '**/*.JPEG', '**/*.png', '**/*.gif', '**/*.svg']
+	assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.jpeg', '**/*.JPEG', '**/*.png', '**/*.gif', '**/*.svg'],
+	server: {
+		historyApiFallback: true
+	}
 })
