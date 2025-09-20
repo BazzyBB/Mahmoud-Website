@@ -21,28 +21,36 @@ export default function Header(){
     }
     
     return(
-        <header>
+        <header role="banner">
             {/* Hamburger Menu Button */}
             <button 
                 className={`hamburger-menu ${isMenuOpen ? 'open' : ''}`}
                 onClick={toggleMenu}
-                aria-label="Toggle navigation menu"
+                aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="main-navigation"
             >
-                <span className="hamburger-line"></span>
-                <span className="hamburger-line"></span>
-                <span className="hamburger-line"></span>
+                <span className="hamburger-line" aria-hidden="true"></span>
+                <span className="hamburger-line" aria-hidden="true"></span>
+                <span className="hamburger-line" aria-hidden="true"></span>
             </button>
             
-            <Link className="site-logo" to="/">
-                <img src={logo} alt="Live Wood Studio" className="logo-image" />
+            <Link className="site-logo" to="/" aria-label="Live Wood Studio - Home">
+                <img src={logo} alt="Live Wood Studio logo - Custom WoodWorking & Cabinets" className="logo-image" />
             </Link>
             
             {/* Navigation Menu */}
-            <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
+            <nav 
+                id="main-navigation"
+                className={`nav-menu ${isMenuOpen ? 'open' : ''}`}
+                role="navigation"
+                aria-label="Main navigation"
+            >
                 <NavLink
                     to="/"
                     style={({ isActive }) => isActive ? activeStyles : null}
                     onClick={closeMenu}
+                    aria-current={({ isActive }) => isActive ? "page" : undefined}
                 >
                     Home 
                 </NavLink>
@@ -50,6 +58,7 @@ export default function Header(){
                     to="/Gallery"
                     style={({ isActive }) => isActive ? activeStyles : null}
                     onClick={closeMenu}
+                    aria-current={({ isActive }) => isActive ? "page" : undefined}
                 >
                     Gallery 
                 </NavLink>
@@ -57,6 +66,7 @@ export default function Header(){
                     to="/AboutUs"
                     style={({ isActive }) => isActive ? activeStyles : null}
                     onClick={closeMenu}
+                    aria-current={({ isActive }) => isActive ? "page" : undefined}
                 >
                     About Us 
                 </NavLink>
@@ -64,13 +74,21 @@ export default function Header(){
                     to="/ContactUs"
                     style={({ isActive }) => isActive ? activeStyles : null}
                     onClick={closeMenu}
+                    aria-current={({ isActive }) => isActive ? "page" : undefined}
                 >
                     Contact Us 
                 </NavLink>
             </nav>
             
             {/* Overlay for mobile */}
-            {isMenuOpen && <div className="menu-overlay" onClick={closeMenu}></div>}
+            {isMenuOpen && (
+                <div 
+                    className="menu-overlay" 
+                    onClick={closeMenu}
+                    aria-hidden="true"
+                    role="presentation"
+                ></div>
+            )}
         </header>
     )
 }

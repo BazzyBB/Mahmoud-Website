@@ -1,8 +1,9 @@
 {
-  "name": "scrim-s0stt0b8v8",
-  "description": "https://v2.scrimba.com/s0stt0b8v8",
+  "name": "live-wood-studio",
+  "description": "Live Wood Studio - Custom WoodWorking & Cabinets Website",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "start": "vite",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -11,11 +12,11 @@
     "@emailjs/browser": "^3.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-router-dom": "6.4.4",
-    "scrim-s0stt0b8v8": "file:",
-    "vite": "^6.2.5"
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "6.4.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "*"
+    "@vitejs/plugin-react": "^4.3.3",
+    "vite": "^6.2.5"
   }
 }

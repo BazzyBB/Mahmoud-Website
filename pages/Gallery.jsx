@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import Carousel from "../Components/Carousel"; // Import the Carousel component
+import { useAnalytics } from "../hooks/useAnalytics";
+import SEOHead from "../Components/SEOHead";
 
 // Import Diamond Setting Bench images
 import ds1 from "../Assets/DS1.JPG";
@@ -17,7 +19,7 @@ import ed4 from "../Assets/ED4.JPG";
 import ed5 from "../Assets/ED5.JPG";
 import ed6 from "../Assets/ED6.JPG";
 
-// Import Jewelry Display Case System images
+// Import Custom Cabinet System images
 import js1 from "../Assets/JS1.JPG";
 import js2 from "../Assets/JS2.JPG";
 import js3 from "../Assets/JS3.JPG";
@@ -47,6 +49,31 @@ export default function Gallery() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [visibleSections, setVisibleSections] = useState(Array(6).fill(false));
+  const { trackCarouselInteraction } = useAnalytics();
+  
+  // Check if images are already preloaded
+  const [imagesPreloaded, setImagesPreloaded] = useState(false);
+  
+  // Function to check if images are already loaded
+  const checkImagesPreloaded = () => {
+    const allImages = [
+      ds1, ds2, ds3, ds4, ds5, // Diamond Setting
+      ed1, ed2, ed3, ed4, ed5, ed6, // Live Edge
+      js1, js2, js3, js4, js5, // Cabinet System
+      ob1, ob2, ob3, ob4, // Geometric Block
+      om1, om2, om3, om4, // Mixed Hardwood
+      sf1, sf2, sf3, sf4 // Retail Display
+    ];
+    
+    // Check if all images are already loaded in browser cache
+    const loadedCount = allImages.filter(src => {
+      const img = new Image();
+      img.src = src;
+      return img.complete && img.naturalHeight !== 0;
+    }).length;
+    
+    return loadedCount === allImages.length;
+  };
   
   // Diamond Setting Bench images
   const diamondSettingImages = [ds1, ds2, ds3, ds4, ds5];
@@ -54,8 +81,8 @@ export default function Gallery() {
   // Live-Edge Dining Table images
   const liveEdgeTableImages = [ed1, ed2, ed3, ed4, ed5, ed6];
   
-  // Jewelry Display Case System images
-  const jewelryDisplayImages = [js1, js2, js3, js4, js5];
+  // Custom Cabinet System images
+  const cabinetSystemImages = [js1, js2, js3, js4, js5];
   
   // Geometric Block Table images
   const geometricBlockImages = [ob1, ob2, ob3, ob4];
@@ -81,9 +108,9 @@ export default function Gallery() {
       direction: "right"
     },
     {
-      title: "Custom Jewelry Display Case System - Oak Veneer with Cotton White Finish",
-      description: "This sophisticated retail display system combines the natural warmth of oak with clean, contemporary design to create an elegant showcase for fine jewelry. The cases feature oak veneered plywood construction with beautiful white oak tops finished in a refined cotton white that provides a neutral backdrop to highlight precious pieces. Each case is topped with crystal-clear 3/8\" tempered glass for optimal durability and security, while custom-integrated LED lighting creates perfect illumination that brings out the brilliance and sparkle of displayed jewelry. The lighting system is professionally designed to minimize shadows and provide even, flattering light distribution across the entire display surface. The modular system includes ten 4-foot linear display cases that can be configured to suit any retail space, complemented by two tower units for vertical display options and a 5-foot display table for featured pieces or larger collections. The cohesive design creates a premium shopping experience while maximizing display flexibility. The cotton white finish provides a timeless, sophisticated aesthetic that complements any jewelry collection while the oak construction ensures lasting durability in a commercial environment. The clean lines and professional presentation elevate the perceived value of displayed merchandise.",
-      images: jewelryDisplayImages,
+      title: "Custom Cabinet System - Oak Veneer with Cotton White Finish",
+      description: "This sophisticated Cabinet system combines the natural warmth of oak with clean, contemporary design to create elegant storage and display solutions. The Cabinets feature oak veneered plywood construction with beautiful white oak tops finished in a refined cotton white that provides a neutral backdrop for any space. Each Cabinet is topped with crystal-clear 3/8\" tempered glass for optimal durability and security, while custom-integrated LED lighting creates perfect illumination for displayed items. The lighting system is professionally designed to minimize shadows and provide even, flattering light distribution across the entire surface. The modular system includes ten 4-foot linear Cabinets that can be configured to suit any space, complemented by two tower units for vertical storage options and a 5-foot display table for featured pieces or larger collections. The cohesive design creates a premium experience while maximizing storage flexibility. The cotton white finish provides a timeless, sophisticated aesthetic that complements any decor while the oak construction ensures lasting durability. The clean lines and professional presentation elevate the perceived value of any space.",
+      images: cabinetSystemImages,
       direction: "left"
     },
     {
@@ -115,12 +142,19 @@ export default function Gallery() {
       .map((_, i) => sectionRefs.current[i] || React.createRef());
   }, [carouselData.length]);
 
-  // Simulate loading
+  // Check for preloaded images and handle loading
   useEffect(() => {
-    // Simulate a network request for data
+    // Check if images are already preloaded
+    if (checkImagesPreloaded()) {
+      setImagesPreloaded(true);
+      setIsLoading(false);
+      return;
+    }
+    
+    // If not preloaded, simulate a shorter loading time
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 800);
+    }, 300); // Reduced from 800ms since images might be partially loaded
     
     return () => clearTimeout(timer);
   }, []);
@@ -170,7 +204,7 @@ export default function Gallery() {
       <div className="gallery-container">
         <h1>Some of Our Work</h1>
         <div className="loading-indicator">
-          <p>Loading our beautiful collections...</p>
+          <p>{imagesPreloaded ? 'Preparing our beautiful collections...' : 'Loading our beautiful collections...'}</p>
         </div>
       </div>
     );
@@ -188,24 +222,35 @@ export default function Gallery() {
   }
 
   return (
-    <div className="gallery-container">
-      <h1>Some of Our Work</h1>
+    <>
+      <SEOHead 
+        title="Custom Woodworking Gallery - Dallas Live Wood Studio"
+        description="View our custom woodworking gallery featuring diamond setting benches, live-edge dining tables, custom cabinets, and artistic wood designs. Dallas's premier woodworking studio."
+        canonical="/Gallery"
+      />
+      <main className="gallery-container" role="main">
+        <h1>Some of Our Work</h1>
 
-      {carouselData.map((carousel, index) => (
-        <div 
-          key={index}
-          data-index={index}
-          ref={sectionRefs.current[index]}
-          className={`carousel-section ${carousel.direction === 'right' ? 'right' : ''} ${visibleSections[index] ? 'visible' : ''} full-viewport`}
-        >
-          <Carousel 
-            images={carousel.images}
-            title={carousel.title}
-            description={carousel.description}
-            direction={carousel.direction}
-          />
-        </div>
-      ))}
-    </div>
+      <section aria-label="Our custom woodworking and cabinet portfolio">
+        {carouselData.map((carousel, index) => (
+          <article 
+            key={index}
+            data-index={index}
+            ref={sectionRefs.current[index]}
+            className={`carousel-section ${carousel.direction === 'right' ? 'right' : ''} ${visibleSections[index] ? 'visible' : ''} full-viewport`}
+            aria-labelledby={`carousel-title-${index}`}
+          >
+            <Carousel 
+              images={carousel.images}
+              title={carousel.title}
+              description={carousel.description}
+              direction={carousel.direction}
+              onCarouselInteraction={trackCarouselInteraction}
+            />
+          </article>
+        ))}
+      </section>
+    </main>
+    </>
   );
 }
