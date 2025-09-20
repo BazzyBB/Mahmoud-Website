@@ -4,6 +4,8 @@ export default function Carousel({ images, title, description, direction, onCaro
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imagesLoaded, setImagesLoaded] = useState(Array(images.length).fill(false));
   const [allImagesLoaded, setAllImagesLoaded] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
   
   // Check if all images are loaded
   useEffect(() => {
@@ -78,12 +80,50 @@ export default function Carousel({ images, title, description, direction, onCaro
     }
   };
 
+  // Touch event handlers for mobile swipe functionality
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      goToNext();
+      if (onCarouselInteraction) {
+        onCarouselInteraction('swipe_next', title);
+      }
+    }
+    if (isRightSwipe) {
+      goToPrev();
+      if (onCarouselInteraction) {
+        onCarouselInteraction('swipe_prev', title);
+      }
+    }
+  };
+
   return (
     <div className={`carousel-container ${direction}`} role="region" aria-label={`${title} image carousel`}>
       <div className="carousel-content">
         {direction === 'left' ? (
           <>
-            <div className="carousel-images" role="img" aria-label={`${title} - Image ${currentIndex + 1} of ${images.length}`}>
+            <div 
+              className="carousel-images" 
+              role="img" 
+              aria-label={`${title} - Image ${currentIndex + 1} of ${images.length}`}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {!allImagesLoaded && (
                 <div className="carousel-loading" role="status" aria-live="polite">
                   <div className="spinner" aria-hidden="true"></div>
@@ -156,7 +196,14 @@ export default function Carousel({ images, title, description, direction, onCaro
               <h2>{title}</h2>
               <p>{description}</p>
             </div>
-            <div className="carousel-images" role="img" aria-label={`${title} - Image ${currentIndex + 1} of ${images.length}`}>
+            <div 
+              className="carousel-images" 
+              role="img" 
+              aria-label={`${title} - Image ${currentIndex + 1} of ${images.length}`}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {!allImagesLoaded && (
                 <div className="carousel-loading" role="status" aria-live="polite">
                   <div className="spinner" aria-hidden="true"></div>
