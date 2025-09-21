@@ -1,10 +1,16 @@
 import {defineConfig} from "vite"
 import react from "@vitejs/plugin-react"
+import { resolve } from 'path'
 
 export default defineConfig({
 	plugins: [
 		react()
 	],
+	resolve: {
+		alias: {
+			'@assets': resolve(__dirname, 'public/Assets')
+		}
+	},
 	assetsInclude: ['**/*.JPG', '**/*.jpg', '**/*.jpeg', '**/*.JPEG', '**/*.png', '**/*.gif', '**/*.svg'],
 	server: {
 		historyApiFallback: true

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
-import logo from "../Assets/Logo.jpg"
+import logo from "@assets/Logo.jpg"
 
 
 export default function Header(){

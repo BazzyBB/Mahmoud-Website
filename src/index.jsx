@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Layout from "./src/Components/Layout"
-import Home from "./pages/Home"
-import AboutUs from "./pages/AboutUs";
-import Gallery from "./pages/Gallery";
-import ContactUs from "./pages/ContactUs";
-import { useAnalytics } from "./src/hooks/useAnalytics";
+import Layout from "./Components/Layout.jsx"
+import Home from "./pages/Home.jsx"
+import AboutUs from "./pages/AboutUs.jsx";
+import Gallery from "./pages/Gallery.jsx";
+import ContactUs from "./pages/ContactUs.jsx";
+import { useAnalytics } from "./hooks/useAnalytics.js";
+import "./index.css";
 
 function App() {
   return (

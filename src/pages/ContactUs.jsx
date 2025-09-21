@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import emailjs from '@emailjs/browser';
-import { useAnalytics } from "../src/hooks/useAnalytics";
-import SEOHead from "../src/Components/SEOHead";
+import { useAnalytics } from "../hooks/useAnalytics.js";
+import SEOHead from "../Components/SEOHead.jsx";
 
 export default function ContactUs() {
   const form = useRef();
