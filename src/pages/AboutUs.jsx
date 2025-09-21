@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import { useAnalytics } from "../hooks/useAnalytics"
-import SEOHead from "../Components/SEOHead"
+import { useAnalytics } from "../src/hooks/useAnalytics"
+import SEOHead from "../src/Components/SEOHead"
 
 export default function AboutUs() {
     const { trackButtonClick } = useAnalytics();

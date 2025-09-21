@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Layout from "./Components/Layout"
+import Layout from "./src/Components/Layout"
 import Home from "./pages/Home"
 import AboutUs from "./pages/AboutUs";
 import Gallery from "./pages/Gallery";
 import ContactUs from "./pages/ContactUs";
-import { useAnalytics } from "./hooks/useAnalytics";
+import { useAnalytics } from "./src/hooks/useAnalytics";
 
 function App() {
   return (
