@@ -1,4 +1,15 @@
+# Allow all crawlers
 User-agent: *
+Allow: /
+
+# Explicitly allow common LLM crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
 Allow: /
 
 # Sitemap
