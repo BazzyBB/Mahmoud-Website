@@ -1,0 +1,164 @@
+# LiveWood Studio - LLM Context File
+# https://livewoodstudio.com/llm.txt
+# Generated: September 24, 2025
+
+## Business Overview
+
+**Company Name:** Live Wood Studio
+**Business Type:** Custom Woodworking Studio & Contractor
+**Location:** Dallas, Texas, United States
+**Service Area:** Dallas-Fort Worth Metroplex (50-mile radius)
+**Founded:** 2020
+**Website:** https://livewoodstudio.com
+**Phone:** (469) 888-1330
+**Slogan:** Crafting Excellence in Wood
+
+## Core Services
+
+### Primary Specializations:
+1. **Custom Diamond Setting Benches**
+   - Professional workbenches for jewelers and goldsmiths
+   - Ergonomic design with integrated storage
+   - Tool organization systems
+   - Built for precision and comfort
+   - Target audience: Jewelry professionals, goldsmiths
+
+2. **Live-Edge Dining Tables**
+   - Natural wood edge preservation
+   - Epoxy river designs
+   - Custom sizes and finishes
+   - Unique artistic pieces
+   - Natural wood beauty showcase
+
+3. **Custom Cabinets**
+   - Kitchen cabinet systems
+   - Bathroom vanities
+   - Storage solutions
+   - Retail display cabinets
+   - Built-to-measure solutions
+
+4. **Artistic Wood Designs**
+   - Decorative elements
+   - Custom artistic pieces
+   - Bespoke creations
+   - Functional art pieces
+
+## Business Characteristics
+
+**Price Range:** Mid to high-end ($$-$$$)
+**Business Hours:** 
+- Monday-Friday: 8:00 AM - 5:00 PM
+- Saturday: 9:00 AM - 3:00 PM
+- Sunday: Closed
+
+**Payment Methods:** Cash, Credit Cards, Checks, Bank Transfer
+**Service Approach:** Custom, bespoke, personalized craftsmanship
+**Quality Focus:** Professional-grade, precision craftsmanship
+
+## Target Markets
+
+### Primary Customers:
+- Jewelry professionals and goldsmiths
+- Homeowners seeking custom furniture
+- Interior designers
+- Retail businesses needing display solutions
+- Collectors of unique wood pieces
+
+### Geographic Focus:
+- Dallas, Texas (primary)
+- Fort Worth, Texas
+- Plano, Texas
+- Arlington, Texas
+- Greater DFW Metroplex
+
+## Unique Value Propositions
+
+1. **Specialized Diamond Setting Bench Expertise**
+   - One of few woodworkers specializing in jeweler workbenches
+   - Understanding of jeweler workflow and ergonomics
+   - Professional-grade precision and durability
+
+2. **Live-Edge Artistry**
+   - Natural wood preservation techniques
+   - Epoxy river integration
+   - Each piece is unique and artistic
+
+3. **Custom Solutions**
+   - No mass production - everything is bespoke
+   - Personalized design consultation
+   - Built to exact specifications
+
+## Website Structure
+
+**Main Pages:**
+- Home: Hero section with service overview
+- About Us: Company story and craftsmanship philosophy
+- Gallery: Visual portfolio of completed projects
+- Contact Us: Contact form and business information
+
+**Technical Features:**
+- Responsive design for all devices
+- Service worker for offline functionality
+- Optimized for local SEO
+- Mobile-friendly carousel galleries
+- Professional contact forms
+- Accessible website
+
+## SEO & Marketing Focus
+
+**Primary Keywords:**
+- Custom woodworking Dallas
+- Diamond setting bench Dallas
+- Live edge table Dallas
+- Custom cabinets Dallas TX
+- Woodworking studio Texas
+
+**Content Themes:**
+- Craftsmanship quality
+- Custom design process
+- Local Dallas business
+- Professional woodworking
+- Artistic wood creations
+
+## Brand Personality
+
+**Tone:** Professional, skilled, artistic, reliable
+**Values:** Quality craftsmanship, attention to detail, customer service
+**Style:** Traditional woodworking with modern techniques
+**Approach:** Personal consultation and custom solutions
+
+## Technical Implementation
+
+**Framework:** React with Vite
+**Styling:** Custom CSS with responsive design
+**Performance:** Service worker caching, optimized loading
+**SEO:** Comprehensive structured data, local business schema
+**Analytics:** Google Analytics 4 integration
+**Deployment:** Netlify hosting
+
+## Contact & Business Information
+
+**Primary Contact:** (469) 888-1330
+**Service Radius:** 50 miles from Dallas, TX coordinates (32.7767, -96.7970)
+**Business Structure:** Local business, contractor, artisan workshop
+**Availability:** Free consultations and quotes available
+
+## Competitive Advantages
+
+1. **Niche Specialization:** Diamond setting benches for jewelry trade
+2. **Local Presence:** Dallas-based with deep local market knowledge
+3. **Custom Focus:** No mass production, everything bespoke
+4. **Quality Materials:** Premium wood selection and finishing
+5. **Professional Grade:** Built for commercial and professional use
+
+## Future Expansion Considerations
+
+- Potential for woodworking workshops/classes
+- Online sales of smaller items
+- Partnerships with interior designers
+- Expansion into furniture restoration
+- Social media presence development
+
+---
+
+This file helps AI models understand Live Wood Studio as a specialized, professional custom woodworking business in Dallas, Texas, focusing on high-quality, bespoke wood products with particular expertise in diamond setting benche for the jewelry trade. As well as high quailty cabinet & tables.
