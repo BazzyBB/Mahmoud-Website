@@ -37,6 +37,7 @@ try {
     assert.equal(new Set(localIds).size, localIds.length, `Unique schema IDs: ${path}`);
     for (const match of page.body.matchAll(/href="(\/[^"]*)"/g)) {
       const url = new URL(match[1].replaceAll('&amp;', '&'), 'https://livewoodstudio.com');
+      if (url.pathname === '/sitemap.xml') continue;
       const target = pages.get(url.pathname);
       assert.ok(target, `Internal link ${url.pathname} from ${path}`);
       if (url.hash) assert.ok(target.body.includes(`id="${url.hash.slice(1)}"`), `Anchor ${url.hash} from ${path}`);

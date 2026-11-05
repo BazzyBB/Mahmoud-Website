@@ -31,7 +31,7 @@ export default function Process() {
               <Eyebrow center>{t("Five Steps")}</Eyebrow>
               <h2>{t("How Your Custom Piece Comes to Life")}</h2>
             </div>
-            <p className="process-intro">{t("Every ")}<strong>{t("custom furniture project")}</strong>{t(" starts with your space and how you plan to use it. Explore our ")}<Link className="context-link" to="/Materials">{t("wood and finish guide")}</Link>{t(" before the consultation, or browse ")}<Link className="context-link" to="/Gallery">{t("completed Dallas woodworking projects")}</Link>{t(" for inspiration.")}</p>
+            <p className="process-intro">{t("Every ")}<strong>{t("custom furniture project")}</strong>{t(" starts with your space and how you plan to use it. Explore our ")}<Link className="context-link" to="/Materials">{t("wood and finish guide")}</Link>{t(" before the consultation, or browse ")}<Link className="context-link" to="/Gallery">{t("completed Houston woodworking projects")}</Link>{t(" for inspiration.")}</p>
             <ol className="process-list">
               {processSteps.map((s, i) => (
                 <li key={s.title} className="process-step" data-reveal>

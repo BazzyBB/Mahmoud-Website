@@ -14,6 +14,8 @@ import { LanguageProvider } from './i18n/LanguageContext';
 import ServiceAreas from './pages/ServiceAreas';
 import ServiceAreaCity from './pages/ServiceAreaCity';
 
+import { PrivacyPolicy, Sitemap } from './pages/SiteInformation';
+
 export default function SiteRoutes() {
   return (
     <LanguageProvider><Routes>
@@ -29,6 +31,8 @@ export default function SiteRoutes() {
         <Route path="Process" element={<Process />} />
         <Route path="service-areas" element={<ServiceAreas />} />
         <Route path="service-areas/:slug" element={<ServiceAreaCity />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="sitemap" element={<Sitemap />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes></LanguageProvider>

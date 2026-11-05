@@ -6,7 +6,6 @@ import Logo from "./Logo";
 import Icon from "./Icons";
 import { navLinks, SITE } from "../data/site";
 import { useAnalytics } from "../hooks/useAnalytics";
-import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Header() {
   const { t } = useLanguage();
@@ -51,24 +50,14 @@ export default function Header() {
                 </NavLink>
               </li>
             ))}
-            <li className="language-menu">
-              <LanguageSwitcher />
-            </li>
+
           </ul>
           <a className="btn btn-outline nav-phone-mobile" href={SITE.phoneHref}>
             <Icon name="phone" size={18} /> {t(SITE.phoneDisplay)}
           </a>
         </nav>
 
-        <a
-          className="header-phone"
-          href={SITE.phoneHref}
-          aria-label={t(`Call Live Wood Studio at ${SITE.phoneDisplay}`)}
-          onClick={() => trackButtonClick("header_phone")}
-        >
-          <Icon name="phone" size={18} />
-          <span>{t(SITE.phoneDisplay)}</span>
-        </a>
+        <NavLink className="btn btn-primary header-quote" to="/ContactUs#quote-request">Get a Quote</NavLink>
 
         <button
           className={`menu-toggle ${open ? "is-open" : ""}`}

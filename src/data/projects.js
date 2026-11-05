@@ -13,7 +13,7 @@ export const projects = [
     summary:
       "American black walnut slab with a metallic black-and-gold epoxy river, live edges and a matching walnut trestle base.",
     seoDescription:
-      "Custom live-edge dining table in American black walnut with a metallic black and gold epoxy river, handcrafted in Dallas, TX by Live Wood Studio.",
+      "Custom live-edge dining table in American black walnut with a metallic black and gold epoxy river, handcrafted in Houston, TX by Live Wood Studio.",
     cover: a("ED1.JPG"),
     images: ["ED1.JPG", "ED2.JPG", "ED3.JPG", "ED4.JPG", "ED5.JPG", "ED6.JPG"].map(a),
     specs: [
@@ -37,7 +37,7 @@ export const projects = [
     summary:
       "Ten 4-ft linear display cabinets, two towers and a display table in white oak with tempered glass and integrated LED lighting.",
     seoDescription:
-      "Custom oak display cabinet system with tempered glass and LED lighting for a jewelry showroom. Commercial casework and custom cabinets in Dallas, TX.",
+      "Custom oak display cabinet system with tempered glass and LED lighting for a jewelry showroom. Commercial casework and custom cabinets in Houston, TX.",
     cover: a("JS1.JPG"),
     images: ["JS1.JPG", "JS2.JPG", "JS3.JPG", "JS4.JPG", "JS5.JPG"].map(a),
     specs: [
@@ -61,7 +61,7 @@ export const projects = [
     summary:
       "A 2\" solid walnut jeweler's workstation with a stainless catch tray, adjustable-height base and integrated dust collection.",
     seoDescription:
-      "Custom diamond setting bench and jeweler's workbench in solid walnut with stainless catch tray, adjustable height and GoldVault dust collection. Built in Dallas, TX.",
+      "Custom diamond setting bench and jeweler's workbench in solid walnut with stainless catch tray, adjustable height and GoldVault dust collection. Built in Houston, TX.",
     cover: a("DS1.JPG"),
     images: ["DS1.JPG", "DS2.JPG", "DS3.JPG", "DS4.JPG", "DS5.JPG"].map(a),
     specs: [
@@ -85,7 +85,7 @@ export const projects = [
     summary:
       "Individual 2-inch oak blocks bonded with metallic black epoxy in a woven, brick-like pattern on a sculpted oak trestle.",
     seoDescription:
-      "Modern geometric coffee table of 2-inch oak blocks with metallic black epoxy lines and a cotton white finish. Custom furniture by Live Wood Studio, Dallas.",
+      "Modern geometric coffee table of 2-inch oak blocks with metallic black epoxy lines and a cotton white finish. Custom furniture by Live Wood Studio, Houston.",
     cover: a("OB1.JPG"),
     images: ["OB1.JPG", "OB2.JPG", "OB3.JPG", "OB4.JPG"].map(a),
     specs: [
@@ -109,7 +109,7 @@ export const projects = [
     summary:
       "Walnut, cherry, maple, white oak, red oak and mahogany set in a crystal-clear epoxy mosaic with matching mixed-hardwood legs.",
     seoDescription:
-      "Custom mosaic coffee table combining six North American hardwoods in crystal-clear epoxy. One-of-a-kind epoxy furniture handcrafted in Dallas, TX.",
+      "Custom mosaic coffee table combining six North American hardwoods in crystal-clear epoxy. One-of-a-kind epoxy furniture handcrafted in Houston, TX.",
     cover: a("OM1.JPG"),
     images: ["OM1.JPG", "OM2.jpeg", "OM3.JPG", "OM4.jpeg"].map(a),
     specs: [
@@ -133,7 +133,7 @@ export const projects = [
     summary:
       "A tiered white oak display with horizontal slat detailing and black metal legs, made to showcase high-end merchandise.",
     seoDescription:
-      "Custom retail display table in white oak with cotton white finish and black metal legs. Boutique and jewelry store fixtures built in Dallas, TX.",
+      "Custom retail display table in white oak with cotton white finish and black metal legs. Boutique and jewelry store fixtures built in Houston, TX.",
     cover: a("SF1.JPG"),
     images: ["SF1.JPG", "SF2.JPG", "SF3.JPG", "SF4.JPG"].map(a),
     specs: [
@@ -161,18 +161,28 @@ export const services = [
     image: a("ED2.JPG"),
   },
   {
-    title: "Custom Cabinets & Built-Ins",
+    title: "Custom Cabinet Systems",
     text: "Cabinetry, shelving and built-ins measured and built for your room — not pulled from a catalog.",
     image: a("JS2.JPG"),
   },
   {
-    title: "Jewelry & Retail Display Fixtures",
+    title: "Retail Display Furniture",
     text: "Showcases, display tables and casework with tempered glass and integrated LED lighting for stores and showrooms.",
     image: a("SF4.JPG"),
   },
   {
-    title: "Diamond Setting & Jeweler's Benches",
+    title: "Custom Jewelry Workbenches",
     text: "Ergonomic, adjustable workstations with catch trays and dust collection, designed around how setters actually work.",
     image: a("DS4.JPG"),
+  },
+  {
+    title: "Custom Wood Furniture",
+    text: "Made-to-order dining, coffee and accent furniture in walnut, white oak and mixed hardwoods. Discuss custom wood furniture in Houston with dimensions and finishes chosen for your room.",
+    image: a("OB1.JPG"),
+  },
+  {
+    title: "Bespoke Woodworking Projects",
+    text: "A distinctive idea deserves a clear design brief. Bring your dimensions, inspiration and intended use to discuss a bespoke piece for your Houston home or business.",
+    image: a("OM3.JPG"),
   },
 ];

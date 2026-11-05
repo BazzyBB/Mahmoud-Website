@@ -1,6 +1,7 @@
 import { useLanguage } from "../i18n/LanguageContext";
 import React, { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import ContactActions from "./ContactActions";
 import Header from "./Header";
 import Footer from "./Footer";
 import Icon from "./Icons";
@@ -43,18 +44,11 @@ export default function Layout() {
   useReveal(pathname);
 
   return (
-    <div className="site-wrapper" lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'}>
+    <div className="site-wrapper" lang={language} dir="ltr">
       <Header />
       <Outlet />
       <Footer />
-      <a
-        className="floating-call"
-        href={SITE.phoneHref}
-        aria-label={t(`Call Live Wood Studio at ${SITE.phoneDisplay}`)}
-      >
-        <Icon name="phone" size={27} strokeWidth={1.8} />
-        <span className="floating-call-label">{t("Call us · ")}{t(SITE.phoneDisplay)}</span>
-      </a>
+      <ContactActions sticky />
     </div>
   );
 }

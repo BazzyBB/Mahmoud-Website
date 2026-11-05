@@ -20,22 +20,22 @@ export function AreaContact({ title = 'Start Your Custom Project', intro = 'Tell
   const { t } = useLanguage();
   return <section className="area-contact-band" aria-labelledby="area-contact-heading"><div className="container area-contact-inner">
     <div><Eyebrow>From a place to a piece</Eyebrow><h2 id="area-contact-heading">{t(title)}</h2><p>{t(intro)}</p></div>
-    <div className="area-contact-actions"><Link className="btn btn-primary" to="/ContactUs">{t('Get a Custom Quote')}<Icon name="arrow" size={18} /></Link><a href={SITE.phoneHref}><Icon name="phone" size={18} /><span dir="ltr">{SITE.phoneDisplay}</span></a></div>
+    <div className="area-contact-actions"><Link className="btn btn-primary" to="/ContactUs#quote-request">{t('Get a Custom Quote')}<Icon name="arrow" size={18} /></Link><a href={SITE.phoneHref}><Icon name="phone" size={18} /><span dir="ltr">{SITE.phoneDisplay}</span></a></div>
   </div></section>;
 }
 
 export default function ServiceAreas() {
   const { t } = useLanguage();
   const list = {
-    '@context': 'https://schema.org', '@type': 'ItemList', name: 'Proposed DFW project areas',
+    '@context': 'https://schema.org', '@type': 'ItemList', name: 'Greater Houston service areas',
     itemListElement: serviceAreas.map((area, index) => ({ '@type': 'ListItem', position: index + 1, name: `${area.city}, TX`, url: `${SITE.url}${area.path}` })),
   };
   return <>
     <SEOHead canonical="/service-areas" jsonLd={[breadcrumbs([['Home', '/'], ['Service Areas', '/service-areas']]), list]} />
     <main id="main">
       <section className="area-directory-hero"><div className="container">
-        <AreaBreadcrumbs /><Eyebrow>Dallas studio. Individual projects.</Eyebrow>
-        <h1>{t('Custom Woodworking & Cabinetry Service Areas in Dallas–Fort Worth')}</h1>
+        <AreaBreadcrumbs /><Eyebrow>Greater Houston. Individual projects.</Eyebrow>
+        <h1>{t('Custom Woodworking & Cabinetry Service Areas in Greater Houston')}</h1>
         <p className="lead">{t('Explore a starting point for your custom cabinets, handcrafted furniture or display project. Each location guide offers practical ideas for preparing a project enquiry.')}</p>
         <p className="area-coverage-note">{t(coverageNotice)}</p>
       </div></section>
@@ -47,8 +47,9 @@ export default function ServiceAreas() {
       </div></section>
       <section className="area-planning-note"><div className="container split">
         <div><Eyebrow>A useful first conversation</Eyebrow><h2>{t('Your address is the beginning. Your brief makes it personal.')}</h2></div>
-        <div><p>{t('Share approximate dimensions, photographs, intended use and a budget range. Ask about service availability, site measurements and delivery or installation responsibilities before setting a project schedule.')}</p><p>{t('Live Wood Studio is based in Dallas. These guides do not represent separate workshops or showrooms in the listed cities.')}</p><Link className="text-link" to="/Services">{t('Explore our woodworking services')}<Icon name="arrow" size={18} /></Link></div>
+        <div><p>{t('Share approximate dimensions, photographs, intended use and a budget range. Ask about service availability, site measurements and delivery or installation responsibilities before setting a project schedule.')}</p><p>{t('Serving Greater Houston from Galveston to Magnolia and Kingwood to Richmond. These guides do not represent separate workshops or showrooms in the listed cities.')}</p><Link className="text-link" to="/Services">{t('Explore our woodworking services')}<Icon name="arrow" size={18} /></Link></div>
       </div></section>
+      <section className="section"><div className="container"><h2>Greater Houston communities</h2><p>{SITE.serviceAreas.join(", ")}, and surrounding communities.</p></div></section>
       <AreaContact />
     </main>
   </>;
