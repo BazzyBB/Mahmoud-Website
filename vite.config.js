@@ -1,10 +1,12 @@
 import {defineConfig} from "vite"
 import react from "@vitejs/plugin-react"
+import { prerenderPages } from "./scripts/prerender.mjs"
 import { resolve } from 'path'
 
 export default defineConfig({
 	plugins: [
-		react()
+		react(),
+		prerenderPages()
 	],
 	resolve: {
 		alias: {

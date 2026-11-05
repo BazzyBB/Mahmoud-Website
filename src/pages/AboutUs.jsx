@@ -1,53 +1,102 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { useAnalytics } from "../hooks/useAnalytics.js"
-import SEOHead from "../Components/SEOHead.jsx"
+import React from "react";
+import { Link } from "react-router-dom";
+import { useAnalytics } from "../hooks/useAnalytics.js";
+import SEOHead, { breadcrumbs } from "../Components/SEOHead.jsx";
+import Icon from "../Components/Icons.jsx";
+import { Eyebrow, PageHero, StoryBanner, CtaBand } from "../Components/Section.jsx";
+import { Dedications } from "./Home.jsx";
+import { img, srcSet } from "../utils/image.js";
+import { SITE } from "../data/site.js";
+
+const materials = ["American black walnut", "White oak", "Red oak", "Hard maple", "Cherry", "Mahogany", "Metallic & clear epoxy", "Tempered glass & LED"];
 
 export default function AboutUs() {
-    const { trackButtonClick } = useAnalytics();
+  const { trackButtonClick } = useAnalytics();
 
-    const handleContactClick = () => {
-        trackButtonClick('contact_us_about', '/AboutUs');
-    };
+  return (
+    <>
+      <SEOHead
+        canonical="/AboutUs"
+        jsonLd={breadcrumbs([["Home", "/"], ["About Us", "/AboutUs"]])}
+      />
+      <main id="main">
+        <PageHero
+          eyebrow="About Us"
+          title="Your Custom Woodworking Studio in Dallas"
+          intro="A Dallas woodworking studio devoted to bespoke pieces—made to order, built by hand, and designed around you."
+          image="/Assets/ED6.JPG"
+        />
 
-    return (
-        <>
-            <SEOHead 
-                title="About Live Wood Studio - Dallas Custom Woodworking"
-                description="Learn about Live Wood Studio, Dallas's premier custom woodworking studio. We specialize in diamond setting benches, live-edge furniture, and custom cabinets with precision craftsmanship."
-                canonical="/AboutUs"
-            />
-            <main className="about-page-container" role="main">
-                <div className="about-page-content">
-                    <h1>About Us</h1>
-                <p>At Live Wood Studio, our passion is crafting furniture that is as unique as the spaces they inhabit. We specialize in custom woodworking, tailoring each piece to your distinctive vision—whether it's a live-edge dining table, a bespoke shelving unit, or a one-of-a-kind centerpiece. No two creations are ever the same.</p>
-                
-                <p>Every project begins with a conversation. We listen attentively to your ideas, preferences, and the ambiance you want to create. From there, our experienced artisans select the finest materials—celebrated for their natural beauty and durability—and bring your concept to life with precision and care.</p>
-                
-                <h2>We are dedicated to:</h2>
-                <ul className="about-dedication-list">
-                    <li><strong>Personalized design excellence</strong>, ensuring your furniture complements your space and style.</li>
-                    <li><strong>Timeless craftsmanship</strong>, combining traditional woodworking techniques with modern precision.</li>
-                    <li><strong>Attention to detail</strong>, from the grain of the wood to the finish that highlights its character.</li>
-                    <li><strong>Collaborative creativity</strong>, guiding you through every step from concept to completion.</li>
-                </ul>
-                
-                <p>Whether you're furnishing a cozy reading nook, upgrading a living room, or designing a statement piece, we're committed to delivering furniture that not only fits your space—but becomes a part of your story.</p>
-                
-                <p className="about-closing"><strong>Let's make something extraordinary—just for you.</strong></p>
+        <section className="section about-split">
+          <div className="container split">
+            <div className="split-text" data-reveal>
+              <Eyebrow>Our Story</Eyebrow>
+              <h2>Our Passion, Your Vision</h2>
+              <p>
+                At Live Wood Studio, our passion is crafting furniture that is as unique as the spaces they
+                inhabit. We specialize in custom woodworking, tailoring each piece to your distinctive
+                vision. Our <strong>Dallas woodworking studio</strong> makes
+                {' '}<Link className="context-link" to="/Gallery">custom tables, cabinetry and display furniture</Link>.
+                Explore our <Link className="context-link" to="/Services">woodworking services</Link> to find the right starting point for your space.
+              </p>
+              <p>
+                Every project begins with a conversation. We listen attentively to your ideas, preferences, and
+                the ambiance you want to create. From there, our experienced artisans select the finest
+                materials—celebrated for their natural beauty and durability—and bring your concept to life with
+                precision and care.
+              </p>
+              <p>
+                Based in Dallas, we work with homeowners, interior designers, jewelers and retailers across{" "}
+                {SITE.serviceAreas.slice(1, -1).join(", ")} and {SITE.serviceAreas.at(-1)}.
+              </p>
             </div>
-            <section className="about-page-cta" aria-labelledby="cta-heading">
-                <h2 id="cta-heading">Ready to start your custom project?<br />Let's bring your vision to life</h2>
-                <Link 
-                    className="link-button" 
-                    to="/ContactUs" 
-                    aria-label="Contact us to start your custom woodworking project"
-                    onClick={handleContactClick}
-                >
-                    Contact Us
-                </Link>
-            </section>
-        </main>
-        </>
-    );
+            <figure className="split-media framed stacked" data-reveal>
+              <img
+                src={img("/Assets/OM3.JPG", { w: 900 })}
+                srcSet={srcSet("/Assets/OM3.JPG", [480, 900, 1300])}
+                sizes="(max-width: 900px) 100vw, 45vw"
+                alt="Mixed hardwood mosaic epoxy table detail by Live Wood Studio"
+                loading="lazy"
+                width="900"
+                height="675"
+              />
+            </figure>
+          </div>
+        </section>
+
+        <Dedications />
+
+        <section className="section materials" aria-labelledby="materials-heading">
+          <div className="container split">
+            <figure className="split-media framed" data-reveal>
+              <img
+                src={img("/Assets/ED3.JPG", { w: 900 })}
+                srcSet={srcSet("/Assets/ED3.JPG", [480, 900, 1300])}
+                sizes="(max-width: 900px) 100vw, 45vw"
+                alt="Close-up of walnut slab and metallic epoxy river"
+                loading="lazy"
+                width="900"
+                height="675"
+              />
+            </figure>
+            <div className="split-text" data-reveal>
+              <Eyebrow>Materials</Eyebrow>
+              <h2 id="materials-heading">Chosen for Beauty, Built for Generations</h2>
+              <p>
+                We work with premium North American hardwoods and finish them to highlight their natural grain
+                and character—then pair them with epoxy, glass, metal and lighting when a design calls for it.
+              </p>
+              <ul className="chip-list">
+                {materials.map((m) => <li key={m}>{m}</li>)}
+              </ul>
+              <Link className="text-link" to="/Process">See how we work <Icon name="arrow" size={16} /></Link>
+            </div>
+          </div>
+        </section>
+
+        <StoryBanner />
+        <CtaBand onClick={() => trackButtonClick("contact_us_about", "/AboutUs")} />
+      </main>
+    </>
+  );
 }
