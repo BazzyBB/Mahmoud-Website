@@ -22,6 +22,7 @@ export const navLinks = [
   { to: "/Gallery", label: "Our Work" },
   { to: "/Process", label: "Process" },
   { to: "/Materials", label: "Materials" },
+  { to: "/service-areas", label: "Service Areas" },
   { to: "/ContactUs", label: "Contact Us" },
 ];
 

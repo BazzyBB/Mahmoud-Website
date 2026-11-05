@@ -10,10 +10,13 @@ import Materials from "./pages/Materials.jsx";
 import Process from "./pages/Process.jsx";
 import Admin from "./pages/Admin.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import { LanguageProvider } from './i18n/LanguageContext';
+import ServiceAreas from './pages/ServiceAreas';
+import ServiceAreaCity from './pages/ServiceAreaCity';
 
 export default function SiteRoutes() {
   return (
-    <Routes>
+    <LanguageProvider><Routes>
       <Route path="/admin" element={<Admin />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -24,8 +27,10 @@ export default function SiteRoutes() {
         <Route path="Services" element={<Services />} />
         <Route path="Materials" element={<Materials />} />
         <Route path="Process" element={<Process />} />
+        <Route path="service-areas" element={<ServiceAreas />} />
+        <Route path="service-areas/:slug" element={<ServiceAreaCity />} />
         <Route path="*" element={<NotFound />} />
       </Route>
-    </Routes>
+    </Routes></LanguageProvider>
   );
 }

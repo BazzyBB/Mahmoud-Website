@@ -5,6 +5,7 @@ import { getUser, login, logout, handleAuthCallback, acceptInvite, updateUser, r
 import Logo from '../Components/Logo';
 import Icon from '../Components/Icons';
 import { authErrorMessage } from '../utils/auth-errors';
+import AdminRoles from '../Components/AdminRoles';
 
 const labels = { new: 'New', contacted: 'In progress', completed: 'Completed' };
 const date = value => new Intl.DateTimeFormat('en-US', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value));
@@ -163,7 +164,8 @@ export default function Admin() {
     <main id="main" className="admin-main">
       <div className="admin-page-heading"><div><p className="eyebrow">Studio inbox</p><h1>Quote requests</h1><p>{user.email}</p></div><button className="btn btn-dark" onClick={() => setRefresh(value => value + 1)} disabled={loading || saving}>Refresh inbox ↻</button></div>
       {notice && <p className="admin-notice" role="status">{notice}</p>}
-      {accessDenied && <section className="admin-error" role="alert"><h2>Administrator access required</h2><p>You are signed in, but this account has no administrator role. The project owner needs to add the admin role to your Identity user in Netlify. Then sign out and sign in again.</p><a className="context-link" href="https://app.netlify.com/projects/mahmoudwebsite/identity" target="_blank" rel="noreferrer">Open Identity settings ↗</a></section>}
+      {accessDenied && <section className="admin-error" role="alert" lang="tr"><h2>Yönetici rolü gerekiyor</h2><p>Hesabınız açık ancak teklifleri görmek için gereken <strong>admin</strong> rolünüz yok. Bir yönetici bu paneldeki “Yönetici rolleri” bölümünden hesabınıza yetki verebilir.</p><p>İlk yönetici kuruluyorsa, proje sahibi Netlify → Identity → Users bölümünden ilgili kullanıcıyı açıp Roles alanına küçük harflerle <strong>admin</strong> eklemeli ve kaydetmeli. Ardından çıkış yapıp tekrar giriş yapın. Kullanıcı daveti veya Netlify ekip üyeliği tek başına bu rolü vermez.</p><a className="context-link" href="https://app.netlify.com/projects/mahmoudwebsite/identity" target="_blank" rel="noreferrer">Netlify kullanıcı ayarlarını aç ↗</a><button type="button" className="admin-text-button" onClick={signOut} disabled={busy}>Çıkış yap ve tekrar giriş yap</button></section>}
+      {!accessDenied && data && <AdminRoles />}
       <div className="admin-stats">{Object.entries(labels).map(([status, label]) => <button key={status} onClick={() => { setFilter(status); setPage(1); setSelected(null); }} className={filter === status ? 'selected' : ''} disabled={saving}><span>{label}</span><strong>{data ? (data.counts.find(c => c.status === status)?.count || 0) : '—'}</strong></button>)}</div>
       <div className="admin-workspace">
         <section className="admin-inbox" aria-label="Incoming quote requests">

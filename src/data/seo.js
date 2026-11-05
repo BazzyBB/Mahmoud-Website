@@ -1,5 +1,6 @@
 import { SITE } from './site';
 import { projects, services } from './projects';
+import { serviceAreas } from './service-areas';
 
 export const SEO_PAGES = {
   '/': { title: 'Custom Woodworking Dallas, TX', description: 'Custom furniture, live-edge tables, cabinets and jewelry displays handcrafted in Dallas. Explore Live Wood Studio’s work and discuss your DFW project.' },
@@ -29,6 +30,13 @@ const projectDescriptions = [
 projects.forEach((p, i) => {
   SEO_PAGES[`/Gallery/${p.slug}`] = { title: projectTitles[i], description: projectDescriptions[i] };
 });
+SEO_PAGES['/service-areas'] = {
+  title: 'Custom Woodworking & Cabinetry Service Areas in DFW',
+  description: 'Explore 18 Dallas–Fort Worth project guides for custom cabinetry, handcrafted furniture and woodworking. Confirm service availability with Live Wood Studio.',
+};
+serviceAreas.forEach(area => {
+  SEO_PAGES[area.path] = { title: area.title, description: area.meta };
+});
 export const INDEXABLE_PATHS = Object.keys(SEO_PAGES);
 export const absoluteUrl = path => `${SITE.url}${path === '/' ? '' : path}`;
 
@@ -51,7 +59,12 @@ export function pageGraph(path, title, description, image) {
     areaServed: SITE.serviceAreas.map(name => ({ '@type': 'City', name })),
     hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Custom woodworking services', itemListElement: serviceNodes.map(s => ({ '@type': 'Offer', itemOffered: { '@id': s['@id'] } })) },
   };
-  const type = path === '/AboutUs' ? 'AboutPage' : path === '/ContactUs' ? 'ContactPage' : path === '/Gallery' ? 'CollectionPage' : 'WebPage';
+  // Proposed area pages must not assert unconfirmed coverage in structured data.
+  if (path === '/service-areas' || path.startsWith('/service-areas/')) {
+    delete business.areaServed;
+    serviceNodes.forEach(service => { delete service.areaServed; });
+  }
+  const type = path === '/AboutUs' ? 'AboutPage' : path === '/ContactUs' ? 'ContactPage' : ['/Gallery', '/service-areas'].includes(path) ? 'CollectionPage' : 'WebPage';
   const page = {
     '@type': type, '@id': `${url}#webpage`, url, name: title, description,
     inLanguage: 'en-US', isPartOf: { '@id': websiteId }, about: { '@id': businessId },

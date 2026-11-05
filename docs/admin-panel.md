@@ -13,6 +13,16 @@ Panel adresi: `/admin`. Panel ve müşteri teklif formu İngilizce hazırlandı.
 
 Giriş ekranında herkese açık hesap oluşturma seçeneği yoktur. Giriş yapmış olsa da admin rolü olmayan hesaplar teklif API’sinden 403 yanıtı alır. İlk yönetici atamasını yalnızca projenin sahibi/yöneticisi yapmalıdır. Şifreyi veya giriş bağlantısını kod deposuna eklemeyin.
 
+## Panelden yönetici rolü ekleme
+
+İlk `admin` rolü yukarıdaki Netlify kullanıcı ayarından bir kez verilmelidir. Kullanıcıyı davet etmek veya Netlify ekibine yönetici olarak eklemek, site hesabına otomatik olarak `admin` rolü vermez.
+
+Yetkili yönetici `/admin` panelindeki **Yönetici rolleri → Kullanıcıları ve rolleri göster** bölümünü açabilir. Mevcut kullanıcının yanındaki **Yönetici rolü ekle** düğmesi, kullanıcının diğer rollerini ve uygulama bilgilerini koruyarak `admin` rolünü ekler. Kullanıcı ardından çıkış yapıp tekrar giriş yapmalıdır. Yeni kullanıcı davetleri Netlify Identity üzerinden gönderilmeye devam eder.
+
+Bu işlem `/api/admin/users` üzerinden sunucuda yapılır. Hem oturumdaki yönetici rolü hem Identity üzerindeki güncel yönetici kaydı doğrulanır. Yetkisiz veya yönetici rolü kaldırılmış hesaplar kullanıcıları listeleyemez ve rol atayamaz. Profil bilgileriyle yönetici yetkisi verilemez. Rol kaldırma, hesap silme ve şifre değiştirme bu bölüme eklenmedi.
+
+`node tests/admin-users.test.mjs` rol yönetiminin yetki ve doğrulama kontrollerini canlı hesaplarda değişiklik yapmadan çalıştırır.
+
 ## Teklif akışı
 
 Ana sayfadaki hızlı teklif formu ve `/ContactUs` sayfasındaki ayrıntılı form aynı kayıt API’sini kullanır. Sitedeki proje/teklif düğmeleri `/ContactUs` formuna açılır. Ad, e-posta, telefon, proje türü, başlık ve açıklama sunucuda doğrulanıp Netlify Database’e kaydedilir. Başarı mesajı yalnızca başarılı kayıt yanıtından sonra gösterilir. Aynı gönderim kimliğiyle yapılan tekrarlar ikinci bir kayıt oluşturmaz.

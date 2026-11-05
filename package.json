@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "check:seo": "node scripts/check-seo.mjs",
     "check:quotes": "node tests/quotes.test.mjs",
-    "check:server": "tsc -p tsconfig.server.json"
+    "check:server": "tsc -p tsconfig.server.json",
+    "check:languages": "node tests/languages.test.mjs",
+    "check:service-areas": "node tests/service-areas.test.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",

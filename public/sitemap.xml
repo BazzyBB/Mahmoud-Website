@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://livewoodstudio.com/</loc>
-  </url>
-  <url>
-    <loc>https://livewoodstudio.com/AboutUs</loc>
-  </url>
-  <url>
-    <loc>https://livewoodstudio.com/Gallery</loc>
-  </url>
-  <url>
-    <loc>https://livewoodstudio.com/ContactUs</loc>
-  </url>
+  <url><loc>https://livewoodstudio.com/</loc></url>
+  <url><loc>https://livewoodstudio.com/Services</loc></url>
+  <url><loc>https://livewoodstudio.com/Gallery</loc></url>
+  <url><loc>https://livewoodstudio.com/AboutUs</loc></url>
   <url><loc>https://livewoodstudio.com/Process</loc></url>
+  <url><loc>https://livewoodstudio.com/Materials</loc></url>
+  <url><loc>https://livewoodstudio.com/ContactUs</loc></url>
   <url><loc>https://livewoodstudio.com/Gallery/live-edge-walnut-epoxy-river-dining-table</loc></url>
   <url><loc>https://livewoodstudio.com/Gallery/custom-jewelry-display-cabinet-system</loc></url>
   <url><loc>https://livewoodstudio.com/Gallery/walnut-diamond-setting-bench</loc></url>
   <url><loc>https://livewoodstudio.com/Gallery/geometric-oak-block-epoxy-table</loc></url>
   <url><loc>https://livewoodstudio.com/Gallery/mixed-hardwood-mosaic-epoxy-table</loc></url>
   <url><loc>https://livewoodstudio.com/Gallery/white-oak-retail-display-table</loc></url>
-  <url><loc>https://livewoodstudio.com/Services</loc></url>
-  <url><loc>https://livewoodstudio.com/Materials</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/dallas-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/plano-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/frisco-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/mckinney-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/allen-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/richardson-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/highland-park-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/university-park-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/southlake-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/prosper-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/celina-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/flower-mound-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/fort-worth-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/irving-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/carrollton-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/the-colony-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/lewisville-tx</loc></url>
+  <url><loc>https://livewoodstudio.com/service-areas/grapevine-tx</loc></url>
 </urlset>
