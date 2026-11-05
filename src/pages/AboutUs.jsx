@@ -24,8 +24,8 @@ export default function AboutUs() {
       <main id="main">
         <PageHero
           eyebrow="About Us"
-          title={t("Your Custom Woodworking Studio in Dallas")}
-          intro="A Dallas woodworking studio devoted to bespoke pieces—made to order, built by hand, and designed around you."
+          title={t("Your Custom Woodworking Studio in Houston")}
+          intro="A Houston woodworking studio devoted to bespoke pieces—made to order, built by hand, and designed around you."
           image="/Assets/ED6.JPG"
         />
 
@@ -34,9 +34,9 @@ export default function AboutUs() {
             <div className="split-text" data-reveal>
               <Eyebrow>{t("Our Story")}</Eyebrow>
               <h2>{t("Our Passion, Your Vision")}</h2>
-              <p>{t(" At Live Wood Studio, our passion is crafting furniture that is as unique as the spaces they inhabit. We specialize in custom woodworking, tailoring each piece to your distinctive vision. Our ")}<strong>{t("Dallas woodworking studio")}</strong>{t(" makes ")}{t(' ')}<Link className="context-link" to="/Gallery">{t("custom tables, cabinetry and display furniture")}</Link>{t(". Explore our ")}<Link className="context-link" to="/Services">{t("woodworking services")}</Link>{t(" to find the right starting point for your space. ")}</p>
+              <p>{t(" At Live Wood Studio, our passion is crafting furniture that is as unique as the spaces they inhabit. We specialize in custom woodworking, tailoring each piece to your distinctive vision. Our ")}<strong>{t("Houston woodworking studio")}</strong>{t(" makes ")}{t(' ')}<Link className="context-link" to="/Gallery">{t("custom tables, cabinetry and display furniture")}</Link>{t(". Explore our ")}<Link className="context-link" to="/Services">{t("woodworking services")}</Link>{t(" to find the right starting point for your space. ")}</p>
               <p>{t(" Every project begins with a conversation. We listen attentively to your ideas, preferences, and the ambiance you want to create. From there, our experienced artisans select the finest materials—celebrated for their natural beauty and durability—and bring your concept to life with precision and care. ")}</p>
-              <p>{t(" Based in Dallas, we work with homeowners, interior designers, jewelers and retailers across")}{t(" ")}
+              <p>{t(" Based in Houston, we work with homeowners, interior designers, jewelers and retailers across")}{t(" ")}
                 {t(SITE.serviceAreas.slice(1, -1).join(", "))}{t(" and ")}{t(SITE.serviceAreas.at(-1))}.
               </p>
             </div>

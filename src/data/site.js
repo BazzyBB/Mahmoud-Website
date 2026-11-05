@@ -4,10 +4,10 @@ export const SITE = {
   url: "https://livewoodstudio.com",
   phoneDisplay: "(469) 888-1330",
   phoneHref: "tel:+14698881330",
-  city: "Dallas",
+  smsHref: "sms:+14698881330",
+  city: "Houston",
   region: "TX",
-  postalCode: "75205",
-  serviceAreas: ["Dallas", "Highland Park", "University Park", "Plano", "Frisco", "Richardson", "Irving", "Arlington", "Fort Worth"],
+  serviceAreas: ["Houston", "Galveston", "Magnolia", "Kingwood", "Richmond", "Katy", "Sugar Land", "The Woodlands", "Spring", "Cypress", "Tomball", "Conroe", "Pearland", "Friendswood", "League City", "Webster", "Pasadena", "Missouri City", "Stafford", "Rosenberg", "Fulshear", "Bellaire", "Memorial"],
   hours: [
     ["Monday – Friday", "8:00 AM – 5:00 PM"],
     ["Saturday", "9:00 AM – 3:00 PM"],
@@ -19,10 +19,7 @@ export const navLinks = [
   { to: "/", label: "Home", end: true },
   { to: "/AboutUs", label: "About Us" },
   { to: "/Services", label: "Services" },
-  { to: "/Gallery", label: "Our Work" },
-  { to: "/Process", label: "Process" },
-  { to: "/Materials", label: "Materials" },
-  { to: "/service-areas", label: "Service Areas" },
+  { to: "/Gallery", label: "Projects / Gallery" },
   { to: "/ContactUs", label: "Contact Us" },
 ];
 
@@ -68,18 +65,18 @@ export const processSteps = [
   },
   {
     title: "Delivery & Installation",
-    text: "We deliver your finished piece and, for cabinetry, built-ins and display systems, install it on site across Dallas–Fort Worth.",
+    text: "We deliver your finished piece and, for cabinetry, built-ins and display systems, install it on site across Greater Houston.",
   },
 ];
 
 export const faqs = [
   {
     q: "What kind of custom woodworking do you do?",
-    a: "Live Wood Studio builds custom furniture and cabinetry in Dallas, Texas — live-edge and epoxy river tables, coffee and dining tables, custom cabinets and built-ins, jewelry and retail display cases, and diamond setting benches for jewelers.",
+    a: "Live Wood Studio builds custom furniture and cabinetry in Houston, Texas — live-edge and epoxy river tables, coffee and dining tables, custom cabinets and built-ins, jewelry and retail display cases, and diamond setting benches for jewelers.",
   },
   {
-    q: "Do you serve the whole Dallas–Fort Worth area?",
-    a: "Yes. We're based in Dallas and work with homeowners, designers and businesses across the DFW Metroplex, including Highland Park, University Park, Plano, Frisco, Richardson, Irving, Arlington and Fort Worth.",
+    q: "Do you serve the whole Greater Houston area?",
+    a: "Yes. We work with homeowners, designers and businesses across the Greater Houston area, from Galveston to Magnolia and Kingwood to Richmond.",
   },
   {
     q: "Can I choose the wood species and the size?",

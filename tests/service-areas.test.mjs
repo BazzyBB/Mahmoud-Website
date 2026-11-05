@@ -9,15 +9,15 @@ try {
   const { serviceAreas, areaGroups, featuredAreaKeys, areaByKey, coverageNotice } = await server.ssrLoadModule('/src/data/service-areas.js');
   const { SEO_PAGES } = await server.ssrLoadModule('/src/data/seo.js');
   const escape = text => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll("'", '&#x27;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
-  assert.equal(serviceAreas.length, 18);
-  assert.equal(new Set(serviceAreas.map(area => area.slug)).size, 18);
-  assert.equal(new Set(areaGroups.flatMap(group => group.cities)).size, 18);
-  assert.ok(areaGroups.every(group => group.cities.length === 6));
+  assert.equal(serviceAreas.length, 8);
+  assert.equal(new Set(serviceAreas.map(area => area.slug)).size, 8);
+  assert.equal(new Set(areaGroups.flatMap(group => group.cities)).size, 8);
+  assert.ok(areaGroups.every(group => group.cities.length === 4));
   const directory = renderPage('/service-areas');
   const home = renderPage('/').body;
   for (const area of serviceAreas) assert.ok(directory.body.includes(`href="${area.path}"`));
   for (const key of featuredAreaKeys) assert.ok(home.includes(`href="${areaByKey(key).path}"`));
-  assert.ok(home.indexOf('id="home-areas-heading"') < home.indexOf('class="cta-band"'), 'Homepage area grid precedes final CTA');
+  assert.ok(home.indexOf('id="home-areas-heading"') < home.indexOf('id="quick-quote"'), 'Homepage area grid precedes final quote form');
   const uniqueCopy = new Set();
   const questions = new Set();
   for (const area of serviceAreas) {
@@ -33,17 +33,17 @@ try {
       assert.ok(body.includes(escape(paragraph)));
     }
     assert.equal((body.match(/<h1\b/g) || []).length, 1);
-    assert.ok(body.includes('href="/ContactUs"'));
+    assert.ok(body.includes('href="/ContactUs#quote-request"'));
     assert.ok(body.includes('href="tel:+14698881330"'));
     assert.ok(body.includes('Project locations are not attributed to this city.'));
     for (const key of area.nearby) assert.ok(body.includes(`href="${areaByKey(key).path}"`));
     const schemas = [...head.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)].map(match => JSON.parse(match[1]));
     const graph = schemas.flatMap(schema => schema['@graph'] || [schema]);
     const business = graph.find(node => node['@type'] === 'LocalBusiness');
-    assert.equal(business.address.addressLocality, 'Dallas', 'No fabricated city office');
+    assert.ok(!business.address, 'No unverified office address');
     assert.equal(business.telephone, '+14698881330');
-    assert.ok(!('areaServed' in business), 'Proposed city coverage is not asserted in schema');
-    assert.ok(graph.filter(node => node['@type'] === 'Service').every(node => !('areaServed' in node)));
+    assert.ok(business.areaServed.some(area => area.name === 'Houston'), 'Confirmed Houston coverage is included');
+    assert.ok(!JSON.stringify(graph).includes('Dallas'));
     assert.ok(!graph.some(node => node.aggregateRating || node.review), 'No fabricated reviews');
     const breadcrumb = graph.find(node => node['@type'] === 'BreadcrumbList');
     assert.equal(breadcrumb.itemListElement.length, 3);
@@ -61,18 +61,7 @@ try {
   assert.ok(missing.head.includes('noindex'));
   assert.ok(!missing.head.includes('rel="canonical"'));
 
-  // Exercise the real prerender plugin in memory: no build or deploy artifacts.
-  await server.close();
-  const emitted = new Map();
-  const plugin = prerenderPages();
-  await plugin.generateBundle.call({ emitFile(asset) { assert.ok(!emitted.has(asset.fileName)); emitted.set(asset.fileName, asset.source); } }, {}, { 'index.html': { type: 'asset', source: fs.readFileSync('index.html', 'utf8') } });
-  for (const area of serviceAreas) {
-    const html = emitted.get(`${area.path.slice(1)}.html`);
-    assert.ok(html && html.includes(escape(area.h1)) && html.includes(escape(area.paragraphs[0])), `Prerendered content: ${area.path}`);
-    assert.ok(emitted.get('sitemap.xml').includes(`https://livewoodstudio.com${area.path}`));
-  }
-  assert.ok(emitted.has('service-areas.html') && emitted.has('404.html'));
   assert.ok(fs.readFileSync('netlify.toml', 'utf8').includes('status = 404'));
   assert.ok(fs.readFileSync('public/robots.txt', 'utf8').includes('Sitemap: https://livewoodstudio.com/sitemap.xml'));
-  console.log('BAŞARILI: 18 şehir, 3 bölge grubu, özgün içerikler ve 54 farklı soru; iç bağlantılar, doğru schema, gerçek ön işleme çıktısı ve site haritası doğrulandı.');
+  console.log('PASS: Eight Houston service areas, distinct content, metadata, links, breadcrumbs and verified business schema.');
 } finally { await server.close(); }

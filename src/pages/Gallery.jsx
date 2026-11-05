@@ -7,7 +7,7 @@ import { PageHero, CtaBand } from "../Components/Section.jsx";
 import ProjectCard from "../Components/ProjectCard.jsx";
 import NotFound from "./NotFound.jsx";
 import { projects, categories, getProject } from "../data/projects.js";
-import { img } from "../utils/image.js";
+import { img, srcSet } from "../utils/image.js";
 
 export default function Gallery() {
   const { t } = useLanguage();
@@ -28,12 +28,12 @@ export default function Gallery() {
             {p.description.map((text, i) => <p key={i}>{t(text)}</p>)}
             <div className="project-grid">
               {p.images.map((src, i) => (
-                <img key={src} src={img(src, { w: 1000 })} alt={t(`${p.shortTitle} — photo ${i + 1}`)} loading="lazy" />
+                <img key={src} src={img(src, { w: 1000 })} srcSet={srcSet(src, [480, 800, 1200])} sizes="(max-width: 980px) 100vw, 50vw" width="1000" height="750" alt={t(`${p.shortTitle} — photo ${i + 1}`)} loading="lazy" />
               ))}
             </div>
             <aside className="project-next-steps" aria-label={t("Plan a similar project")}>
               <h2>{t("Make this idea your own")}</h2>
-              <p>{t("Planning ")}<strong>{t(p.shortTitle.toLowerCase())}</strong>{t(" for your space? Compare ")}<Link className="context-link" to="/Materials">{t("wood species and finish options")}</Link>{t(", explore our ")}<Link className="context-link" to="/Services">{t("custom woodworking services in Dallas")}</Link>{t(", then ")}<Link className="context-link" to="/ContactUs">{t("request a custom project quote")}</Link>{t(" with your dimensions and ideas.")}</p>
+              <p>{t("Planning ")}<strong>{t(p.shortTitle.toLowerCase())}</strong>{t(" for your space? Compare ")}<Link className="context-link" to="/Materials">{t("wood species and finish options")}</Link>{t(", explore our ")}<Link className="context-link" to="/Services">{t("custom woodworking services in Houston")}</Link>{t(", then ")}<Link className="context-link" to="/ContactUs">{t("request a custom project quote")}</Link>{t(" with your dimensions and ideas.")}</p>
               <h3>{t("Explore related work")}</h3><ul className="related-project-links">{projects.filter(other => other.slug !== p.slug && other.category === p.category).concat(projects.filter(other => other.slug !== p.slug && other.category !== p.category)).slice(0, 2).map(other => <li key={other.slug}><Link className="text-link" to={`/Gallery/${other.slug}`}>{t(other.shortTitle)} ↗</Link></li>)}</ul>
             </aside>
             <Link className="text-link" to="/Gallery">{t("← Back to all work")}</Link>
@@ -45,8 +45,8 @@ export default function Gallery() {
   }
   return (
     <>
-      <SEOHead title={t("Our Work — Custom Tables, Cabinets & Displays in Dallas")}
-        description="Portfolio of custom live-edge and epoxy tables, cabinet and display systems, and diamond setting benches handcrafted by Live Wood Studio in Dallas, TX."
+      <SEOHead title={t("Our Work — Custom Tables, Cabinets & Displays in Houston")}
+        description="Portfolio of custom live-edge and epoxy tables, cabinet and display systems, and diamond setting benches handcrafted by Live Wood Studio in Houston, TX."
         canonical="/Gallery" jsonLd={breadcrumbs([["Home", "/"], ["Our Work", "/Gallery"]])} />
       <main id="main">
         <PageHero eyebrow="Our Work" title={t("Custom Furniture & Woodworking Portfolio")} image="/Assets/ED1.JPG" />

@@ -12,18 +12,18 @@ export default function SEOHead({ title, description, canonical = "/", ogImage =
   description = SEO_PAGES[canonical]?.description || description;
   title = t(title);
   description = t(description);
-  const fullTitle = title ? `${title} | Live Wood Studio` : "Live Wood Studio | Custom Woodworking & Cabinets in Dallas, TX";
+  const fullTitle = title ? `${title} | Live Wood Studio` : "Live Wood Studio | Custom Woodworking & Cabinets in Houston, TX";
   const url = `${SITE.url}${canonical === "/" ? "" : canonical}`;
   const image = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage}`;
   const extras = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
   const schemas = [pageGraph(canonical, fullTitle, description, image), ...extras];
 
   return (
-    <Helmet htmlAttributes={{ lang: language, dir: language === 'ar' ? 'rtl' : 'ltr' }}>
+    <Helmet htmlAttributes={{ lang: language, dir: 'ltr' }}>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta property="og:site_name" content={SITE.name} />
-      <meta property="og:locale" content={{ en: 'en_US', es: 'es_ES', ar: 'ar' }[language]} />
+      <meta property="og:locale" content={'en_US'} />
       <link rel="canonical" href={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

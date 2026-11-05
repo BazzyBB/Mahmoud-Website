@@ -25,7 +25,7 @@ export default function ServiceAreaCity() {
     '@context': 'https://schema.org', '@type': 'Service', '@id': `${SITE.url}${area.path}#project-enquiry`,
     name: `Custom woodworking project enquiry for ${area.city}, TX`,
     serviceType: 'Custom woodworking project consultation', url: `${SITE.url}${area.path}`,
-    description: `Discuss a proposed ${area.city} woodworking project with the Dallas studio. Service availability and delivery or installation must be confirmed for the project address.`,
+    description: `Discuss a proposed ${area.city} woodworking project with Live Wood Studio. Coordinate measurements, delivery and installation for the project address.`,
     provider: { '@id': `${SITE.url}/#business` },
   };
   return <>
@@ -37,7 +37,7 @@ export default function ServiceAreaCity() {
         <AreaBreadcrumbs area={area} />
         <div className="area-city-hero-grid">
           <div><Eyebrow>Considered craft. A place of your own.</Eyebrow><h1>{t(area.h1)}</h1><p className="lead">{t(area.lead)}</p>
-            <div className="area-hero-actions"><Link className="btn btn-dark" to="/ContactUs">{t('Discuss Your Vision')}<Icon name="arrow" size={18} /></Link><a className="text-link" href={SITE.phoneHref}><span dir="ltr">{SITE.phoneDisplay}</span></a></div>
+            <div className="area-hero-actions"><Link className="btn btn-dark" to="/ContactUs#quote-request">{t('Get a Quote')}<Icon name="arrow" size={18} /></Link><a className="text-link" href={SITE.phoneHref}><span dir="ltr">{SITE.phoneDisplay}</span></a></div>
           </div>
           <figure><img src={img(reference.cover, { w: 900, h: 900, fit: 'cover' })} srcSet={srcSet(reference.cover, [480, 720, 1000])} sizes="(max-width: 900px) 100vw, 38vw" width="900" height="900" alt={t(reference.title)} fetchpriority="high" /><figcaption>{t('From the studio portfolio. A design reference, not a claimed local installation.')}</figcaption></figure>
         </div>
@@ -68,7 +68,7 @@ export default function ServiceAreaCity() {
         <div className="faq-intro"><Eyebrow>Before you enquire</Eyebrow><h2>{t('Questions for your project')}</h2><p>{t('Practical details to discuss before choosing dimensions, materials or a delivery date.')}</p></div>
         <div className="faq-list">{area.faqs.map(([q, a]) => <details key={q}><summary><h3>{t(q)}</h3><Icon name="plus" size={20} className="faq-icon" /></summary><p>{t(a)}</p></details>)}</div>
       </div></section>
-      <section className="section area-nearby"><div className="container"><Eyebrow>Around the metroplex</Eyebrow><h2>{t('Explore nearby project guides')}</h2><AreaLinks areas={area.nearby.map(areaByKey)} /><Link className="text-link" to="/service-areas">{t('View All Service Areas')}<Icon name="arrow" size={18} /></Link></div></section>
+      <section className="section area-nearby"><div className="container"><Eyebrow>Around Greater Houston</Eyebrow><h2>{t('Explore nearby project guides')}</h2><AreaLinks areas={area.nearby.map(areaByKey)} /><Link className="text-link" to="/service-areas">{t('View All Service Areas')}<Icon name="arrow" size={18} /></Link></div></section>
       <AreaContact />
     </main>
   </>;

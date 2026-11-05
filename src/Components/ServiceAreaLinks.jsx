@@ -1,6 +1,7 @@
 import React from 'react';
 import { LocalizedLink as Link, useLanguage } from '../i18n/LanguageContext';
 import { areaByKey, coverageNotice, featuredAreaKeys } from '../data/service-areas';
+import { SITE } from '../data/site';
 import { Eyebrow } from './Section';
 import Icon from './Icons';
 
@@ -17,10 +18,11 @@ export default function HomepageServiceAreas() {
   return <section className="section home-service-areas" aria-labelledby="home-areas-heading">
     <div className="container">
       <div className="area-section-intro">
-        <div><Eyebrow>Made for your place</Eyebrow><h2 id="home-areas-heading">{t('Custom Woodworking & Cabinets Across Dallas–Fort Worth')}</h2></div>
-        <p>{t('Live Wood Studio brings exceptional craftsmanship, custom cabinetry, and handcrafted furniture to homes and businesses throughout the Dallas–Fort Worth area.')}</p>
+        <div><Eyebrow>Made for your place</Eyebrow><h2 id="home-areas-heading">{t('Areas We Serve in Greater Houston')}</h2></div>
+        <p>{t('Live Wood Studio brings exceptional craftsmanship, custom cabinetry, and handcrafted furniture to homes and businesses throughout the Greater Houston area.')}</p>
       </div>
       <AreaLinks areas={featuredAreaKeys.map(areaByKey)} className="featured-area-grid" />
+      <p className="surrounding-areas">Also serving {SITE.serviceAreas.filter(city => !featuredAreaKeys.map(areaByKey).some(area => area.city === city)).join(", ")}, and surrounding Greater Houston communities.</p>
       <div className="area-section-end"><p className="area-coverage-note">{t(coverageNotice)}</p><Link className="btn btn-dark" to="/service-areas">{t('View All Service Areas')}<Icon name="arrow" size={18} /></Link></div>
     </div>
   </section>;

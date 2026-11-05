@@ -50,8 +50,8 @@ export function CtaBand({ onClick }) {
           <p className="cta-kicker">{t("Ready to start your custom project?")}</p>
           <h2 id="cta-heading">{t("Let's bring your vision to life.")}</h2>
         </div>
-        <Link className="btn btn-primary" to="/ContactUs" onClick={onClick}>
-          <Icon name="mail" size={18} />{t(" Contact Us ")}</Link>
+        <Link className="btn btn-primary" to="/ContactUs#quote-request" onClick={onClick}>
+          <Icon name="mail" size={18} />{t(" Get a Quote ")}</Link>
       </div>
     </section>
   );
