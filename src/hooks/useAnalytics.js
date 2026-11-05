@@ -7,7 +7,7 @@ export const useAnalytics = () => {
 
   useEffect(() => {
     // Check if gtag is available (Google Analytics is loaded)
-    if (typeof window !== 'undefined' && window.gtag) {
+    if (typeof window !== 'undefined' && window.gtag && !window.location.pathname.startsWith('/admin') && !/(?:invite_token|recovery_token|confirmation_token|access_token|email_change_token)=/.test(window.location.hash)) {
       // Track page view
       window.gtag('config', 'G-N51YDHY9Q0', {
         page_path: location.pathname + location.search,
@@ -19,7 +19,7 @@ export const useAnalytics = () => {
 
   // Function to track custom events
   const trackEvent = (eventName, parameters = {}) => {
-    if (typeof window !== 'undefined' && window.gtag) {
+    if (typeof window !== 'undefined' && window.gtag && !window.location.pathname.startsWith('/admin') && !/(?:invite_token|recovery_token|confirmation_token|access_token|email_change_token)=/.test(window.location.hash)) {
       window.gtag('event', eventName, parameters);
     }
   };

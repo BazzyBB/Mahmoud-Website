@@ -1,37 +1,49 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import React from "react";
+import { Helmet } from "react-helmet-async";
+import { SEO_PAGES, pageGraph } from "../data/seo";
+import { SITE } from "../data/site";
 
-const SEOHead = ({ 
-  title, 
-  description, 
-  canonical, 
-  ogImage = "/Assets/Logo.jpg",
-  ogType = "website"
-}) => {
-  const fullTitle = title ? `${title} | Live Wood Studio` : "Live Wood Studio - Custom WoodWorking & Cabinets";
-  const fullCanonical = canonical ? `https://livewoodstudio.com${canonical}` : "https://livewoodstudio.com";
-  const fullOgImage = ogImage.startsWith('http') ? ogImage : `https://livewoodstudio.com${ogImage}`;
+const DEFAULT_IMAGE = "/Assets/ED1.JPG";
+
+export default function SEOHead({ title, description, canonical = "/", ogImage = DEFAULT_IMAGE, ogType = "website", jsonLd }) {
+  title = SEO_PAGES[canonical]?.title || title;
+  description = SEO_PAGES[canonical]?.description || description;
+  const fullTitle = title ? `${title} | Live Wood Studio` : "Live Wood Studio | Custom Woodworking & Cabinets in Dallas, TX";
+  const url = `${SITE.url}${canonical === "/" ? "" : canonical}`;
+  const image = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage}`;
+  const extras = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+  const schemas = [pageGraph(canonical, fullTitle, description, image), ...extras];
 
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={fullCanonical} />
-      
-      {/* Open Graph */}
+      <meta property="og:site_name" content={SITE.name} />
+      <meta property="og:locale" content="en_US" />
+      <link rel="canonical" href={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={fullCanonical} />
-      <meta property="og:image" content={fullOgImage} />
+      <meta property="og:url" content={url} />
+      <meta property="og:image" content={image} />
       <meta property="og:type" content={ogType} />
-      
-      {/* Twitter */}
-      <meta property="twitter:title" content={fullTitle} />
-      <meta property="twitter:description" content={description} />
-      <meta property="twitter:url" content={fullCanonical} />
-      <meta property="twitter:image" content={fullOgImage} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={fullTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
+      {schemas.map((s, i) => (
+        <script key={i} type="application/ld+json">{JSON.stringify(s).replace(/</g, "\\u003c")}</script>
+      ))}
     </Helmet>
   );
-};
+}
 
-export default SEOHead;
+export const breadcrumbs = (items) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map(([name, path], i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name,
+    item: `${SITE.url}${path === "/" ? "" : path}`,
+  })),
+});

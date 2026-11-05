@@ -1,12 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Layout from "./Components/Layout.jsx"
-import Home from "./pages/Home.jsx"
-import AboutUs from "./pages/AboutUs.jsx";
-import Gallery from "./pages/Gallery.jsx";
-import ContactUs from "./pages/ContactUs.jsx";
+import SiteRoutes from "./SiteRoutes.jsx";
 import { useAnalytics } from "./hooks/useAnalytics.js";
 import "./index.css";
 
@@ -21,19 +17,15 @@ function App() {
 }
 
 function AppContent() {
-  // Initialize analytics tracking
+  // Identity emails may return to the home page; preserve their callback for the panel.
+  useEffect(() => {
+    if (window.location.pathname !== '/admin' && /(?:invite_token|recovery_token|confirmation_token|access_token|email_change_token)=/.test(window.location.hash)) {
+      window.location.replace(`/admin${window.location.hash}`);
+    }
+  }, []);
   useAnalytics();
 
-  return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="AboutUs" element={<AboutUs />} />
-        <Route path="Gallery" element={<Gallery />} />
-        <Route path="ContactUs" element={<ContactUs />} />
-      </Route>
-    </Routes>
-  );
+  return <SiteRoutes />;
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render
