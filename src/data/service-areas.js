@@ -1,0 +1,340 @@
+// Proposed project areas: confirm availability with the studio before promising service.
+export const areaGroups = [
+  { title: 'Primary Service Areas', cities: ['dallas', 'plano', 'frisco', 'mckinney', 'allen', 'richardson'] },
+  { title: 'Premium Residential Markets', cities: ['highland-park', 'university-park', 'southlake', 'prosper', 'celina', 'flower-mound'] },
+  { title: 'Greater DFW Service Areas', cities: ['fort-worth', 'irving', 'carrollton', 'the-colony', 'lewisville', 'grapevine'] },
+];
+
+export const coverageNotice = 'These are proposed project areas. Contact our Dallas studio to confirm availability, project scope, site access and delivery or installation arrangements for your address.';
+
+const areas = [
+  {
+    key: 'dallas', city: 'Dallas', h1: 'Custom Cabinets & Woodworking in Dallas, TX',
+    meta: 'Discuss custom cabinets, live-edge dining tables and bespoke furniture with Live Wood Studio in Dallas, TX. Share your room dimensions and request a quote.',
+    lead: 'A dining table should fit more than a floor plan. For your Dallas project, start with the people who gather around it, the way you move through the room and the wood you want to live with.',
+    heading: 'A Dallas room, planned around real life',
+    paragraphs: [
+      'When comparing custom cabinet makers or furniture makers in Dallas, bring the same room measurements to each conversation. Note doors, walkways, outlets and the furniture that will stay. A beautiful built-in still needs space for a chair to pull out and a cabinet door to open.',
+      'Our Dallas studio portfolio includes walnut river tables, display cabinetry and specialist workbenches. Use those pieces to explore joinery, materials and proportion rather than treating a photo as a fixed specification. For a kitchen cabinetry enquiry, discuss the full scope, appliance clearances and installation responsibilities before requesting a final proposal.',
+    ],
+    checklist: ['Room width, length and doorway dimensions', 'Seating count or a list of items to store', 'Wood and finish references viewed in natural light'],
+    services: [[0, 'Discuss a live-edge dining table around seating, circulation and the shape of the slab.'], [1, 'Plan custom built-in cabinets with room dimensions, storage needs and access in mind.'], [2, 'Explore display cabinetry for a business with product visibility, lighting and storage considered together.']],
+    faqs: [
+      ['How do I compare quotes for custom cabinets in Dallas?', 'Ask each maker to define materials, dimensions, hardware, finish, site measurements and installation scope. A price is only comparable when those details are comparable.'],
+      ['Can a live-edge table be sized for my dining room?', 'Share your seating target and available floor space. Slab shape, leg placement and chair clearances all affect the usable size; the studio can discuss suitable options.'],
+      ['Can I visit a Dallas showroom without an appointment?', 'Please call first to discuss your project and ask about consultation arrangements. This website does not publish walk-in showroom hours or promise an unarranged visit.'],
+    ],
+    gallery: [0, 1], nearby: ['highland-park', 'university-park', 'richardson'],
+  },
+  {
+    key: 'plano', city: 'Plano', h1: 'Custom Cabinets & Built-Ins in Plano, TX',
+    meta: 'Plan custom cabinets, home office built-ins and wood furniture for a Plano, TX project. Discuss storage, materials and availability with Live Wood Studio.',
+    lead: 'For a Plano home office or living room, useful storage begins with an honest inventory. Tell us what needs a place, what should stay on display and how the room needs to work each day.',
+    heading: 'Give every shelf a purpose',
+    paragraphs: [
+      'Before choosing a cabinet elevation, measure the objects it will hold. Files, printers, large books and display pieces need different depths. Keep equipment ventilation and cable access in the brief so a custom shelving unit does not become a collection of workarounds.',
+      'A freestanding wood desk and a wall of built-ins do not have to match exactly to feel considered. Discuss shared wood tones, edge details and the balance between closed storage and open shelving. For your Plano address, confirm project availability and whether measurement and installation are included in the proposed scope.',
+    ],
+    checklist: ['Equipment dimensions, including open lids and trays', 'Outlet locations and cable routes', 'A list of open-display and hidden-storage needs'],
+    services: [[1, 'Discuss home office built-ins, shelving and closed storage as one coordinated layout.'], [0, 'Plan a wood desk or meeting table around legroom and daily equipment.'], [2, 'Consider a display unit with lighting and cable access designed into the brief.']],
+    faqs: [
+      ['What should I measure before discussing built-in cabinets in Plano?', 'Record the wall width and height, baseboards, nearby doors, switches and outlets. These are useful preliminary measurements; ask the studio what on-site verification is needed.'],
+      ['Can open shelving and closed cabinets be combined?', 'Yes, discuss the balance you want and the dimensions of what you store. Shelf spans, depth and loading should be resolved during design rather than chosen from a photograph.'],
+      ['Should I buy office equipment before the cabinetry design?', 'Confirm the equipment model or its required clearances before final dimensions are agreed. A printer with an open paper tray needs more room than its closed footprint.'],
+    ],
+    gallery: [1, 2], nearby: ['allen', 'richardson', 'frisco'],
+  },
+  {
+    key: 'frisco', city: 'Frisco', h1: 'Custom Cabinets & Woodworking in Frisco, TX',
+    meta: 'Explore custom cabinetry and handcrafted wood furniture for your Frisco, TX project. Plan storage, finish details and next steps with Live Wood Studio.',
+    lead: 'A Frisco cabinetry enquiry is a chance to solve the awkward details before they become permanent: an appliance door that needs room, a drawer that carries real weight or a finish that connects adjoining spaces.',
+    heading: 'Start a cabinetry brief with the working details',
+    paragraphs: [
+      'For custom kitchen cabinetry, separate the look you want from the constraints of the room. Share appliance specifications, existing utility positions and the intended cabinet layout. Ask which parts of the work the studio can undertake and which require coordination with your contractor.',
+      'For a living-space built-in, collect a few finish references alongside photographs of the adjacent flooring and trim. Those images help start a conversation, but final wood and color decisions should use actual samples. Confirm availability for your Frisco address before setting a renovation schedule around the project.',
+    ],
+    checklist: ['Appliance model numbers and clearance information', 'Photos of adjacent rooms, flooring and trim', 'Your contractor’s proposed sequence and target dates'],
+    services: [[1, 'Discuss cabinetry, built-ins and kitchen project scope before final layout decisions.'], [0, 'Explore a custom dining table that relates to your cabinetry without duplicating every finish.'], [2, 'Consider a lit display or storage unit for the adjoining living space.']],
+    faqs: [
+      ['Can I enquire about custom kitchen cabinetry in Frisco?', 'Yes. Send your layout, appliance information and project scope. The studio needs to confirm suitability, availability and responsibilities before agreeing to a kitchen cabinetry project.'],
+      ['Can a wood finish match the rest of my home exactly?', 'Use physical samples to discuss the closest appropriate direction. Natural wood, lighting and existing finishes vary, so an exact match should not be assumed from screen images.'],
+      ['When should I coordinate with my renovation contractor?', 'Before finalizing the proposal. Measurement, utilities, finished floors and installation access can affect cabinetry dimensions and the order of work.'],
+    ],
+    gallery: [1, 0], nearby: ['plano', 'prosper', 'the-colony'],
+  },
+  {
+    key: 'mckinney', city: 'McKinney', h1: 'Custom Furniture & Woodworking in McKinney, TX',
+    meta: 'Plan handcrafted wood furniture for a McKinney, TX home. Explore table proportions, wood choices and custom project enquiries with Live Wood Studio.',
+    lead: 'For your McKinney furniture project, the right starting point may be the piece you already own. A favorite chair, a rug or an existing cabinet can help establish the scale and character of something new.',
+    heading: 'Furniture that belongs with what you keep',
+    paragraphs: [
+      'Take photographs from the room entrance and from seated eye level. They show relationships that a close-up inspiration image misses: how a table sits against a sofa, whether a base feels too heavy and where a new wood tone will meet the existing room.',
+      'A custom coffee or dining table can introduce a different species of wood without making the space feel disconnected. Compare the warmth of walnut, the lighter grain of white oak and the variety of a mixed-hardwood mosaic. Ask the studio to confirm service arrangements for McKinney before planning delivery around a specific date.',
+    ],
+    checklist: ['Measurements of furniture that will remain', 'Room photos from more than one viewpoint', 'Preferred table height and everyday uses'],
+    services: [[0, 'Develop a dining or coffee table around the proportions of your existing seating.'], [1, 'Explore a storage piece that complements rather than copies surrounding furniture.'], [2, 'Discuss a display surface for objects that deserve space and a clear sightline.']],
+    faqs: [
+      ['Can new custom furniture work with older pieces?', 'Bring photographs, dimensions and any finish samples you have. Matching scale and visual weight can matter more than using the same wood throughout.'],
+      ['How do I choose between a coffee table and a larger statement piece?', 'Start with circulation and reach from your seating. A tape outline on the floor helps test whether the proposed size leaves the room comfortable to use.'],
+      ['Do the gallery photos show completed McKinney projects?', 'The gallery shows authentic studio work as design references. We do not attribute those projects to McKinney or any other city without verified location information.'],
+    ],
+    gallery: [4, 3], nearby: ['allen', 'prosper', 'frisco'],
+  },
+  {
+    key: 'allen', city: 'Allen', h1: 'Custom Shelving & Wood Cabinets in Allen, TX',
+    meta: 'Discuss custom shelving, built-in cabinets and handcrafted tables for an Allen, TX project. Share your storage priorities with Live Wood Studio.',
+    lead: 'An Allen storage project can begin with the everyday handoff between rooms: where books accumulate, where a work bag lands or which objects never seem to have a shelf that fits.',
+    heading: 'Design storage around the objects, not the other way around',
+    paragraphs: [
+      'Group your storage into what you reach for daily, what you want to display and what can stay behind a door. Then note the tallest and deepest objects in each group. This gives a cabinet maker more useful information than an overall wall width alone.',
+      'Discuss fixed versus adjustable shelves, the way cabinet doors open and the relationship to nearby seating. A custom table can provide a separate focal point while storage stays quieter. Ask about availability for your Allen address and any site measurement requirements before committing to dimensions.',
+    ],
+    checklist: ['Tallest and deepest items for each storage zone', 'Daily-access versus occasional-use priorities', 'Door swing and nearby furniture clearances'],
+    services: [[1, 'Plan shelving and built-in cabinets around the size and frequency of use of your belongings.'], [0, 'Add a custom table sized to the open floor area that remains.'], [2, 'Explore dedicated display cabinetry for collections that need protection and visibility.']],
+    faqs: [
+      ['Are adjustable shelves always the best choice?', 'They offer flexibility, but fixed shelves may suit a particular design or load. Discuss what you will store and ask the maker to resolve appropriate spans and support.'],
+      ['Can cabinets hide everyday clutter without making a room feel heavy?', 'Discuss a mix of closed storage, open areas and lighter visual lines. The right balance depends on the wall, the contents and the surrounding furniture.'],
+      ['What helps the studio assess an Allen project remotely?', 'Send wide room photos, rough measurements, an inventory of storage needs and your address. The studio can then discuss suitability and any further measurement steps.'],
+    ],
+    gallery: [1, 5], nearby: ['plano', 'mckinney', 'richardson'],
+  },
+  {
+    key: 'richardson', city: 'Richardson', h1: 'Custom Woodworking & Workstations in Richardson, TX',
+    meta: 'Plan custom workstations, cabinets and wood furniture for Richardson, TX. Discuss ergonomic layouts and storage with Dallas-based Live Wood Studio.',
+    lead: 'For a Richardson workspace, good woodworking should support the task. Surface height, knee space, tool reach and storage access deserve as much attention as the choice of walnut or oak.',
+    heading: 'A workspace planned from the user outward',
+    paragraphs: [
+      'Begin with the way you actually work: seated, standing or changing between both. Record the equipment footprint and the area your hands need around it. A specialist bench has different demands from a writing desk or a meeting table.',
+      'The studio portfolio includes a walnut diamond setting bench with a catch tray and dust collection. Use it to discuss the relationship between equipment, storage and working posture, rather than assuming those details suit every task. Confirm the scope and service availability for Richardson before developing a final workstation specification.',
+    ],
+    checklist: ['Working posture and preferred surface height', 'Equipment footprint plus operating clearance', 'Tool storage and dust-management requirements'],
+    services: [[3, 'Discuss a specialist jeweler bench with task-specific storage and working clearances.'], [1, 'Plan cabinets and shelving around equipment and consumables.'], [0, 'Explore a wood desk or meeting table with suitable legroom.']],
+    faqs: [
+      ['Can a workstation be designed around my equipment?', 'Share exact equipment specifications, access requirements and how you use it. The studio can discuss the woodworking scope and which specialist components need separate coordination.'],
+      ['Should I choose a fixed-height or adjustable bench?', 'That depends on your posture, tasks and equipment. Discuss sitting and standing needs early; the base and its capacity affect the overall design.'],
+      ['Does a custom bench include every machine shown in a photo?', 'No. Treat photographs as examples of a completed configuration. Ask for an itemized proposal that separates furniture, hardware and any equipment.'],
+    ],
+    gallery: [2, 1], nearby: ['dallas', 'plano', 'allen'],
+  },
+  {
+    key: 'highland-park', city: 'Highland Park', h1: 'Bespoke Furniture & Cabinets in Highland Park, TX',
+    meta: 'Explore bespoke furniture and custom cabinets for a Highland Park, TX project. Discuss proportion, finish samples and details with Live Wood Studio.',
+    lead: 'A Highland Park project brief can start with restraint: the detail of a cabinet edge, the thickness of a tabletop or the quiet relationship between wood and the architecture already in place.',
+    heading: 'Refinement through proportion and detail',
+    paragraphs: [
+      'Bring photographs of trim, floor transitions and nearby furniture to a bespoke furniture conversation. Those details help frame decisions about edge profiles, base proportions and the amount of visual weight a new piece should carry.',
+      'For cabinetry, discuss how doors, reveals and hardware relate to the room rather than choosing them independently. A physical finish sample is especially useful when a new piece will sit beside an existing surface. Confirm project availability and delivery access for your Highland Park address before selecting a target installation date.',
+    ],
+    checklist: ['Close-up references for trim and edge details', 'Physical samples of adjacent finishes when available', 'Preferred hardware style and visible joint details'],
+    services: [[1, 'Discuss cabinet proportions, reveals and hardware as a single design language.'], [0, 'Explore a statement table with a considered edge profile and base.'], [2, 'Plan a display piece with carefully balanced open and enclosed areas.']],
+    faqs: [
+      ['Can I bring an interior designer into the conversation?', 'Yes. Share the design brief, relevant drawings and who will approve dimensions and samples. Clear responsibility for decisions helps keep the specification consistent.'],
+      ['How can a new cabinet complement existing architectural trim?', 'Provide photos and dimensions of the surrounding details. Discuss whether to echo selected proportions or deliberately keep the new piece more understated.'],
+      ['Does bespoke mean an exact copy of an inspiration image?', 'No. Reference images help communicate an idea. The final piece needs its own agreed dimensions, materials and construction details suited to your project.'],
+    ],
+    gallery: [0, 3], nearby: ['university-park', 'dallas', 'irving'],
+  },
+  {
+    key: 'university-park', city: 'University Park', h1: 'Custom Built-Ins & Furniture in University Park, TX',
+    meta: 'Plan custom built-ins, shelving and wood furniture for University Park, TX. Discuss room integration and project availability with Live Wood Studio.',
+    lead: 'For a University Park built-in, the small transitions matter: where a cabinet meets a wall, how a shelf ends near a doorway and whether a new piece feels settled into the room.',
+    heading: 'Resolve the edges of a built-in before the center',
+    paragraphs: [
+      'Walls and floors are not a substitute for a verified measurement plan. Share ceiling height, skirting details, adjacent openings and anything that could affect the ends of a cabinet run. Ask how final site dimensions and tolerances will be confirmed.',
+      'An integrated room can still have a freestanding focal point. Compare a quieter cabinet finish with a walnut or oak table whose grain provides the interest. For a University Park enquiry, discuss access, site readiness and the division of work between the studio and other trades before agreeing to installation arrangements.',
+    ],
+    checklist: ['Wall returns, ceiling heights and trim dimensions', 'A plan for final site measurement', 'Paint, floor and adjacent-trade scheduling notes'],
+    services: [[1, 'Plan room-integrated cabinets with end conditions and trim transitions in mind.'], [0, 'Balance fitted storage with a freestanding handcrafted table.'], [2, 'Discuss shelving and display proportions that relate to the surrounding openings.']],
+    faqs: [
+      ['Why do wall and floor conditions matter for built-ins?', 'Small variations can affect fit and finish. Ask who verifies final measurements and how the design handles contact with existing surfaces.'],
+      ['Should painting happen before or after cabinetry installation?', 'The right sequence depends on the agreed finish and scope. Coordinate it with the studio and your other trades rather than assuming a standard order.'],
+      ['Can I request a built-in and a matching table together?', 'You can discuss both in the same brief. Ask for clear specifications for each piece and decide whether they should share a finish or simply complement one another.'],
+    ],
+    gallery: [1, 0], nearby: ['highland-park', 'dallas', 'richardson'],
+  },
+  {
+    key: 'southlake', city: 'Southlake', h1: 'Custom Dining Tables & Cabinets in Southlake, TX',
+    meta: 'Discuss custom dining tables, cabinetry and handcrafted furniture for Southlake, TX. Plan seating, proportions and finish details with Live Wood Studio.',
+    lead: 'For a Southlake dining space, start with the gathering rather than the tabletop. Everyday meals, extra guests and the route to the kitchen can lead to very different furniture decisions.',
+    heading: 'Make room for the way you host',
+    paragraphs: [
+      'Sketch your normal seating arrangement and the largest gathering you want to accommodate. Include chair width, base placement and the clear path around the table. A striking slab is only successful if the finished table is comfortable to sit at.',
+      'Cabinetry can support the room by giving serving pieces and tableware a considered place. Discuss the objects to store before selecting cabinet depths. Confirm Southlake project availability and delivery access, including doors and turning spaces, while the design is still flexible.',
+    ],
+    checklist: ['Everyday and occasional seating counts', 'Chair dimensions and desired leg clearance', 'A delivery route from entrance to dining space'],
+    services: [[0, 'Design a live-edge dining table around seating and the relationship between slab and base.'], [1, 'Discuss storage for tableware, serving pieces and occasional-use items.'], [2, 'Explore a display surface for pieces you want to keep visible between gatherings.']],
+    faqs: [
+      ['How many people will a custom table seat?', 'The answer depends on chair widths, leg placement and the shape of the top. Share your actual chairs or their dimensions rather than relying on length alone.'],
+      ['Can a large table get through my entrance?', 'Provide doorway, hallway and turning-space measurements. Ask how the proposed piece is constructed and what delivery arrangements are needed before final dimensions are approved.'],
+      ['What finish should I choose for a frequently used dining table?', 'Discuss daily use, cleaning habits and the appearance you prefer. Confirm the selected finish and care instructions with the studio; photos alone do not identify a finish system.'],
+    ],
+    gallery: [0, 4], nearby: ['grapevine', 'flower-mound', 'fort-worth'],
+  },
+  {
+    key: 'prosper', city: 'Prosper', h1: 'Custom Wood Furniture & Cabinetry in Prosper, TX',
+    meta: 'Plan custom wood furniture and cabinetry for Prosper, TX. Discuss a phased room brief, materials and project availability with Live Wood Studio.',
+    lead: 'A Prosper furniture enquiry does not need to solve every room at once. Start with the piece that makes the biggest difference, then set a material direction that later additions can follow.',
+    heading: 'Build a coherent room in considered stages',
+    paragraphs: [
+      'List the pieces you need now and the ones you may add later. A dining table, a storage cabinet and an office built-in have different priorities. Agreeing a few shared details early can help those separate decisions belong to the same home.',
+      'Keep records of approved wood and finish samples, while allowing for natural variation between boards and future material availability. For your Prosper address, discuss project scope and delivery or installation requirements before setting dates for multiple pieces.',
+    ],
+    checklist: ['A first-phase piece and later-room priorities', 'Wood tone and finish references to keep on file', 'Separate target dates for each proposed piece'],
+    services: [[0, 'Begin with a custom dining or coffee table that sets the material direction.'], [1, 'Plan cabinetry as a separate phase with its own measurements and scope.'], [2, 'Explore a coordinated display piece without forcing every surface to match.']],
+    faqs: [
+      ['Can I plan several pieces but order them in stages?', 'Discuss the complete direction and identify the first piece. Each later stage still needs its own confirmed scope, pricing, materials and availability.'],
+      ['Will wood bought later look exactly the same?', 'Natural grain and color vary, and material availability can change. Keep approved samples as references but do not assume future boards will be identical.'],
+      ['What if my room dimensions are not final?', 'Share preliminary drawings and explain what may change. Ask when verified dimensions are required before fabrication can be agreed.'],
+    ],
+    gallery: [0, 5], nearby: ['celina', 'frisco', 'mckinney'],
+  },
+  {
+    key: 'celina', city: 'Celina', h1: 'Handcrafted Furniture & Woodworking in Celina, TX',
+    meta: 'Explore handcrafted furniture and custom woodworking for Celina, TX. Plan dimensions, material choices and delivery questions with Live Wood Studio.',
+    lead: 'For a Celina project, leave room for the wood to have its own character. A live edge, a quieter oak grain or a mixed-hardwood surface can each establish a different starting point.',
+    heading: 'Choose a material direction before choosing every detail',
+    paragraphs: [
+      'Bring references that show what you like about wood, not just a finished shape. Is it a dark tone, a strong grain, a natural edge or the contrast between timber and epoxy? Naming that preference makes the conversation more useful than asking for an identical copy of a pictured slab.',
+      'Once the material direction is clear, test dimensions in the room with a floor outline. Consider use and access before adding decorative details. Confirm service availability for your Celina address and ask which delivery measurements the studio needs to assess the proposed piece.',
+    ],
+    checklist: ['Examples of preferred grain, tone and edge style', 'A floor outline of the proposed footprint', 'Entrance dimensions and a realistic delivery brief'],
+    services: [[0, 'Compare live-edge and geometric table designs through wood and epoxy choices.'], [1, 'Discuss storage pieces that support the room’s material palette.'], [2, 'Explore a distinct display table with its own grain and proportions.']],
+    faqs: [
+      ['Can I choose a table by the exact grain in a gallery photo?', 'Gallery work is a reference, not a promise that the same wood is available. Ask about suitable material selection for your project and how choices are approved.'],
+      ['How can I test table dimensions before ordering?', 'Mark the proposed outline on the floor and place chairs around it. Check movement, reach and the path through the room at full scale.'],
+      ['Is delivery to Celina automatically included?', 'No delivery arrangement should be assumed. Provide your address and access details, then ask the studio to confirm availability and the scope of the proposal.'],
+    ],
+    gallery: [4, 0], nearby: ['prosper', 'frisco', 'mckinney'],
+  },
+  {
+    key: 'flower-mound', city: 'Flower Mound', h1: 'Custom Wood Furniture & Built-Ins in Flower Mound, TX',
+    meta: 'Discuss custom furniture, shelving and built-ins for Flower Mound, TX. Plan natural wood tones and daily-use details with Live Wood Studio.',
+    lead: 'For a Flower Mound living space, a good furniture brief balances the view of the room with the way it gets used. A coffee table needs comfortable reach; a display cabinet needs room for everyday movement.',
+    heading: 'Let the room’s light guide the finish conversation',
+    paragraphs: [
+      'Photograph the room at more than one time of day and bring those images with your finish references. Wood can appear different beside a window, under warm lamps and against existing flooring. Samples viewed in your own room are more useful than a screen color alone.',
+      'Discuss the relationship between surface character and daily use. An expressive mosaic table may work best with quieter shelving, while a strong cabinet grain may call for a simpler table. Confirm Flower Mound project availability and installation needs before deciding how multiple pieces will be coordinated.',
+    ],
+    checklist: ['Room photos in daylight and evening light', 'Existing floor and upholstery color references', 'Reach and circulation measurements around seating'],
+    services: [[0, 'Explore coffee and dining tables with grain that works in the room’s light.'], [1, 'Plan shelving and built-ins that balance visible objects with closed storage.'], [2, 'Discuss display furniture with lighting and sightlines considered together.']],
+    faqs: [
+      ['Why can the same wood look different in two rooms?', 'Lighting, nearby colors and the finish affect its appearance. Compare physical samples under the lighting where the piece will actually be used.'],
+      ['Can I mix an expressive table with simpler cabinetry?', 'Yes, discuss the visual balance and the details that connect the pieces. They do not need identical surfaces to feel related.'],
+      ['What information helps with a living-room furniture quote?', 'Share the seating layout, approximate dimensions, preferred wood character and photos of the room. Ask what needs to be verified before a final proposal.'],
+    ],
+    gallery: [4, 3], nearby: ['lewisville', 'grapevine', 'southlake'],
+  },
+  {
+    key: 'fort-worth', city: 'Fort Worth', h1: 'Custom Woodworking & Display Cabinets in Fort Worth, TX',
+    meta: 'Plan custom display cabinets, wood tables and commercial furniture for Fort Worth, TX. Discuss project scope and availability with Live Wood Studio.',
+    lead: 'For a Fort Worth retail or residential display project, begin with what the furniture needs to present. Product size, viewing height and secure storage can shape the cabinet more than a preferred facade.',
+    heading: 'A display brief built around visibility',
+    paragraphs: [
+      'Prepare a list of the objects or products to display, including their dimensions and how often they change. Compare eye-level presentation with a lower table format. Lighting, glass, access and concealed storage should be discussed together rather than added after the cabinet is drawn.',
+      'The portfolio includes illuminated jewelry cabinetry and a tiered white oak display table. These are studio examples, not claimed Fort Worth installations. Ask about the fit of your project, site access and delivery or installation availability before planning an opening or room completion date.',
+    ],
+    checklist: ['Display item sizes and preferred viewing heights', 'Stock access, storage and lighting requirements', 'Site access and the intended completion sequence'],
+    services: [[2, 'Discuss display cabinets and retail tables around product visibility and access.'], [1, 'Plan storage cabinetry for the items that should remain out of sight.'], [0, 'Explore a handcrafted table as a residential or commercial focal point.']],
+    faqs: [
+      ['Can you discuss a retail display project in Fort Worth?', 'Send your display brief, floor plan and address. The Dallas studio can assess the woodworking scope and confirm whether service arrangements are available.'],
+      ['Who handles electrical work for illuminated cabinetry?', 'Clarify responsibilities in the proposal. Integrated lighting details and any site electrical work need coordination; do not assume every trade is included.'],
+      ['Can I use a gallery project as a retail specification?', 'Use it to describe the design direction, then specify your own product sizes, storage, glass, lighting and access needs. Photographs do not replace a detailed scope.'],
+    ],
+    gallery: [1, 5], nearby: ['southlake', 'grapevine', 'irving'],
+  },
+  {
+    key: 'irving', city: 'Irving', h1: 'Custom Cabinets & Commercial Woodworking in Irving, TX',
+    meta: 'Discuss custom cabinets, meeting tables and display furniture for Irving, TX. Plan access, equipment needs and project scope with Live Wood Studio.',
+    lead: 'For an Irving business interior, custom wood furniture needs a practical brief as well as a visual one. Think about who uses it, how equipment connects and how the piece will reach its final position.',
+    heading: 'Plan the working life of a commercial piece',
+    paragraphs: [
+      'For a meeting table, record seating needs, equipment locations and the available routes for cables. For cabinetry, separate frequently accessed supplies from display storage. Ask which details the studio can include and which need coordination with your fit-out team.',
+      'Before setting dimensions, note building access, door widths and any delivery restrictions. A finished piece needs a viable route from unloading to placement. Confirm availability for the Irving project and agree on responsibilities for site measurements, delivery and installation in the proposal.',
+    ],
+    checklist: ['Seating, equipment and cable-access requirements', 'Building delivery restrictions and entrance dimensions', 'A point of contact for site coordination'],
+    services: [[0, 'Discuss a wood meeting table with usable seating and equipment clearance.'], [1, 'Plan cabinets around supplies, storage and daily access.'], [2, 'Explore display furniture with an agreed approach to lighting and site coordination.']],
+    faqs: [
+      ['Can cable access be considered in a custom table?', 'Raise the requirement before the top and base are specified. Share equipment information and ask how any openings or components would be coordinated.'],
+      ['What if the building has restricted delivery hours?', 'Include those restrictions in the initial enquiry. Access rules, unloading arrangements and placement requirements affect whether a proposed delivery plan is workable.'],
+      ['Does commercial furniture come with a standard installation package?', 'Do not assume a standard package. Ask for the specific measurement, delivery and installation responsibilities to be written into the agreed project scope.'],
+    ],
+    gallery: [0, 5], nearby: ['dallas', 'carrollton', 'grapevine'],
+  },
+  {
+    key: 'carrollton', city: 'Carrollton', h1: 'Custom Built-In Cabinets & Shelving in Carrollton, TX',
+    meta: 'Plan custom built-in cabinets and shelving for Carrollton, TX. Discuss wall dimensions, equipment and storage details with Live Wood Studio.',
+    lead: 'A Carrollton media or storage wall works best when the hidden requirements are part of the first sketch. Equipment depth, ventilation and future access matter long after the doors are closed.',
+    heading: 'Keep access in the design, not behind it',
+    paragraphs: [
+      'List the equipment you expect a cabinet to contain and measure the connectors as well as the boxes. A cable bend or an open tray can need more depth than the device itself. Keep accessible outlets and manufacturer ventilation requirements in the project brief.',
+      'For the visible side, discuss the balance between screens, shelves and enclosed storage. A separate wood table can soften a technology-focused room without adding more fitted elements. Confirm the woodworking scope and Carrollton service arrangements before finalizing equipment positions.',
+    ],
+    checklist: ['Equipment dimensions including connectors', 'Ventilation requirements from manufacturers', 'Access to outlets and serviceable components'],
+    services: [[1, 'Discuss built-in cabinetry with ventilation, access and shelf depth resolved early.'], [0, 'Explore a coffee or side-table concept that complements the fitted wall.'], [2, 'Plan an open display area without blocking access to hidden equipment.']],
+    faqs: [
+      ['Can I put electronics inside custom cabinetry?', 'Discuss the equipment and its manufacturer requirements before design approval. Ventilation and service access must be considered; a closed cabinet is not automatically suitable.'],
+      ['Should I measure devices with the cables connected?', 'Yes, include connectors, cable bends and operating clearances. Closed-box dimensions alone can underestimate the depth the design needs.'],
+      ['Can the cabinet allow for replacement equipment later?', 'Raise that priority early. Adjustable storage and accessible cable routes may help, but future equipment sizes cannot be guaranteed.'],
+    ],
+    gallery: [1, 3], nearby: ['plano', 'irving', 'lewisville'],
+  },
+  {
+    key: 'the-colony', city: 'The Colony', h1: 'Custom Tables & Woodworking in The Colony, TX',
+    meta: 'Explore custom tables, cabinets and woodworking for The Colony, TX. Plan flexible room layouts and handcrafted furniture with Live Wood Studio.',
+    lead: 'For a project in The Colony, consider how one room changes through the week. A dining space may also host work, and a storage wall may need to support both everyday life and occasional entertaining.',
+    heading: 'One piece, more than one daily routine',
+    paragraphs: [
+      'Write down the tasks a table needs to support and what must move when its use changes. Laptop space, place settings and comfortable seating each impose different clearances. A custom dimension can help, but the design still needs a clear priority.',
+      'Storage nearby can make a multipurpose room easier to reset. Discuss shelf depth and closed compartments for items that should disappear between uses. Ask the studio to confirm availability for The Colony and review access before agreeing on the piece’s final size.',
+    ],
+    checklist: ['A list of everyday and occasional room uses', 'Items that need storage between activities', 'Clearance for chairs in each intended layout'],
+    services: [[0, 'Discuss a custom table with dimensions tested against more than one use.'], [1, 'Plan cabinetry that helps the room transition between work and gathering.'], [2, 'Consider a display surface that does not consume essential circulation space.']],
+    faqs: [
+      ['Can one table serve dining and home working?', 'Discuss the main use, seating, equipment and surface-care expectations. A clear brief helps balance those needs without assuming one design suits every task.'],
+      ['What makes nearby storage useful in a multipurpose room?', 'Storage should fit the items you need to clear away and be easy to reach. Measure those items rather than choosing compartments by appearance alone.'],
+      ['Should I send more than one room layout?', 'Yes, if the room changes use. Show normal seating and occasional arrangements so the studio can discuss where the design needs flexibility.'],
+    ],
+    gallery: [0, 4], nearby: ['frisco', 'lewisville', 'plano'],
+  },
+  {
+    key: 'lewisville', city: 'Lewisville', h1: 'Custom Wood Cabinets & Furniture in Lewisville, TX',
+    meta: 'Discuss custom cabinets and wood furniture for Lewisville, TX. Plan practical dimensions, finish choices and a clear scope with Live Wood Studio.',
+    lead: 'For a Lewisville project, a clear scope helps distinguish the details worth prioritizing from those that can stay simple. Start with what the new cabinet or table must do, then decide where craftsmanship should draw the eye.',
+    heading: 'Put the brief in order before comparing prices',
+    paragraphs: [
+      'Separate must-have dimensions and functions from preferred finishes or decorative details. This makes it easier to discuss alternatives without losing the reason for commissioning a custom piece. Ask how material, construction and hardware choices affect the proposal.',
+      'Keep cabinetry and freestanding furniture scopes distinct, even if they share a finish direction. Site measurements and installation requirements can differ from the delivery needs of a table. Confirm availability for your Lewisville address and request an agreed scope before treating a preliminary discussion as a final quote.',
+    ],
+    checklist: ['Must-have functions versus optional design details', 'A realistic budget range and timing priorities', 'Separate cabinetry and freestanding-piece requirements'],
+    services: [[1, 'Discuss storage cabinetry around essential dimensions and an explicit hardware brief.'], [0, 'Explore a handcrafted table with a clear balance of material character and form.'], [2, 'Plan a display piece with only the lighting and storage details you actually need.']],
+    faqs: [
+      ['What should a custom woodworking quote describe?', 'Look for dimensions, materials, hardware, finish and the agreed delivery or installation scope. Ask which decisions are still provisional before accepting a price.'],
+      ['Can I discuss alternatives within a budget range?', 'Share the range and the features you consider essential. The studio can discuss the project, but material choices and the final scope need to be confirmed before pricing is settled.'],
+      ['Is a preliminary conversation a final order?', 'No. Use the conversation to define the brief and ask what written approvals and next steps are needed before any work is agreed.'],
+    ],
+    gallery: [3, 5], nearby: ['flower-mound', 'the-colony', 'carrollton'],
+  },
+  {
+    key: 'grapevine', city: 'Grapevine', h1: 'Custom Display Furniture & Woodworking in Grapevine, TX',
+    meta: 'Explore custom display furniture, cabinetry and wood tables for Grapevine, TX. Discuss changing collections and project scope with Live Wood Studio.',
+    lead: 'For a Grapevine display project, consider the collection as well as the cabinet. A piece that looks right today should also make it easy to arrange different objects, refresh a presentation and reach what is stored below.',
+    heading: 'Design for the next arrangement as well as the first',
+    paragraphs: [
+      'Bring dimensions for the smallest and largest items you expect to show. Discuss whether a tiered table, an enclosed vitrine or open shelving best supports how people will view them. Access for rearranging and cleaning deserves a place in the initial brief.',
+      'White oak, glass and lighting can create a quieter backdrop, while a walnut or mosaic table can become part of the display itself. Use the portfolio to compare these approaches. Confirm Grapevine project availability, delivery access and any installation needs before planning a changeover date.',
+    ],
+    checklist: ['Smallest and largest intended display items', 'How often the arrangement will change', 'Cleaning, access and storage requirements'],
+    services: [[2, 'Discuss tiered tables and glass display cabinetry around changing collections.'], [1, 'Plan storage for the objects and supplies that are not currently on display.'], [0, 'Explore a wood table as both a useful surface and a statement piece.']],
+    faqs: [
+      ['Should a collection go in a glass cabinet or on an open table?', 'Compare viewing angles, handling, cleaning and access needs. The studio can discuss the furniture design; make any protection or security requirements explicit.'],
+      ['Can a display be planned for items I may add later?', 'Share the likely range of sizes and how frequently arrangements change. The design can consider that range without promising to fit every future object.'],
+      ['Do you claim a workshop in Grapevine?', 'No. Live Wood Studio is Dallas-based. This page helps you prepare a Grapevine project enquiry; address-specific service arrangements must be confirmed with the studio.'],
+    ],
+    gallery: [5, 1], nearby: ['southlake', 'flower-mound', 'irving'],
+  },
+];
+
+export const serviceAreas = areas.map(area => ({ ...area, slug: `${area.key}-tx`, path: `/service-areas/${area.key}-tx`, title: area.h1 }));
+export const featuredAreaKeys = ['dallas', 'plano', 'frisco', 'mckinney', 'allen', 'richardson', 'highland-park', 'southlake', 'prosper', 'fort-worth'];
+export const getArea = slug => serviceAreas.find(area => area.slug === slug);
+export const areaByKey = key => serviceAreas.find(area => area.key === key);

@@ -1,3 +1,4 @@
+import { useLanguage } from "../i18n/LanguageContext";
 import React, { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
@@ -28,6 +29,7 @@ function useReveal(pathname) {
 }
 
 export default function Layout() {
+  const { t, language } = useLanguage();
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
@@ -41,17 +43,17 @@ export default function Layout() {
   useReveal(pathname);
 
   return (
-    <div className="site-wrapper">
+    <div className="site-wrapper" lang={language} dir={language === 'ar' ? 'rtl' : 'ltr'}>
       <Header />
       <Outlet />
       <Footer />
       <a
         className="floating-call"
         href={SITE.phoneHref}
-        aria-label={`Call Live Wood Studio at ${SITE.phoneDisplay}`}
+        aria-label={t(`Call Live Wood Studio at ${SITE.phoneDisplay}`)}
       >
         <Icon name="phone" size={27} strokeWidth={1.8} />
-        <span className="floating-call-label">Call us · {SITE.phoneDisplay}</span>
+        <span className="floating-call-label">{t("Call us · ")}{t(SITE.phoneDisplay)}</span>
       </a>
     </div>
   );

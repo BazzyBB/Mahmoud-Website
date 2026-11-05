@@ -2,12 +2,16 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { SEO_PAGES, pageGraph } from "../data/seo";
 import { SITE } from "../data/site";
+import { useLanguage } from '../i18n/LanguageContext';
 
 const DEFAULT_IMAGE = "/Assets/ED1.JPG";
 
 export default function SEOHead({ title, description, canonical = "/", ogImage = DEFAULT_IMAGE, ogType = "website", jsonLd }) {
+  const { t, language } = useLanguage();
   title = SEO_PAGES[canonical]?.title || title;
   description = SEO_PAGES[canonical]?.description || description;
+  title = t(title);
+  description = t(description);
   const fullTitle = title ? `${title} | Live Wood Studio` : "Live Wood Studio | Custom Woodworking & Cabinets in Dallas, TX";
   const url = `${SITE.url}${canonical === "/" ? "" : canonical}`;
   const image = ogImage.startsWith("http") ? ogImage : `${SITE.url}${ogImage}`;
@@ -15,11 +19,11 @@ export default function SEOHead({ title, description, canonical = "/", ogImage =
   const schemas = [pageGraph(canonical, fullTitle, description, image), ...extras];
 
   return (
-    <Helmet>
+    <Helmet htmlAttributes={{ lang: language, dir: language === 'ar' ? 'rtl' : 'ltr' }}>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta property="og:site_name" content={SITE.name} />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content={{ en: 'en_US', es: 'es_ES', ar: 'ar' }[language]} />
       <link rel="canonical" href={url} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
