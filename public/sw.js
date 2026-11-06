@@ -73,6 +73,9 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
   
+  // Keep authenticated requests on the network.
+  if (request.method !== 'GET' || url.pathname.startsWith('/api/') || url.pathname.startsWith('/.netlify/') || url.pathname === '/admin') return;
+
   // Only handle requests from your domain
   if (url.origin !== location.origin) {
     return;

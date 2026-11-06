@@ -131,7 +131,7 @@ export default function Admin() {
     } catch (err) { setDetailError(err.message); }
     finally { setSaving(false); }
   }
-  const metadata = <Helmet><title>Quote Management | Live Wood Studio</title><meta name="robots" content="noindex, nofollow" /><meta name="referrer" content="same-origin" /></Helmet>;
+  const metadata = <Helmet><title>Studio Administration | Live Wood Studio</title><meta name="robots" content="noindex, nofollow" /><meta name="referrer" content="same-origin" /></Helmet>;
   const authCard = checking || !user || mode !== 'login';
   if (authCard) return <div className="admin-shell" lang="en">{metadata}
     <header className="admin-header"><Logo /><Link to="/">Back to website ↗</Link></header>
