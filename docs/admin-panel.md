@@ -50,3 +50,7 @@ Bu çalışma için agent run sayfasındaki **Publish** işlemini kullanın. Git
 Üretim yayını, `npm run build` komutuyla `dist` klasörünü hazırlar. Netlify `netlify/database/migrations/` içindeki migration dosyalarını üretim yayını sırasında otomatik uygular. Migration başarısız olursa yayın durur; Deploys bölümündeki ilgili üretim kaydının hatası incelenmelidir. Migration komutunu build scriptine eklemeyin ve SQL dosyalarını elle çalıştırmayın.
 
 Başarılı üretim yayını sonrasında ana sayfa tasarımını ve hızlı teklif formunu kontrol edin. Yönetici hesabıyla test talebinin `/admin` ekranında göründüğünü doğrulayın. Önizlemede gönderilen test taleplerinin üretim veritabanına aktarılmasını beklemeyin; önizleme ayrı bir veritabanı dalı kullanır.
+
+## Quote spam protection
+
+Quote submissions use a hidden honeypot field, server-side input validation, request origin checks and an IP rate limit of 10 requests per minute.

@@ -15,3 +15,17 @@ export const quotes = pgTable('quotes', {
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 }, table => [index('quotes_created_at_idx').on(table.createdAt), index('quotes_status_idx').on(table.status)]);
+
+export const blogPosts = pgTable('blog_posts', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  slug: text('slug').notNull().unique(),
+  title: text('title').notNull(),
+  excerpt: text('excerpt').notNull().default(''),
+  content: text('content').notNull().default(''),
+  coverImage: text('cover_image').notNull().default(''),
+  coverAlt: text('cover_alt').notNull().default(''),
+  status: text('status').$type<'draft' | 'published'>().notNull().default('draft'),
+  publishedAt: timestamp('published_at', { withTimezone: true }),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+}, table => [index('blog_posts_publication_idx').on(table.status, table.publishedAt)]);

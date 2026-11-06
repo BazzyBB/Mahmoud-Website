@@ -43,6 +43,7 @@ try {
   const { renderPage, INDEXABLE_PATHS } = await server.ssrLoadModule('/src/entry-server.jsx');
   for (const path of ['/', '/ContactUs']) {
     const page = renderPage(path);
+    assert.ok(!/recaptcha|quote-verification/i.test(page.body), 'Quote form has no CAPTCHA requirement');
     assert.ok(page.body.includes('id="quote-name"'));
     assert.ok(page.body.includes('id="quote-message"'));
     assert.equal((page.body.match(/id="quote-email"/g) || []).length, 1);
