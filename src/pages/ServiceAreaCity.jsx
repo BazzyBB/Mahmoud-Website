@@ -45,7 +45,7 @@ export default function ServiceAreaCity() {
       </div></section>
       <section className="section"><div className="container area-editorial">
         <article><Eyebrow>Your local project brief</Eyebrow><h2>{t(area.heading)}</h2>{area.paragraphs.map(paragraph => <p key={paragraph}>{t(paragraph)}</p>)}</article>
-        <aside className="area-brief" aria-labelledby="area-brief-heading"><Icon name="pencil" size={30} /><h3 id="area-brief-heading">{t('Bring these to the conversation')}</h3><ul>{area.checklist.map(item => <li key={item}>{t(item)}</li>)}</ul><Link className="text-link" to="/Process">{t('Understand the process ↗')}</Link></aside>
+        <aside className="area-brief" aria-labelledby="area-brief-heading"><Icon name="pencil" size={30} /><h3 id="area-brief-heading">{t('Bring these to the conversation')}</h3><ul>{area.checklist.map(item => <li key={item}>{t(item)}</li>)}</ul><Link className="text-link" to="/Process">{t('Understand the process')}</Link></aside>
       </div></section>
       <section className="area-services-section"><div className="container">
         <div className="area-section-intro"><div><Eyebrow>From the brief to the build</Eyebrow><h2>{t('Woodworking to discuss for your space')}</h2></div><p>{t('Explore the relevant services, then ask the studio to confirm the scope that fits your project.')}</p></div>

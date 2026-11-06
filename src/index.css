@@ -501,11 +501,10 @@ fieldset:disabled{opacity:.65}
 .area-link-grid a { display: flex; align-items: center; gap: 13px; min-height: 78px; padding: 15px 0; transition: color .2s; }
 .area-link-grid a:hover { color: #79613e; }
 .area-link-grid svg { flex-shrink: 0; color: #8a7049; }
-.area-link-grid a > span:not(.area-link-arrow) { font-family: 'Fraunces',serif; font-size: 25px; line-height: 1.25; }
+.area-link-grid a > span { font-family: 'Fraunces',serif; font-size: 25px; line-height: 1.25; }
 .area-link-grid small { font-family: 'Plus Jakarta Sans',sans-serif; font-size: 9px; display: block; color: var(--muted); letter-spacing: .13em; margin-top: 5px; }
-.area-link-arrow { margin-inline-start: auto; color: #8a7049; font-size: 17px; }
 .featured-area-grid { grid-template-columns: repeat(5,minmax(0,1fr)); }
-.featured-area-grid a > span:not(.area-link-arrow) { font-size: 23px; }
+.featured-area-grid a > span { font-size: 23px; }
 .area-section-end { display: flex; align-items: center; justify-content: space-between; gap: 32px; margin-top: 34px; }
 .area-section-end .btn { flex-shrink: 0; }
 .area-coverage-note { font-size: 12px; line-height: 1.9; max-width: 720px; color: #696a5c; }
@@ -589,7 +588,7 @@ fieldset:disabled{opacity:.65}
 @media (max-width: 760px) {
   .area-section-end { flex-direction: column; align-items: flex-start; gap: 24px; }
   .area-link-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 18px; }
-  .area-link-grid a > span:not(.area-link-arrow) { font-size: 23px; }
+  .area-link-grid a > span { font-size: 23px; }
   .area-directory-hero { padding-block: 28px 45px; }
   .area-group { padding-block: 30px; }
   .area-city-hero-grid, .area-service-list, .footer-service-areas { grid-template-columns: 1fr; }
@@ -604,8 +603,7 @@ fieldset:disabled{opacity:.65}
 }
 @media (max-width: 380px) {
   .area-link-grid a { gap: 7px; }
-  .area-link-grid a > span:not(.area-link-arrow) { font-size: 21px; }
-  .area-link-arrow { display: none; }
+  .area-link-grid a > span { font-size: 21px; }
 }
 
 /* English navigation and compact conversion actions, in the existing palette. */

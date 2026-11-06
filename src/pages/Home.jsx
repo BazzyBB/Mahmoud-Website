@@ -56,7 +56,7 @@ export default function Home() {
       />
       <main id="main">
         <HeroSlider />
-        <div className="craft-strip"><div className="container"><span>{t("HANDCRAFTED IN HOUSTON")}</span><span>{t("Natural hardwoods")}</span><span>{t("Made for your space")}</span><Link to="/Process">{t("From idea to heirloom ↗")}</Link></div></div>
+        <div className="craft-strip"><div className="container"><span>{t("HANDCRAFTED IN HOUSTON")}</span><span>{t("Natural hardwoods")}</span><span>{t("Made for your space")}</span><Link to="/Process">{t("From idea to heirloom")}</Link></div></div>
 
         <ContactActions />
         {/* SERVICES */}
@@ -142,7 +142,7 @@ export default function Home() {
         <section className="section home-process" aria-labelledby="home-process-heading"><div className="container">
           <Eyebrow>Our craftsmanship & process</Eyebrow><h2 id="home-process-heading">From your first idea to the final detail.</h2>
           <ol className="home-process-grid">{processSteps.map(step => <li key={step.title}><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
-          <Link className="text-link" to="/Process">Explore our process ↗</Link>
+          <Link className="text-link" to="/Process">Explore our process</Link>
         </div></section>
         <StoryBanner />
 
@@ -180,7 +180,7 @@ export default function Home() {
               <Eyebrow>Get a Custom Quote</Eyebrow>
               <h2 id="quick-quote-heading">{t("A custom piece.")}<br /><em>{t("A quick conversation.")}</em></h2>
               <p>{t("Request a quick quote for your table, cabinetry or display. Tell us what you have in mind and our Houston studio can discuss materials, dimensions and next steps with you.")}</p>
-              <a className="text-link" href={SITE.phoneHref}>{t("Prefer to talk? ")}{t(SITE.phoneDisplay)} ↗</a>
+              <a className="text-link" href={SITE.phoneHref}>{t("Prefer to talk? ")}{t(SITE.phoneDisplay)}</a>
             </div>
             <QuoteRequestForm compact />
           </div>

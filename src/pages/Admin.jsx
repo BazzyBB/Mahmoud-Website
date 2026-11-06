@@ -134,7 +134,7 @@ export default function Admin() {
   const metadata = <Helmet><title>Studio Administration | Live Wood Studio</title><meta name="robots" content="noindex, nofollow" /><meta name="referrer" content="same-origin" /></Helmet>;
   const authCard = checking || !user || mode !== 'login';
   if (authCard) return <div className="admin-shell" lang="en">{metadata}
-    <header className="admin-header"><Logo /><Link to="/">Back to website ↗</Link></header>
+    <header className="admin-header"><Logo /><Link to="/">Back to website</Link></header>
     <main id="main" className="admin-auth">
       <div className="admin-auth-intro"><p className="eyebrow">Live Wood Studio · Administration</p><h1>Every idea,<br /><em>a beginning.</em></h1><p>Manage customer project enquiries in one place.</p><span className="admin-auth-line" /></div>
       <section className="admin-login-card">
@@ -152,7 +152,7 @@ export default function Admin() {
           <details className="admin-setup"><summary>First-time administrator setup</summary>
             <p>A website account must be invited before you can sign in. Your Netlify dashboard login is a separate account.</p>
             <ol><li>Open this project's Identity users in Netlify and invite your email address.</li><li>Accept the invitation from your inbox and set your password here.</li><li>In Netlify, open that Identity user and add the <strong>admin</strong> role. Save, then sign out and sign in again.</li></ol>
-            <a className="context-link" href="https://app.netlify.com/projects/mahmoudwebsite/identity" target="_blank" rel="noreferrer">Open Identity in Netlify ↗</a>
+            <a className="context-link" href="https://app.netlify.com/projects/mahmoudwebsite/identity" target="_blank" rel="noreferrer">Open Identity in Netlify</a>
           </details>
         </>}
       </section>
@@ -160,11 +160,11 @@ export default function Admin() {
   </div>;
 
   return <div className="admin-shell" lang="en">{metadata}
-    <header className="admin-header"><Logo /><div><Link to="/">View website ↗</Link><button onClick={signOut} disabled={busy || saving}>{busy ? 'Signing out…' : 'Sign out'}</button></div></header>
+    <header className="admin-header"><Logo /><div><Link to="/">View website</Link><button onClick={signOut} disabled={busy || saving}>{busy ? 'Signing out…' : 'Sign out'}</button></div></header>
     <main id="main" className="admin-main">
       <div className="admin-page-heading"><div><p className="eyebrow">Studio inbox</p><h1>Quote requests</h1><p>{user.email}</p></div><button className="btn btn-dark" onClick={() => setRefresh(value => value + 1)} disabled={loading || saving}>Refresh inbox ↻</button></div>
       {notice && <p className="admin-notice" role="status">{notice}</p>}
-      {accessDenied && <section className="admin-error" role="alert" lang="tr"><h2>Yönetici rolü gerekiyor</h2><p>Hesabınız açık ancak teklifleri görmek için gereken <strong>admin</strong> rolünüz yok. Bir yönetici bu paneldeki “Yönetici rolleri” bölümünden hesabınıza yetki verebilir.</p><p>İlk yönetici kuruluyorsa, proje sahibi Netlify → Identity → Users bölümünden ilgili kullanıcıyı açıp Roles alanına küçük harflerle <strong>admin</strong> eklemeli ve kaydetmeli. Ardından çıkış yapıp tekrar giriş yapın. Kullanıcı daveti veya Netlify ekip üyeliği tek başına bu rolü vermez.</p><a className="context-link" href="https://app.netlify.com/projects/mahmoudwebsite/identity" target="_blank" rel="noreferrer">Netlify kullanıcı ayarlarını aç ↗</a><button type="button" className="admin-text-button" onClick={signOut} disabled={busy}>Çıkış yap ve tekrar giriş yap</button></section>}
+      {accessDenied && <section className="admin-error" role="alert" lang="tr"><h2>Yönetici rolü gerekiyor</h2><p>Hesabınız açık ancak teklifleri görmek için gereken <strong>admin</strong> rolünüz yok. Bir yönetici bu paneldeki “Yönetici rolleri” bölümünden hesabınıza yetki verebilir.</p><p>İlk yönetici kuruluyorsa, proje sahibi Netlify → Identity → Users bölümünden ilgili kullanıcıyı açıp Roles alanına küçük harflerle <strong>admin</strong> eklemeli ve kaydetmeli. Ardından çıkış yapıp tekrar giriş yapın. Kullanıcı daveti veya Netlify ekip üyeliği tek başına bu rolü vermez.</p><a className="context-link" href="https://app.netlify.com/projects/mahmoudwebsite/identity" target="_blank" rel="noreferrer">Netlify kullanıcı ayarlarını aç</a><button type="button" className="admin-text-button" onClick={signOut} disabled={busy}>Çıkış yap ve tekrar giriş yap</button></section>}
       {!accessDenied && data && <AdminRoles />}
       <div className="admin-stats">{Object.entries(labels).map(([status, label]) => <button key={status} onClick={() => { setFilter(status); setPage(1); setSelected(null); }} className={filter === status ? 'selected' : ''} disabled={saving}><span>{label}</span><strong>{data ? (data.counts.find(c => c.status === status)?.count || 0) : '—'}</strong></button>)}</div>
       <div className="admin-workspace">
