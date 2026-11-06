@@ -17,7 +17,7 @@ export default function Footer() {
     <div className="footer-link-columns">
       <nav aria-label="Quick navigation"><h2>Explore</h2><ul>{navLinks.map(link => <li key={link.to}><Link to={link.to}>{link.label}</Link></li>)}</ul></nav>
       <nav aria-label="Woodworking services"><h2>Our Services</h2><ul>{services.map((service, i) => <li key={service.title}><Link to={`/Services#service-${i+1}`}>{service.title}</Link></li>)}</ul></nav>
-      <nav aria-label="Service area guides"><h2>Areas We Serve</h2><ul>{serviceAreas.map(area => <li key={area.key}><Link to={area.path}>{area.city}, TX</Link></li>)}</ul><Link className="text-link" to="/service-areas">All Greater Houston communities ↗</Link></nav>
+      <nav aria-label="Service area guides"><h2>Areas We Serve</h2><ul>{serviceAreas.map(area => <li key={area.key}><Link to={area.path}>{area.city}, TX</Link></li>)}</ul><Link className="text-link" to="/service-areas">All Greater Houston communities</Link></nav>
     </div>
     <Link className="btn btn-primary" to="/ContactUs#quote-request">Get a Quote <Icon name="arrow" size={18} /></Link>
     <div className="footer-bottom"><span>© {new Date().getFullYear()} Live Wood Studio. All rights reserved.</span><nav aria-label="Legal and sitemap"><ul><li><Link to="/privacy-policy">Privacy Policy</Link></li><li><Link to="/sitemap">Sitemap</Link></li><li><a href="/sitemap.xml">XML Sitemap</a></li></ul></nav></div>

@@ -28,13 +28,13 @@ export default function Services() {
             <Eyebrow>0{t(i + 1)}{t(" / Made to order")}</Eyebrow>
             <h2>{t(service.title)}</h2><p>{t(service.text)}</p>
             <ul className="service-options">{details[i].choices.map(c => <li key={c}>{t(c)}</li>)}</ul>
-            <Link className="text-link" to={`/Gallery/${details[i].slug}`}>{t(projects.find(p => p.slug === details[i].slug).shortTitle)} <span aria-hidden="true">↗</span></Link>
+            <Link className="text-link" to={`/Gallery/${details[i].slug}`}>{t(projects.find(p => p.slug === details[i].slug).shortTitle)}</Link>
           </div>
         </article>)}
       </div></section>
       <section className="planning-band"><div className="container split">
         <div><Eyebrow>{t("Before we begin")}</Eyebrow><h2>{t("A little preparation.")}<br />{t("A better starting point.")}</h2></div>
-        <div><p>{t("For ")}<strong>{t("made-to-order furniture and cabinetry")}</strong>{t(", bring your approximate dimensions, a few inspiration photos, how you plan to use the piece, and your preferred budget and timing. We can discuss materials and the details together.")}</p><div className="planning-links"><Link className="text-link" to="/Materials">{t("Explore materials ↗")}</Link><Link className="text-link" to="/Process">{t("Understand the process ↗")}</Link></div></div>
+        <div><p>{t("For ")}<strong>{t("made-to-order furniture and cabinetry")}</strong>{t(", bring your approximate dimensions, a few inspiration photos, how you plan to use the piece, and your preferred budget and timing. We can discuss materials and the details together.")}</p><div className="planning-links"><Link className="text-link" to="/Materials">{t("Explore materials")}</Link><Link className="text-link" to="/Process">{t("Understand the process")}</Link></div></div>
       </div></section>
       <CtaBand />
     </main>

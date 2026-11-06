@@ -43,7 +43,7 @@ export default function HeroSlider() {
         <p className="eyebrow">{t("Houston, Texas · Custom Woodworking")}</p>
         {i === 0 ? <h1>{t(slide.title)}</h1> : <h2 className="hero-title">{t(slide.title)}</h2>}
         <p className="lead">{t(slide.text)}</p>
-        <div className="hero-actions"><Link to="/ContactUs#quote-request" className="btn btn-primary" tabIndex={i === active ? 0 : -1}>{t("Get a Quote ")}<span>↗</span></Link><Link to={`/Gallery/${slide.project.slug}`} className="hero-work-link" tabIndex={i === active ? 0 : -1}>{t("Discover this piece ")}<span>→</span></Link></div>
+        <div className="hero-actions"><Link to="/ContactUs#quote-request" className="btn btn-primary" tabIndex={i === active ? 0 : -1}>{t("Get a Quote")}</Link><Link to={`/Gallery/${slide.project.slug}`} className="hero-work-link" tabIndex={i === active ? 0 : -1}>{t("Discover this piece ")}<span>→</span></Link></div>
       </div>
     </div>)}
     <div className="container hero-bottom">

@@ -8,7 +8,7 @@ import Icon from './Icons';
 export function AreaLinks({ areas, className = '' }) {
   return <ul className={`area-link-grid ${className}`}>
     {areas.map(area => <li key={area.slug}><Link to={area.path}>
-      <Icon name="pin" size={18} /><span>{area.city}<small>TX</small></span><span className="area-link-arrow" aria-hidden="true">↗</span>
+      <Icon name="pin" size={18} /><span>{area.city}<small>TX</small></span>
     </Link></li>)}
   </ul>;
 }

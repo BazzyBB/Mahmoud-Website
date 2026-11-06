@@ -34,7 +34,7 @@ export default function Gallery() {
             <aside className="project-next-steps" aria-label={t("Plan a similar project")}>
               <h2>{t("Make this idea your own")}</h2>
               <p>{t("Planning ")}<strong>{t(p.shortTitle.toLowerCase())}</strong>{t(" for your space? Compare ")}<Link className="context-link" to="/Materials">{t("wood species and finish options")}</Link>{t(", explore our ")}<Link className="context-link" to="/Services">{t("custom woodworking services in Houston")}</Link>{t(", then ")}<Link className="context-link" to="/ContactUs">{t("request a custom project quote")}</Link>{t(" with your dimensions and ideas.")}</p>
-              <h3>{t("Explore related work")}</h3><ul className="related-project-links">{projects.filter(other => other.slug !== p.slug && other.category === p.category).concat(projects.filter(other => other.slug !== p.slug && other.category !== p.category)).slice(0, 2).map(other => <li key={other.slug}><Link className="text-link" to={`/Gallery/${other.slug}`}>{t(other.shortTitle)} ↗</Link></li>)}</ul>
+              <h3>{t("Explore related work")}</h3><ul className="related-project-links">{projects.filter(other => other.slug !== p.slug && other.category === p.category).concat(projects.filter(other => other.slug !== p.slug && other.category !== p.category)).slice(0, 2).map(other => <li key={other.slug}><Link className="text-link" to={`/Gallery/${other.slug}`}>{t(other.shortTitle)}</Link></li>)}</ul>
             </aside>
             <Link className="text-link" to="/Gallery">{t("← Back to all work")}</Link>
           </div></section>

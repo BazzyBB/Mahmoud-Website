@@ -21,7 +21,7 @@ export default function Materials() {
         <div className="section-head"><Eyebrow>{t("Find your direction")}</Eyebrow><h2>{t("Warm walnut.")}<br />{t("Quiet oak. Something unexpected.")}</h2><p>{t("These are examples from completed projects, rather than exact color samples. Natural variation, lighting and your screen all affect how a wood or finish appears.")}</p></div>
         <div className="material-grid">{materials.map(m => <article className="material-card" key={m.title}>
           <img src={img(m.image, { w: 800 })} alt={t(`${m.title} in a completed Live Wood Studio project`)} loading="lazy" width="800" height="600" />
-          <h3>{t(m.title)}</h3><p>{t(m.description)}</p><Link className="text-link" to={`/Gallery/${m.link}`}>{t("View ")}{t(m.title.toLowerCase())}{t(" furniture ↗")}</Link>
+          <h3>{t(m.title)}</h3><p>{t(m.description)}</p><Link className="text-link" to={`/Gallery/${m.link}`}>{t("View ")}{t(m.title.toLowerCase())}{t(" furniture")}</Link>
         </article>)}</div>
       </div></section>
       <section className="section wood-comparison"><div className="container">
@@ -42,7 +42,7 @@ export default function Materials() {
           <article><h3>{t("Daily use & care")}</h3><p>{t("Tell us how you intend to use your piece. Confirm the selected finish and its care instructions with the studio before using cleaning products or treatments.")}</p></article>
         </div>
       </div></section>
-      <section className="section"><div className="container consultation-note"><Eyebrow>{t("Your consultation")}</Eyebrow><h2>{t("You don’t need all the answers yet.")}</h2><p>{t("Start with your room dimensions and a few reference images. We can talk through wood, finish, size and the practical details together.")}</p><Link className="btn btn-dark" to="/ContactUs">{t("Discuss your project ↗")}</Link></div></section>
+      <section className="section"><div className="container consultation-note"><Eyebrow>{t("Your consultation")}</Eyebrow><h2>{t("You don’t need all the answers yet.")}</h2><p>{t("Start with your room dimensions and a few reference images. We can talk through wood, finish, size and the practical details together.")}</p><Link className="btn btn-dark" to="/ContactUs">{t("Discuss your project")}</Link></div></section>
       <CtaBand />
     </main>
   </>;
