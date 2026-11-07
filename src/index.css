@@ -788,6 +788,45 @@ fieldset:disabled{opacity:.65}
 @media(max-width:420px){.footer-link-columns{grid-template-columns:1fr}.footer-coverage{grid-column:auto}}
 
 /* Custom quote consultation form */
+/* Project-led carousel: readable copy beside photography, stacked on mobile. */
+.hero-showcase .hero-inner{max-width:1240px;padding-top:clamp(50px,8vh,100px)}
+.hero-showcase h1,.hero-showcase .hero-title{max-width:600px;font-size:clamp(44px,4.7vw,68px);line-height:1.08}
+.hero-showcase .lead{max-width:445px;font-size:15px}
+.hero-showcase .hero-shade{background:linear-gradient(90deg,#19261bf5 0%,#19261be8 25%,#19261b99 45%,#19261b14 73%),linear-gradient(0deg,#19261bbf,transparent 25%)}
+.hero-showcase .eyebrow{flex-wrap:wrap;gap:10px;font-size:10px;letter-spacing:.15em}
+.hero-location{font-weight:400;letter-spacing:.08em;opacity:.8;border-left:1px solid #dcc09366;padding-left:10px}
+.hero-showcase .slide-pagination{gap:24px}
+.hero-showcase .slide-pagination button{min-height:44px;gap:9px;font-size:12px}
+.hero-showcase .slide-number{opacity:.65;font-size:10px}
+.hero-showcase .slide-pagination i{width:20px}
+.hero-showcase .slide-pagination .active i{width:20px}
+.hero-showcase .slide-label{font-weight:600}
+.hero-showcase .slider-controls button{min-width:44px;min-height:44px}
+@media(min-width:701px) and (max-width:1100px){
+ .hero-showcase h1,.hero-showcase .hero-title{max-width:520px;font-size:54px}
+ .hero-showcase .slider-caption{display:none}
+ .hero-showcase .slide-pagination{gap:16px}
+}
+@media(max-width:700px){
+ .hero-showcase{display:grid;grid-template-columns:minmax(0,1fr);height:auto;min-height:0;padding-bottom:20px;background:var(--dark)}
+ .hero-showcase .hero-slide,.hero-showcase .hero-slide.is-active{position:relative;inset:auto;grid-area:1/1}
+ .hero-showcase .hero-visual{height:clamp(230px,63vw,380px)}
+ .hero-showcase .hero-photo{position:relative;inset:auto;width:100%;height:100%;object-fit:cover}
+ .hero-showcase .hero-shade{display:none}
+ .hero-showcase .hero-inner{padding-top:26px;padding-bottom:8px}
+ .hero-showcase h1,.hero-showcase .hero-title{max-width:100%;font-size:clamp(34px,7.7vw,48px)}
+ .hero-showcase .eyebrow{margin-bottom:16px;font-size:9px}
+ .hero-showcase .lead{margin-top:18px;max-width:100%;font-size:14px;line-height:1.8}
+ .hero-showcase .hero-actions{margin-top:22px;gap:14px 20px;align-items:center}
+ .hero-showcase .hero-work-link{font-size:12px}
+ .hero-showcase .hero-bottom{position:relative;inset:auto;grid-area:2/1;display:flex;flex-wrap:wrap;gap:16px;margin-top:22px}
+ .hero-showcase .slide-pagination{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%}
+ .hero-showcase .slide-pagination button{justify-content:center;gap:6px;border:1px solid #ffffff30;padding:8px 3px;font-size:11px}
+ .hero-showcase .slide-pagination button.active{border-color:var(--gold);background:#c8a77414}
+ .hero-showcase .slide-pagination i{display:none}
+ .hero-showcase .slider-controls{margin-left:auto;gap:8px}
+}
+
 .contact-form-container.quote-studio-form{padding:clamp(24px,4vw,48px);background:#fffdf8;border:1px solid var(--line);border-radius:3px;box-shadow:0 18px 55px #252b2508;border-top:3px solid var(--brown)}
 .quote-form-heading{display:flex;align-items:flex-start;gap:20px;padding-bottom:32px;border-bottom:1px solid var(--line);margin-bottom:32px}.quote-form-heading .eyebrow{font-size:10px;letter-spacing:.18em;margin-bottom:12px}.quote-form-heading h2{font-size:clamp(32px,4vw,44px);margin-bottom:12px}.quote-form-heading p:not(.eyebrow){font-size:13px;line-height:1.8;max-width:420px}.quote-form-mark{display:grid;place-items:center;flex-shrink:0;width:48px;height:48px;color:var(--brown);background:#efe9dc;border:1px solid #e2d7c3}
 .quote-studio-form fieldset{min-width:0;margin:0;padding:0;border:0}.quote-form-section+.quote-form-section{margin-top:30px;padding-top:30px;border-top:1px solid var(--line)}.quote-section-heading{display:flex;align-items:center;gap:12px;margin-bottom:24px}.quote-section-heading>span{font-size:11px;letter-spacing:.08em;color:var(--brown);border:1px solid var(--line);padding:4px 7px}.quote-section-heading h3{font-size:25px}.quote-section-heading>small{margin-left:auto;font-size:10px;color:var(--muted)}
