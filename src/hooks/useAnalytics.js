@@ -1,25 +1,25 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+import { createPageViewTracker, isPrivateAnalyticsVisit } from '../utils/analytics';
 import { useLocation } from 'react-router-dom';
 
-// Google Analytics tracking hook
+// Run route tracking once at the application root, not in every event consumer.
+export function usePageViewTracking() {
+  const { pathname, search, hash } = useLocation();
+  const tracker = useRef(null);
+  useEffect(() => {
+    if (typeof window === 'undefined' || !window.gtag) return;
+    tracker.current ||= createPageViewTracker((...args) => window.gtag(...args));
+    tracker.current(window.location, document.title);
+  }, [pathname, search, hash]);
+}
+
+// Components use event helpers without registering another page view.
 export const useAnalytics = () => {
   const location = useLocation();
 
-  useEffect(() => {
-    // Check if gtag is available (Google Analytics is loaded)
-    if (typeof window !== 'undefined' && window.gtag && !window.location.pathname.startsWith('/admin') && !/(?:invite_token|recovery_token|confirmation_token|access_token|email_change_token)=/.test(window.location.hash)) {
-      // Track page view
-      window.gtag('config', 'G-N51YDHY9Q0', {
-        page_path: location.pathname + location.search,
-        page_title: document.title,
-        page_location: window.location.href
-      });
-    }
-  }, [location]);
-
   // Function to track custom events
   const trackEvent = (eventName, parameters = {}) => {
-    if (typeof window !== 'undefined' && window.gtag && !window.location.pathname.startsWith('/admin') && !/(?:invite_token|recovery_token|confirmation_token|access_token|email_change_token)=/.test(window.location.hash)) {
+    if (typeof window !== 'undefined' && window.gtag && !isPrivateAnalyticsVisit(window.location)) {
       window.gtag('event', eventName, parameters);
     }
   };

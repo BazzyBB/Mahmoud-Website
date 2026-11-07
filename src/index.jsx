@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import SiteRoutes from "./SiteRoutes.jsx";
-import { useAnalytics } from "./hooks/useAnalytics.js";
+import { usePageViewTracking } from "./hooks/useAnalytics.js";
 import "./index.css";
 
 function App() {
@@ -23,14 +23,13 @@ function AppContent() {
       window.location.replace(`/admin${window.location.hash}`);
     }
   }, []);
-  useAnalytics();
+  usePageViewTracking();
 
   return <SiteRoutes />;
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render
-(
-<React.StrictMode>
-  <App />
-</React.StrictMode>
-)
+// Reuse prerendered content instead of discarding the initial page DOM.
+const root = document.getElementById("root");
+const app = <React.StrictMode><App /></React.StrictMode>;
+if (root.hasChildNodes()) ReactDOM.hydrateRoot(root, app);
+else ReactDOM.createRoot(root).render(app);

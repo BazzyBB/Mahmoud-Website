@@ -4,7 +4,7 @@ import { SEO_PAGES, pageGraph } from "../data/seo";
 import { SITE } from "../data/site";
 import { useLanguage } from '../i18n/LanguageContext';
 
-const DEFAULT_IMAGE = "/Assets/ED1.JPG";
+const DEFAULT_IMAGE = "/Assets/walnut-epoxy-river-table-1.jpg";
 
 export default function SEOHead({ title, description, canonical = "/", ogImage = DEFAULT_IMAGE, ogType = "website", jsonLd }) {
   const { t, language } = useLanguage();

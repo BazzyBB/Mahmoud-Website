@@ -1,9 +1,11 @@
+import { residentialProjects } from "./residential-projects.js";
+
 // Portfolio content for Live Wood Studio. Each project gets its own
 // indexable page at /Gallery/:slug.
 
 const a = (file) => `/Assets/${file}`;
 
-export const projects = [
+const existingProjects = [
   {
     slug: "live-edge-walnut-epoxy-river-dining-table",
     category: "Tables",
@@ -14,8 +16,8 @@ export const projects = [
       "American black walnut slab with a metallic black-and-gold epoxy river, live edges and a matching walnut trestle base.",
     seoDescription:
       "Custom live-edge dining table in American black walnut with a metallic black and gold epoxy river, handcrafted in Houston, TX by Live Wood Studio.",
-    cover: a("ED1.JPG"),
-    images: ["ED1.JPG", "ED2.JPG", "ED3.JPG", "ED4.JPG", "ED5.JPG", "ED6.JPG"].map(a),
+    cover: a("walnut-epoxy-river-table-1.jpg"),
+    images: ["walnut-epoxy-river-table-1.jpg", "walnut-epoxy-river-table-2.jpg", "walnut-epoxy-river-table-3.jpg", "walnut-epoxy-river-table-4.jpg", "walnut-epoxy-river-table-5.jpg", "walnut-epoxy-river-table-6.jpg"].map(a),
     specs: [
       ["Wood", "American black walnut"],
       ["Feature", "Metallic black & gold epoxy river"],
@@ -38,8 +40,8 @@ export const projects = [
       "Ten 4-ft linear display cabinets, two towers and a display table in white oak with tempered glass and integrated LED lighting.",
     seoDescription:
       "Custom oak display cabinet system with tempered glass and LED lighting for a jewelry showroom. Commercial casework and custom cabinets in Houston, TX.",
-    cover: a("JS1.JPG"),
-    images: ["JS1.JPG", "JS2.JPG", "JS3.JPG", "JS4.JPG", "JS5.JPG"].map(a),
+    cover: a("jewelry-display-cabinets-1.jpg"),
+    images: ["jewelry-display-cabinets-1.jpg", "jewelry-display-cabinets-2.jpg", "jewelry-display-cabinets-3.jpg", "jewelry-display-cabinets-4.jpg", "jewelry-display-cabinets-5.jpg"].map(a),
     specs: [
       ["Construction", "Oak veneered plywood, white oak tops"],
       ["Glass", '3/8" tempered glass'],
@@ -62,8 +64,8 @@ export const projects = [
       "A 2\" solid walnut jeweler's workstation with a stainless catch tray, adjustable-height base and integrated dust collection.",
     seoDescription:
       "Custom diamond setting bench and jeweler's workbench in solid walnut with stainless catch tray, adjustable height and GoldVault dust collection. Built in Houston, TX.",
-    cover: a("DS1.JPG"),
-    images: ["DS1.JPG", "DS2.JPG", "DS3.JPG", "DS4.JPG", "DS5.JPG"].map(a),
+    cover: a("walnut-jeweler-workbench-1.jpg"),
+    images: ["walnut-jeweler-workbench-1.jpg", "walnut-jeweler-workbench-2.jpg", "walnut-jeweler-workbench-3.jpg", "walnut-jeweler-workbench-4.jpg", "walnut-jeweler-workbench-5.jpg"].map(a),
     specs: [
       ["Wood", '2" thick stacked solid walnut'],
       ["Tray", "Recessed stainless steel catch tray"],
@@ -86,8 +88,8 @@ export const projects = [
       "Individual 2-inch oak blocks bonded with metallic black epoxy in a woven, brick-like pattern on a sculpted oak trestle.",
     seoDescription:
       "Modern geometric coffee table of 2-inch oak blocks with metallic black epoxy lines and a cotton white finish. Custom furniture by Live Wood Studio, Houston.",
-    cover: a("OB1.JPG"),
-    images: ["OB1.JPG", "OB2.JPG", "OB3.JPG", "OB4.JPG"].map(a),
+    cover: a("geometric-oak-epoxy-table-1.jpg"),
+    images: ["geometric-oak-epoxy-table-1.jpg", "geometric-oak-epoxy-table-2.jpg", "geometric-oak-epoxy-table-3.jpg", "geometric-oak-epoxy-table-4.jpg"].map(a),
     specs: [
       ["Wood", "Precision-cut 2\" oak blocks"],
       ["Inlay", "Metallic black epoxy lines"],
@@ -110,8 +112,8 @@ export const projects = [
       "Walnut, cherry, maple, white oak, red oak and mahogany set in a crystal-clear epoxy mosaic with matching mixed-hardwood legs.",
     seoDescription:
       "Custom mosaic coffee table combining six North American hardwoods in crystal-clear epoxy. One-of-a-kind epoxy furniture handcrafted in Houston, TX.",
-    cover: a("OM1.JPG"),
-    images: ["OM1.JPG", "OM2.jpeg", "OM3.JPG", "OM4.jpeg"].map(a),
+    cover: a("mixed-hardwood-mosaic-table-1.jpg"),
+    images: ["mixed-hardwood-mosaic-table-1.jpg", "mixed-hardwood-mosaic-table-2.jpg", "mixed-hardwood-mosaic-table-3.jpg", "mixed-hardwood-mosaic-table-4.jpg"].map(a),
     specs: [
       ["Woods", "Walnut, cherry, maple, white & red oak, mahogany"],
       ["Surface", "Crystal-clear epoxy encapsulation"],
@@ -134,8 +136,8 @@ export const projects = [
       "A tiered white oak display with horizontal slat detailing and black metal legs, made to showcase high-end merchandise.",
     seoDescription:
       "Custom retail display table in white oak with cotton white finish and black metal legs. Boutique and jewelry store fixtures built in Houston, TX.",
-    cover: a("SF1.JPG"),
-    images: ["SF1.JPG", "SF2.JPG", "SF3.JPG", "SF4.JPG"].map(a),
+    cover: a("white-oak-retail-display-1.jpg"),
+    images: ["white-oak-retail-display-1.jpg", "white-oak-retail-display-2.jpg", "white-oak-retail-display-3.jpg", "white-oak-retail-display-4.jpg"].map(a),
     specs: [
       ["Wood", "White oak"],
       ["Finish", "Cotton white"],
@@ -150,7 +152,55 @@ export const projects = [
   },
 ];
 
-export const categories = ["All", "Tables", "Cabinets & Displays", "Jeweler Benches"];
+// Keep existing project indices stable for service and city pages.
+const projectImageAlts = [
+  [
+    "Walnut dining table with a dark epoxy river and trestle base",
+    "Close view of walnut grain flowing beside a metallic epoxy river",
+    "Metallic patterns within the dark epoxy river",
+    "Walnut trestle legs with geometric surface details",
+    "Side view of the walnut table base and cross brace",
+    "Close view of the angular walnut table joinery"
+  ],
+  [
+    "Glass-topped jewelry display cabinets along a showroom wall",
+    "Corner arrangement of illuminated showroom display cabinets",
+    "Junction between glass panels and pale wood display framing",
+    "Close view of a wood display frame and glass corner",
+    "Wood grain detail on the edge of a glass-topped display cabinet"
+  ],
+  [
+    "Walnut jeweler workstation with a recessed tray and equipment mounts",
+    "Front view of the walnut workstation with lower storage",
+    "Walnut work surface surrounding a tool mount",
+    "Tool fixture beside the recessed workstation tray",
+    "Power outlet panel recessed into the walnut workstation"
+  ],
+  [
+    "Oak block tabletop with dark epoxy lines and curved trestle legs",
+    "Side profile of a geometric oak block table",
+    "Overhead view of oak blocks separated by dark epoxy lines",
+    "Side view of the table edge and curved oak base"
+  ],
+  [
+    "Mixed-hardwood mosaic tabletop on matching wood legs",
+    "Low side view of the mosaic table and laminated legs",
+    "Close view of contrasting wood blocks in the mosaic surface",
+    "Corner detail of the mosaic tabletop and supporting legs"
+  ],
+  [
+    "Tiered pale wood retail display with glass enclosure",
+    "Slatted wood display edge above dark legs",
+    "Joinery detail on the tiered wood retail display",
+    "Close view of the wood display front and hardware"
+  ]
+];
+existingProjects.forEach((project, index) => { project.imageAlts = projectImageAlts[index]; });
+
+export const projects = [...existingProjects, ...residentialProjects];
+export const portfolioProjects = [...residentialProjects, ...existingProjects];
+
+export const categories = ["All", "Tables", "Cabinets & Displays", "Jeweler Benches", "Built-ins & Storage", "Outdoor Woodwork"];
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug);
 
@@ -158,31 +208,41 @@ export const services = [
   {
     title: "Live-Edge & Epoxy River Tables",
     text: "Dining, conference and coffee tables cut from hand-selected slabs, finished to let the grain and natural edge lead.",
-    image: a("ED2.JPG"),
+    image: a("walnut-epoxy-river-table-2.jpg"),
   },
   {
     title: "Custom Cabinet Systems",
     text: "Cabinetry, shelving and built-ins measured and built for your room — not pulled from a catalog.",
-    image: a("JS2.JPG"),
+    image: a("jewelry-display-cabinets-2.jpg"),
   },
   {
     title: "Retail Display Furniture",
     text: "Showcases, display tables and casework with tempered glass and integrated LED lighting for stores and showrooms.",
-    image: a("SF4.JPG"),
+    image: a("white-oak-retail-display-4.jpg"),
   },
   {
     title: "Custom Jewelry Workbenches",
     text: "Ergonomic, adjustable workstations with catch trays and dust collection, designed around how setters actually work.",
-    image: a("DS4.JPG"),
+    image: a("walnut-jeweler-workbench-4.jpg"),
   },
   {
     title: "Custom Wood Furniture",
     text: "Made-to-order dining, coffee and accent furniture in walnut, white oak and mixed hardwoods. Discuss custom wood furniture in Houston with dimensions and finishes chosen for your room.",
-    image: a("OB1.JPG"),
+    image: a("geometric-oak-epoxy-table-1.jpg"),
   },
   {
     title: "Bespoke Woodworking Projects",
     text: "A distinctive idea deserves a clear design brief. Bring your dimensions, inspiration and intended use to discuss a bespoke piece for your Houston home or business.",
-    image: a("OM3.JPG"),
+    image: a("mixed-hardwood-mosaic-table-3.jpg"),
   },
 ];
+
+// A compact mix of residential work and the studio's existing furniture portfolio.
+export const featuredProjects = [
+  "natural-wood-kitchen-cabinetry",
+  "built-in-bench-and-storage",
+  "bathroom-vanity-and-linen-storage",
+  "covered-outdoor-kitchen",
+  "live-edge-walnut-epoxy-river-dining-table",
+  "custom-jewelry-display-cabinet-system",
+].map(getProject);

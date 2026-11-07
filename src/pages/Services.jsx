@@ -4,6 +4,8 @@ import { LocalizedLink as Link } from "../i18n/LanguageContext";
 import SEOHead, { breadcrumbs } from '../Components/SEOHead';
 import { PageHero, Eyebrow, CtaBand } from '../Components/Section';
 import { services, projects } from '../data/projects';
+import ServiceCard from '../Components/ServiceCard';
+import { woodworkingServices } from '../data/woodworking-services';
 import { img, srcSet } from '../utils/image';
 
 const details = [
@@ -18,9 +20,16 @@ const details = [
 export default function Services() {
   const { t } = useLanguage();
   return <>
-    <SEOHead canonical="/Services" jsonLd={breadcrumbs([['Home', '/'], ['Services', '/Services']])} />
+    <SEOHead canonical="/Services" ogImage="/Assets/residential/kitchen-wide.jpg" jsonLd={breadcrumbs([['Home', '/'], ['Services', '/Services']])} />
     <main id="main">
-      <PageHero eyebrow="Our Services" title={t("Custom Woodworking & Cabinets in Houston")} intro="Furniture, cabinetry and specialist workstations. Designed for your space, handcrafted in Houston." image="/Assets/JS2.JPG" />
+      <PageHero eyebrow="Our Services" title={t("Explore Our Houston Woodworking Services")} intro="Explore 20 custom woodworking services, plus specialist furniture, retail displays and jeweler workstations. Plan your project with Live Wood Studio." image="/Assets/residential/kitchen-wide.jpg" />
+      <section className="section"><div className="container">
+        <Eyebrow>From a single piece to a fitted room</Eyebrow><h2>Custom woodworking for the way you live</h2>
+        <p className="service-directory-intro">Explore <strong>custom kitchens, cabinetry and woodworking in Houston</strong>, with practical guidance and real client photography. Each service has its own design brief, project reference and quote link. Photography captions distinguish direct project examples from related design references.</p>
+        <div className="woodworking-service-grid">{woodworkingServices.map(service => <ServiceCard key={service.slug} service={service} />)}</div>
+        <p>Planning outside Houston? Read our <Link className="context-link" to="/service-areas">Greater Houston service-area guides</Link> for local project preparation.</p>
+      </div></section>
+      <section className="section"><div className="container"><Eyebrow>More from the studio</Eyebrow><h2>Furniture, displays & specialist workstations</h2><p>Explore the existing collection of made-to-order furniture, retail fixtures and professional jeweler benches.</p></div></section>
       <section className="section"><div className="container service-details">
         {services.map((service, i) => <article className="service-detail" id={`service-${i + 1}`} key={service.title}>
           <img src={img(service.image, { w: 900 })} srcSet={srcSet(service.image, [480, 900, 1300])} sizes="(max-width: 980px) 100vw, 50vw" alt={t(service.title)} loading="lazy" width="900" height="720" />

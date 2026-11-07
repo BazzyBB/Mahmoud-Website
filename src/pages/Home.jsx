@@ -8,7 +8,7 @@ import SEOHead from "../Components/SEOHead.jsx";
 import Icon from "../Components/Icons.jsx";
 import ProjectCard from "../Components/ProjectCard.jsx";
 import { Eyebrow, StoryBanner } from "../Components/Section.jsx";
-import { projects, services } from "../data/projects.js";
+import { featuredProjects, services } from "../data/projects.js";
 import { dedications, faqs, SITE, processSteps } from "../data/site.js";
 import { img, srcSet } from "../utils/image.js";
 import ContactActions from '../Components/ContactActions';
@@ -52,6 +52,7 @@ export default function Home() {
     <>
       <SEOHead
         canonical="/"
+        ogImage="/Assets/residential/kitchen-wide.jpg"
         jsonLd={faqSchema}
       />
       <main id="main">
@@ -65,10 +66,11 @@ export default function Home() {
             <div className="section-head" data-reveal>
               <Eyebrow>{t("What We Build")}</Eyebrow>
               <h2 id="services-heading">{t("Custom Woodworking Services in Greater Houston")}</h2>
-              <p>{t(" From a single statement table to a full showroom fit-out, every piece is designed around your space and built by hand. ")}</p>
+              <p>{t(" Live Wood Studio creates custom wood furniture and cabinetry in Houston, TX. From a statement dining table to a fitted room or showroom, start with your space and how you use it. ")}</p>
             </div>
+            <p className="service-home-links">Plan <Link className="context-link" to="/Services/custom-kitchens">custom kitchens</Link>, <Link className="context-link" to="/Services/libraries-custom-built-ins">libraries and built-ins</Link> or <Link className="context-link" to="/Services/outdoor-kitchens">outdoor kitchens</Link> with our <strong>Houston custom woodworking studio</strong>. For <strong>custom wood furniture in Houston</strong>, compare <Link className="context-link" to="/Services/live-edge-tables">live-edge dining tables</Link> and <Link className="context-link" to="/Services/epoxy-tables">epoxy river tables</Link>. Explore <Link className="context-link" to="/Services">all 20 services</Link> for your next project.</p>
             <div className="service-grid">
-              {services.map((s) => (
+              {services.map((s, i) => (
                 <article className="service-card" key={s.title} data-reveal>
                   <div className="service-img">
                     <img
@@ -82,7 +84,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="service-body">
-                    <h3>{t(s.title)}</h3>
+                    <h3><Link to={["/Services/live-edge-tables", "/Services/custom-cabinets-closets", "/Services/custom-showcases", "/Services#service-4", "/Gallery", "/Services"][i]}>{t(s.title)}</Link></h3>
                     <p>{t(s.text)}</p>
                   </div>
                 </article>
@@ -100,8 +102,8 @@ export default function Home() {
               <p>{t("A selection of tables, cabinetry and display pieces we've designed and built in our Houston studio.")}</p>
             </div>
             <div className="project-grid">
-              {projects.map((p) => (
-                <ProjectCard key={p.slug} project={p} />
+              {featuredProjects.map((p) => (
+                <ProjectCard key={p.slug} project={p} sizes={p === featuredProjects[0] ? "100vw" : "(max-width: 980px) 100vw, 50vw"} />
               ))}
             </div>
             <div className="center mt-lg">
@@ -116,8 +118,8 @@ export default function Home() {
           <div className="container split">
             <figure className="split-media framed" data-reveal>
               <img
-                src={img("/Assets/DS4.JPG", { w: 900, q: 75 })}
-                srcSet={srcSet("/Assets/DS4.JPG", [480, 900, 1300])}
+                src={img("/Assets/walnut-jeweler-workbench-4.jpg", { w: 900, q: 75 })}
+                srcSet={srcSet("/Assets/walnut-jeweler-workbench-4.jpg", [480, 900, 1300])}
                 sizes="(max-width: 900px) 100vw, 45vw"
                 alt={t("Solid walnut diamond setting bench handcrafted by Live Wood Studio in Houston")}
                 loading="lazy"

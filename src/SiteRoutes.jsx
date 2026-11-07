@@ -5,6 +5,7 @@ import Home from "./pages/Home.jsx"
 import AboutUs from "./pages/AboutUs.jsx";
 import Gallery from "./pages/Gallery.jsx";
 import ContactUs from "./pages/ContactUs.jsx";
+import ServiceDetail from "./pages/ServiceDetail.jsx";
 import Services from "./pages/Services.jsx";
 import Materials from "./pages/Materials.jsx";
 import Process from "./pages/Process.jsx";
@@ -27,6 +28,7 @@ export default function SiteRoutes() {
         <Route path="ContactUs" element={<ContactUs />} />
         <Route path="Gallery/:slug" element={<Gallery />} />
         <Route path="Services" element={<Services />} />
+        <Route path="Services/:slug" element={<ServiceDetail />} />
         <Route path="Materials" element={<Materials />} />
         <Route path="Process" element={<Process />} />
         <Route path="service-areas" element={<ServiceAreas />} />

@@ -9,7 +9,8 @@ import Icon from '../Components/Icons';
 import { AreaBreadcrumbs, AreaContact } from './ServiceAreas';
 import NotFound from './NotFound';
 import { getArea, areaByKey, coverageNotice } from '../data/service-areas';
-import { projects, services } from '../data/projects';
+import { projects, getProject } from '../data/projects';
+import { getService } from '../data/woodworking-services';
 import { SITE } from '../data/site';
 import { img, srcSet } from '../utils/image';
 
@@ -18,7 +19,8 @@ export default function ServiceAreaCity() {
   const { t } = useLanguage();
   const area = getArea(slug);
   if (!area) return <NotFound />;
-  const reference = projects[area.gallery[0]];
+  const localProjects = area.projectSlugs ? area.projectSlugs.map(getProject) : area.gallery.map(index => projects[index]);
+  const reference = localProjects[0];
   const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: area.faqs.map(([q, a]) => ({ '@type': 'Question', name: t(q), acceptedAnswer: { '@type': 'Answer', text: t(a) } })) };
   // No areaServed assertion: address-specific coverage is not yet confirmed.
   const serviceSchema = {
@@ -49,7 +51,8 @@ export default function ServiceAreaCity() {
       </div></section>
       <section className="area-services-section"><div className="container">
         <div className="area-section-intro"><div><Eyebrow>From the brief to the build</Eyebrow><h2>{t('Woodworking to discuss for your space')}</h2></div><p>{t('Explore the relevant services, then ask the studio to confirm the scope that fits your project.')}</p></div>
-        <div className="area-service-list">{area.services.map(([index, text], order) => <article key={index}><span className="area-index" aria-hidden="true">0{order + 1}</span><div><h3>{t(services[index].title)}</h3><p>{t(text)}</p><Link className="text-link" to={`/Services#service-${index + 1}`}>{t('Explore service details')}<Icon name="arrow" size={16} /></Link></div></article>)}</div>
+        <p className="area-service-keyword">Discuss <strong>custom woodworking in {area.city}, TX</strong> with a brief focused on your space, intended use and access requirements.</p>
+        <div className="area-service-list">{area.serviceSlugs.map((slug, order) => { const service = getService(slug); return <article key={slug}><span className="area-index" aria-hidden="true">0{order + 1}</span><div><h3><Link to={service.path}>{service.title} in {area.city}</Link></h3><p>{service.summary}</p><Link className="text-link" to={service.path}>Explore service details<Icon name="arrow" size={16} /></Link></div></article>; })}</div>
       </div></section>
       <section className="section"><div className="container area-benefits-layout">
         <div><Eyebrow>A direct conversation with the studio</Eyebrow><h2>{t('A piece with your decisions built in.')}</h2><p>{t('Work from a clear brief, compare real material options and agree the details of your piece before moving forward.')}</p></div>
@@ -61,7 +64,7 @@ export default function ServiceAreaCity() {
       </div></section>
       <section className="section area-project-section"><div className="container">
         <div className="section-head"><Eyebrow>Real work. Useful references.</Eyebrow><h2>{t('Explore the craft behind the conversation')}</h2><p>{t('Authentic Live Wood Studio projects, shown for design and material reference. Project locations are not attributed to this city.')}</p></div>
-        <div className="project-grid">{area.gallery.map(index => <ProjectCard key={projects[index].slug} project={projects[index]} reveal={false} />)}</div>
+        <div className="project-grid">{localProjects.map(project => <ProjectCard key={project.slug} project={project} reveal={false} />)}</div>
         <Link className="text-link" to="/Gallery">{t('Explore the Full Portfolio')}<Icon name="arrow" size={18} /></Link>
       </div></section>
       <section className="section faq"><div className="container faq-inner">
