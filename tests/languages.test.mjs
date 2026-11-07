@@ -24,7 +24,7 @@ try {
   assert.equal(localizedTo('/Services#service-2','ar'),'/Services#service-2');
   assert.ok(renderPage('/admin?lang=ar').body.includes('Administrator sign-in'));
   const home=renderPage('/').body;
-  const markers=['class="hero"','id="services-heading"','id="work-heading"','id="about-heading"','id="home-process-heading"','id="home-areas-heading"','id="quick-quote"'];
+  const markers=['class="hero hero-showcase"','id="services-heading"','id="work-heading"','id="about-heading"','id="home-process-heading"','id="home-areas-heading"','id="quick-quote"'];
   let previous=-1;
   for(const marker of markers){const position=home.indexOf(marker);assert.ok(position>previous,`Homepage order: ${marker}`);previous=position;}
   console.log('PASS: English-only routes, legacy language URLs, navigation, contact actions and homepage sequence.');

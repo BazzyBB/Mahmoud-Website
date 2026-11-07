@@ -2,8 +2,13 @@ import { createServer } from 'vite';
 
 export function renderDocument(template, { head, body }) {
   if (!template.includes('<div id="root"></div>')) throw new Error('Missing React root in HTML template.');
+  // Discover the exact responsive LCP request before styles or hydration run.
+  // Copy SSR attributes verbatim, including HTML escaping, to avoid a second download.
+  const hero = body.match(/<img\b[^>]*class="hero-photo"[^>]*>/)?.[0];
+  const attribute = name => hero?.match(new RegExp(`\\s${name}="([^"]*)"`))?.[1];
+  const preload = hero ? `<link rel="preload" as="image" href="${attribute('src')}" imagesrcset="${attribute('srcSet') || attribute('srcset')}" imagesizes="${attribute('sizes')}" fetchpriority="high">` : '';
   return template.replace(/<title\b[^>]*>[\s\S]*?<\/title>/gi, '')
-    .replace('</head>', `${head}\n</head>`)
+    .replace('</head>', `${preload}\n${head}\n</head>`)
     .replace('<div id="root"></div>', () => `<div id="root">${body}</div>`);
 }
 
