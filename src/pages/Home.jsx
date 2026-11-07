@@ -118,10 +118,10 @@ export default function Home() {
           <div className="container split">
             <figure className="split-media framed" data-reveal>
               <img
-                src={img("/Assets/walnut-jeweler-workbench-4.jpg", { w: 900, q: 75 })}
-                srcSet={srcSet("/Assets/walnut-jeweler-workbench-4.jpg", [480, 900, 1300])}
+                src={img("/Assets/residential/built-in-bench.jpg", { w: 900, q: 80 })}
+                srcSet={srcSet("/Assets/residential/built-in-bench.jpg", [480, 900, 1300], { q: 80 })}
                 sizes="(max-width: 900px) 100vw, 45vw"
-                alt={t("Solid walnut diamond setting bench handcrafted by Live Wood Studio in Houston")}
+                alt={t("Natural wood built-in cabinetry framing an olive green upholstered bench")}
                 loading="lazy"
                 width="900"
                 height="675"
