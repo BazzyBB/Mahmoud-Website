@@ -9,6 +9,7 @@ import { img } from "../utils/image.js";
 
 const stepImages = ["/Assets/JS4.JPG", "/Assets/OM4.jpeg", "/Assets/DS5.JPG", "/Assets/ED3.JPG", "/Assets/JS2.JPG"];
 
+
 export default function Process() {
   const { t } = useLanguage();
   const { trackButtonClick } = useAnalytics();
