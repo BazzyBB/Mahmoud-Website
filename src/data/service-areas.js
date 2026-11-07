@@ -1,12 +1,18 @@
+import { additionalServiceAreas } from "./additional-service-areas";
+
 export const coverageNotice = 'Serving Greater Houston, from Galveston to Magnolia and Kingwood to Richmond. Share your project address to coordinate site measurements, delivery and installation.';
-export const areaGroups = [{"title": "Houston & West Houston", "cities": ["houston", "katy", "sugar-land", "richmond"]}, {"title": "North Houston & the Coast", "cities": ["the-woodlands", "kingwood", "magnolia", "galveston"]}];
+export const areaGroups = [
+  { title: 'Houston & Northwest', cities: ['houston', 'houston-heights', 'cypress', 'katy'] },
+  { title: 'North & West Houston', cities: ['the-woodlands', 'kingwood', 'magnolia', 'sugar-land', 'richmond'] },
+  { title: 'South Houston & the Coast', cities: ['pearland', 'friendswood', 'league-city', 'webster', 'la-porte', 'galveston'] },
+];
 const areas = [
   {
     "key": "houston",
     "city": "Houston",
-    "h1": "Custom Woodworking Houston TX: Furniture & Cabinets",
-    "title": "Custom Woodworking Houston TX: Furniture & Cabinets",
-    "meta": "Custom Woodworking Houston TX: Furniture & Cabinets. Explore studio work, plan materials and delivery with Live Wood Studio, and request a custom quote.",
+    "h1": "Houston Woodworking Project Planning Guide",
+    "title": "Houston Woodworking Project Planning Guide",
+    "meta": "Planning a woodworking project in Houston? Compare room layouts, access and delivery needs with Live Wood Studio, then explore services and request a quote.",
     "heading": "Designing furniture for the way Houston lives and works",
     "lead": "From a dining room centerpiece to a retail display, a Houston woodworking project starts with how the space is used. Share the room layout, the people who use it and the details that ready-made furniture cannot solve.",
     "paragraphs": [
@@ -434,7 +440,18 @@ const areas = [
     ]
   }
 ];
-export const serviceAreas = areas.map(area => ({ ...area, slug: `${area.key}-tx`, path: `/service-areas/${area.key}-tx` }));
-export const featuredAreaKeys = areas.map(area => area.key);
+const serviceFocus = {
+  houston: ["custom-kitchens", "live-edge-tables", "custom-mantels"],
+  katy: ["floating-shelves", "custom-cabinets-closets", "custom-desks"],
+  "sugar-land": ["custom-showcases", "custom-cabinets-closets", "epoxy-tables"],
+  "the-woodlands": ["libraries-custom-built-ins", "rolling-ladders", "custom-cabinets-closets"],
+  kingwood: ["custom-bunk-beds", "custom-cabinets-closets", "libraries-custom-built-ins"],
+  richmond: ["custom-staircases", "live-edge-tables", "wood-staining-sealing"],
+  galveston: ["outdoor-kitchens", "wood-staining-sealing", "live-edge-tables"],
+  magnolia: ["custom-desks", "custom-cabinets-closets", "live-edge-tables"],
+};
+
+export const serviceAreas = [...areas, ...additionalServiceAreas].map(area => ({ ...area, serviceSlugs: area.serviceSlugs || serviceFocus[area.key] })).map(area => ({ ...area, slug: `${area.key}-tx`, path: `/service-areas/${area.key}-tx` }));
+export const featuredAreaKeys = serviceAreas.map(area => area.key);
 export const getArea = slug => serviceAreas.find(area => area.slug === slug);
 export const areaByKey = key => serviceAreas.find(area => area.key === key);

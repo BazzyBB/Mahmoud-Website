@@ -2,13 +2,14 @@ import { useLanguage } from "../i18n/LanguageContext";
 import React, { useEffect, useRef, useState } from 'react';
 import { LocalizedLink as Link } from "../i18n/LanguageContext";
 import { img, srcSet } from '../utils/image';
-import { projects } from '../data/projects';
+import { getProject } from '../data/projects';
 
-function getSlides(t) { const slides = [
-  { project: projects[0], image: '/Assets/ED2.JPG', title: <>Custom Woodworking & Furniture<br /><em>in Houston, TX</em></>, text: 'Discover custom wood furniture, live-edge tables, cabinetry, retail displays, and precision workstations handcrafted for homes and businesses throughout Greater Houston.' },
-  { project: projects[1], image: '/Assets/JS1.JPG', title: <>{t("Your space.")}<br /><em>{t("Precisely")}</em>{t(" crafted.")}</>, text: 'Custom cabinetry and illuminated displays, designed around your space and the things you treasure.' },
-  { project: projects[2], image: '/Assets/DS4.JPG', title: <>{t("Made by hand.")}<br />{t("Built for ")}<em>{t("yours.")}</em></>, text: 'Solid walnut workstations that bring thoughtful design and everyday precision together.' },
-]; return slides; }
+function getSlides(t) { return [
+  { project: getProject('natural-wood-kitchen-cabinetry'), image: '/Assets/residential/kitchen-wide.jpg', position: '62% center', title: <>Custom Woodworking & Furniture<br /><em>in Houston, TX</em></>, text: 'Natural wood cabinetry, thoughtful storage and furniture made for the way you live. Explore ideas for your home and business.' },
+  { project: getProject('built-in-bench-and-storage'), image: '/Assets/residential/built-in-bench.jpg', position: '65% center', title: <>{t("Room to settle in.")}<br /><em>{t("Space to store.")}</em></>, text: 'A quiet seat framed by wood cabinetry, open shelves and everyday storage. Discover built-ins that bring a room together.' },
+  { project: getProject('covered-outdoor-kitchen'), image: '/Assets/residential/outdoor-kitchen.jpg', position: '65% center', title: <>{t("Gather outside.")}<br /><em>{t("Stay a little longer.")}</em></>, text: 'Warm wood cabinetry and a covered cooking area bring the heart of the home outdoors.' },
+  { project: getProject('live-edge-walnut-epoxy-river-dining-table'), image: '/Assets/walnut-epoxy-river-table-2.jpg', alt: 'Walnut dining table with a metallic epoxy river and natural live edges', title: <>{t("Natural edges.")}<br /><em>{t("One-of-a-kind tables.")}</em></>, text: 'Explore live-edge wood and epoxy river tables, with distinctive grain and handcrafted details.' },
+]; }
 
 export default function HeroSlider() {
   const { t } = useLanguage();
@@ -37,7 +38,7 @@ export default function HeroSlider() {
     onTouchStart={e => { touch.current = e.touches[0].clientX; }}
     onTouchEnd={e => { if (touch.current !== null) { const delta = touch.current - e.changedTouches[0].clientX; if (Math.abs(delta) > 50) move(delta > 0 ? 1 : -1); } touch.current = null; }}>
     {slides.map((slide, i) => <div className={`hero-slide ${i === active ? 'is-active' : ''}`} key={slide.image} aria-hidden={i !== active} inert={i !== active ? '' : undefined} aria-roledescription="slide" aria-label={t(`${i + 1} of ${slides.length}`)}>
-      <img loading={i === 0 ? "eager" : "lazy"} width="1920" height="1280" className="hero-photo" src={img(slide.image, { w: 1920, q: 80 })} srcSet={srcSet(slide.image, [800, 1200, 1920], { q: 80 })} sizes="100vw" alt={t(slide.project.title)} fetchpriority={i === 0 ? 'high' : 'auto'} />
+      {(i === 0 || i === active) && <img loading={i === 0 ? "eager" : "lazy"} width="1920" height="1280" className="hero-photo" style={{ objectPosition: slide.position }} src={img(slide.image, { w: 1920, q: 80 })} srcSet={srcSet(slide.image, [800, 1200, 1920], { q: 80 })} sizes="100vw" alt={t(slide.alt || slide.project.imageAlts?.[0] || slide.project.title)} fetchpriority={i === 0 ? 'high' : 'auto'} />}
       <div className="hero-shade" />
       <div className="container hero-inner">
         <p className="eyebrow">{t("Houston, Texas · Custom Woodworking")}</p>

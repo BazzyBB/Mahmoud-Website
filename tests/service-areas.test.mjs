@@ -9,10 +9,10 @@ try {
   const { serviceAreas, areaGroups, featuredAreaKeys, areaByKey, coverageNotice } = await server.ssrLoadModule('/src/data/service-areas.js');
   const { SEO_PAGES } = await server.ssrLoadModule('/src/data/seo.js');
   const escape = text => text.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll("'", '&#x27;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
-  assert.equal(serviceAreas.length, 8);
-  assert.equal(new Set(serviceAreas.map(area => area.slug)).size, 8);
-  assert.equal(new Set(areaGroups.flatMap(group => group.cities)).size, 8);
-  assert.ok(areaGroups.every(group => group.cities.length === 4));
+  assert.equal(serviceAreas.length, 15);
+  assert.equal(new Set(serviceAreas.map(area => area.slug)).size, 15);
+  assert.equal(new Set(areaGroups.flatMap(group => group.cities)).size, 15);
+  assert.deepEqual(new Set(areaGroups.flatMap(group => group.cities)), new Set(serviceAreas.map(area => area.key)), "Directory groups include each location once");
   const directory = renderPage('/service-areas');
   const home = renderPage('/').body;
   for (const area of serviceAreas) assert.ok(directory.body.includes(`href="${area.path}"`));
@@ -63,5 +63,5 @@ try {
 
   assert.ok(fs.readFileSync('netlify.toml', 'utf8').includes('status = 404'));
   assert.ok(fs.readFileSync('public/robots.txt', 'utf8').includes('Sitemap: https://livewoodstudio.com/sitemap.xml'));
-  console.log('PASS: Eight Houston service areas, distinct content, metadata, links, breadcrumbs and verified business schema.');
+  console.log('PASS: Fifteen Greater Houston service areas, distinct content, metadata, links, breadcrumbs and verified business schema.');
 } finally { await server.close(); }

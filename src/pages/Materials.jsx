@@ -6,9 +6,9 @@ import { PageHero, Eyebrow, CtaBand } from '../Components/Section';
 import { img } from '../utils/image';
 
 const materials = [
-  { title: 'American black walnut', image: '/Assets/ED3.JPG', description: 'Rich brown tones and expressive grain give walnut its distinctive character. Our river table pairs a natural live edge with metallic epoxy.', link: 'live-edge-walnut-epoxy-river-dining-table' },
-  { title: 'White oak', image: '/Assets/OB2.JPG', description: 'A lighter palette with visible grain. Explore it in cotton-white display furniture and the geometric block table.', link: 'geometric-oak-block-epoxy-table' },
-  { title: 'Mixed hardwoods', image: '/Assets/OM3.JPG', description: 'Walnut, cherry, maple, white oak, red oak and mahogany bring contrasting colors and grain into a single mosaic surface.', link: 'mixed-hardwood-mosaic-epoxy-table' },
+  { title: 'American black walnut', image: '/Assets/walnut-epoxy-river-table-3.jpg', description: 'Rich brown tones and expressive grain give walnut its distinctive character. Our river table pairs a natural live edge with metallic epoxy.', link: 'live-edge-walnut-epoxy-river-dining-table' },
+  { title: 'White oak', image: '/Assets/geometric-oak-epoxy-table-2.jpg', description: 'A lighter palette with visible grain. Explore it in cotton-white display furniture and the geometric block table.', link: 'geometric-oak-block-epoxy-table' },
+  { title: 'Mixed hardwoods', image: '/Assets/mixed-hardwood-mosaic-table-3.jpg', description: 'Walnut, cherry, maple, white oak, red oak and mahogany bring contrasting colors and grain into a single mosaic surface.', link: 'mixed-hardwood-mosaic-epoxy-table' },
 ];
 
 export default function Materials() {
@@ -16,7 +16,7 @@ export default function Materials() {
   return <>
     <SEOHead canonical="/Materials" jsonLd={breadcrumbs([['Home', '/'], ['Materials', '/Materials']])} />
     <main id="main">
-      <PageHero eyebrow="Materials & Finishes" title={t("Walnut or White Oak? A Furniture Wood Guide")} intro="A guide to the woods and details in our work. Every board is different; your piece begins with that character." image="/Assets/OM3.JPG" />
+      <PageHero eyebrow="Materials & Finishes" title={t("Walnut or White Oak? A Furniture Wood Guide")} intro="A guide to the woods and details in our work. Every board is different; your piece begins with that character." image="/Assets/mixed-hardwood-mosaic-table-3.jpg" />
       <section className="section"><div className="container">
         <div className="section-head"><Eyebrow>{t("Find your direction")}</Eyebrow><h2>{t("Warm walnut.")}<br />{t("Quiet oak. Something unexpected.")}</h2><p>{t("These are examples from completed projects, rather than exact color samples. Natural variation, lighting and your screen all affect how a wood or finish appears.")}</p></div>
         <div className="material-grid">{materials.map(m => <article className="material-card" key={m.title}>
@@ -39,7 +39,7 @@ export default function Materials() {
         <div className="finish-list">
           <article><h3>{t("Epoxy & natural edges")}</h3><p>{t("Clear epoxy can reveal a mosaic of hardwoods; metallic epoxy brings contrast to a river table. Discuss color, edge style and the overall surface with the studio.")}</p></article>
           <article><h3>{t("Glass, lighting & hardware")}</h3><p>{t("For display cabinetry, consider what needs to be visible, how it should be illuminated, and the storage you need below.")}</p></article>
-          <article><h3>{t("Daily use & care")}</h3><p>{t("Tell us how you intend to use your piece. Confirm the selected finish and its care instructions with the studio before using cleaning products or treatments.")}</p></article>
+          <article><h3>{t("Daily use & care")}</h3><p>Explore <Link className="context-link" to="/Services/wood-staining-sealing">wood staining and sealing</Link> for practical questions about samples, exposure and finish compatibility.</p><p>{t("Tell us how you intend to use your piece. Confirm the selected finish and its care instructions with the studio before using cleaning products or treatments.")}</p></article>
         </div>
       </div></section>
       <section className="section"><div className="container consultation-note"><Eyebrow>{t("Your consultation")}</Eyebrow><h2>{t("You don’t need all the answers yet.")}</h2><p>{t("Start with your room dimensions and a few reference images. We can talk through wood, finish, size and the practical details together.")}</p><Link className="btn btn-dark" to="/ContactUs">{t("Discuss your project")}</Link></div></section>

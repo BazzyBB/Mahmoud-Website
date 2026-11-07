@@ -3,7 +3,7 @@ import React from "react";
 import { LocalizedLink as Link } from "../i18n/LanguageContext";
 import { img, srcSet } from "../utils/image";
 
-export default function ProjectCard({ project, sizes = "(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw", reveal = true }) {
+export default function ProjectCard({ project, sizes = "(max-width: 980px) 100vw, 50vw", reveal = true }) {
   const { t } = useLanguage();
   return (
     <Link to={`/Gallery/${project.slug}`} className="project-card" {...(reveal ? { "data-reveal": "" } : {})}>
@@ -12,7 +12,7 @@ export default function ProjectCard({ project, sizes = "(max-width: 700px) 100vw
           src={img(project.cover, { w: 800, h: 600, fit: "cover" })}
           srcSet={srcSet(project.cover, [480, 800, 1200])}
           sizes={sizes}
-          alt={t(`${project.shortTitle} — custom woodworking by Live Wood Studio, Houston TX`)}
+          alt={t(project.imageAlts?.[0] || `${project.shortTitle} — custom woodworking by Live Wood Studio, Houston TX`)}
           loading="lazy"
           decoding="async"
           width="800"

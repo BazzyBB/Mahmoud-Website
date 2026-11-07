@@ -2,6 +2,147 @@
   publish = "dist"
   command = "npm run build"
 
+# Preserve shared image links after descriptive filename updates.
+[[redirects]]
+  from = "/Assets/DS1.JPG"
+  to = "/Assets/walnut-jeweler-workbench-1.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/DS2.JPG"
+  to = "/Assets/walnut-jeweler-workbench-2.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/DS3.JPG"
+  to = "/Assets/walnut-jeweler-workbench-3.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/DS4.JPG"
+  to = "/Assets/walnut-jeweler-workbench-4.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/DS5.JPG"
+  to = "/Assets/walnut-jeweler-workbench-5.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/ED1.JPG"
+  to = "/Assets/walnut-epoxy-river-table-1.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/ED2.JPG"
+  to = "/Assets/walnut-epoxy-river-table-2.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/ED3.JPG"
+  to = "/Assets/walnut-epoxy-river-table-3.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/ED4.JPG"
+  to = "/Assets/walnut-epoxy-river-table-4.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/ED5.JPG"
+  to = "/Assets/walnut-epoxy-river-table-5.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/ED6.JPG"
+  to = "/Assets/walnut-epoxy-river-table-6.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/JS1.JPG"
+  to = "/Assets/jewelry-display-cabinets-1.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/JS2.JPG"
+  to = "/Assets/jewelry-display-cabinets-2.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/JS3.JPG"
+  to = "/Assets/jewelry-display-cabinets-3.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/JS4.JPG"
+  to = "/Assets/jewelry-display-cabinets-4.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/JS5.JPG"
+  to = "/Assets/jewelry-display-cabinets-5.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/OB1.JPG"
+  to = "/Assets/geometric-oak-epoxy-table-1.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/OB2.JPG"
+  to = "/Assets/geometric-oak-epoxy-table-2.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/OB3.JPG"
+  to = "/Assets/geometric-oak-epoxy-table-3.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/OB4.JPG"
+  to = "/Assets/geometric-oak-epoxy-table-4.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/OM1.JPG"
+  to = "/Assets/mixed-hardwood-mosaic-table-1.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/OM2.jpeg"
+  to = "/Assets/mixed-hardwood-mosaic-table-2.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/OM3.JPG"
+  to = "/Assets/mixed-hardwood-mosaic-table-3.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/OM4.jpeg"
+  to = "/Assets/mixed-hardwood-mosaic-table-4.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/SF1.JPG"
+  to = "/Assets/white-oak-retail-display-1.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/SF2.JPG"
+  to = "/Assets/white-oak-retail-display-2.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/SF3.JPG"
+  to = "/Assets/white-oak-retail-display-3.jpg"
+  status = 301
+
+[[redirects]]
+  from = "/Assets/SF4.JPG"
+  to = "/Assets/white-oak-retail-display-4.jpg"
+  status = 301
+
 [[redirects]]
   from = "/*"
   to = "/404.html"

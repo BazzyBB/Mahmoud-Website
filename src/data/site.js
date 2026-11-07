@@ -7,7 +7,7 @@ export const SITE = {
   smsHref: "sms:+14698881330",
   city: "Houston",
   region: "TX",
-  serviceAreas: ["Houston", "Galveston", "Magnolia", "Kingwood", "Richmond", "Katy", "Sugar Land", "The Woodlands", "Spring", "Cypress", "Tomball", "Conroe", "Pearland", "Friendswood", "League City", "Webster", "Pasadena", "Missouri City", "Stafford", "Rosenberg", "Fulshear", "Bellaire", "Memorial"],
+  serviceAreas: ["Houston", "Houston Heights", "La Porte", "Galveston", "Magnolia", "Kingwood", "Richmond", "Katy", "Sugar Land", "The Woodlands", "Spring", "Cypress", "Tomball", "Conroe", "Pearland", "Friendswood", "League City", "Webster", "Pasadena", "Missouri City", "Stafford", "Rosenberg", "Fulshear", "Bellaire", "Memorial"],
   hours: [
     ["Monday – Friday", "8:00 AM – 5:00 PM"],
     ["Saturday", "9:00 AM – 3:00 PM"],
@@ -70,6 +70,14 @@ export const processSteps = [
 ];
 
 export const faqs = [
+  {
+    q: "How do I choose a custom furniture maker near me?",
+    a: "Start with real project photographs and ask how the maker approaches dimensions, materials and finish samples. Live Wood Studio serves Greater Houston; share your project address, room photographs and intended use to discuss a clear scope and delivery arrangements.",
+  },
+  {
+    q: "What affects the cost and timing of custom woodworking?",
+    a: "Dimensions, wood selection, hardware, finish and installation requirements shape the proposal. Send your priorities, budget range and preferred timing. Confirm the approved design, material availability and schedule with the studio before planning other work around delivery.",
+  },
   {
     q: "What kind of custom woodworking do you do?",
     a: "Live Wood Studio builds custom furniture and cabinetry in Houston, Texas — live-edge and epoxy river tables, coffee and dining tables, custom cabinets and built-ins, jewelry and retail display cases, and diamond setting benches for jewelers.",

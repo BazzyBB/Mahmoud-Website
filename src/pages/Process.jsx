@@ -7,7 +7,7 @@ import { PageHero, CtaBand, Eyebrow } from "../Components/Section.jsx";
 import { processSteps } from "../data/site.js";
 import { img } from "../utils/image.js";
 
-const stepImages = ["/Assets/JS4.JPG", "/Assets/OM4.jpeg", "/Assets/DS5.JPG", "/Assets/ED3.JPG", "/Assets/JS2.JPG"];
+const stepImages = ["/Assets/jewelry-display-cabinets-4.jpg", "/Assets/mixed-hardwood-mosaic-table-4.jpg", "/Assets/walnut-jeweler-workbench-5.jpg", "/Assets/walnut-epoxy-river-table-3.jpg", "/Assets/jewelry-display-cabinets-2.jpg"];
 
 export default function Process() {
   const { t } = useLanguage();
@@ -23,7 +23,7 @@ export default function Process() {
           eyebrow="Our Process"
           title={t("Our Custom Furniture Design & Build Process")}
           intro="Collaborative creativity, guiding you through every step from concept to completion."
-          image="/Assets/DS3.JPG"
+          image="/Assets/walnut-jeweler-workbench-3.jpg"
         />
         <section className="section">
           <div className="container">
