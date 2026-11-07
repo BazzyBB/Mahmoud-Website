@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import SiteRoutes from "./SiteRoutes.jsx";
-import { useAnalytics } from "./hooks/useAnalytics.js";
+import { usePageViewTracking } from "./hooks/useAnalytics.js";
 import "./index.css";
 
 function App() {
@@ -23,7 +23,7 @@ function AppContent() {
       window.location.replace(`/admin${window.location.hash}`);
     }
   }, []);
-  useAnalytics();
+  usePageViewTracking();
 
   return <SiteRoutes />;
 }

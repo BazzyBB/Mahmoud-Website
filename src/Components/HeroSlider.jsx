@@ -49,7 +49,7 @@ export default function HeroSlider() {
     </div>)}
     <div className="container hero-bottom">
       <div className="slide-pagination" aria-label={t("Choose a slide")}>{slides.map((s, i) => <button key={s.image} className={i === active ? 'active' : ''} aria-label={t(`Show ${s.project.shortTitle}`)} aria-current={i === active ? 'true' : undefined} onClick={() => { setActive(i); setPaused(true); }}><span>0{t(i + 1)}</span><i /></button>)}</div>
-      <div className="slider-controls"><span className="slider-caption">{t("Made to order. Made to last.")}</span><button aria-label={t("Previous slide")} onClick={() => move(-1)}>←</button><button aria-label={t(paused || reduced ? 'Play slideshow' : 'Pause slideshow')} onClick={() => { setReduced(false); setPaused(p => !p); }}>{t(paused || reduced ? '▷' : 'Ⅱ')}</button><button aria-label={t("Next slide")} onClick={() => move(1)}>→</button></div>
+      <div className="slider-controls"><span className="slider-caption">{t("Made to order. Made to last.")}</span><button aria-label={t("Previous slide")} onClick={() => move(-1)}>←</button><button aria-label={t(paused || reduced ? 'Play slideshow' : 'Pause slideshow')} onClick={() => { if (paused || reduced) { setReduced(false); setPaused(false); } else { setPaused(true); } }}>{t(paused || reduced ? '▷' : 'Ⅱ')}</button><button aria-label={t("Next slide")} onClick={() => move(1)}>→</button></div>
     </div>
     <span className="sr-only" aria-live={paused ? 'polite' : 'off'}>{t(slides[active].project.shortTitle)}</span>
   </section>;
