@@ -38,6 +38,11 @@ try {
     for (const match of page.body.matchAll(/href="(\/[^"]*)"/g)) {
       const url = new URL(match[1].replaceAll('&amp;', '&'), 'https://livewoodstudio.com');
       if (url.pathname === '/sitemap.xml') continue;
+      // Download links to original project photos are assets, not React routes.
+      if (url.pathname.startsWith('/Assets/')) {
+        assert.ok(fs.existsSync(`public${url.pathname}`), `Linked asset ${url.pathname}`);
+        continue;
+      }
       const target = pages.get(url.pathname);
       assert.ok(target, `Internal link ${url.pathname} from ${path}`);
       if (url.hash) assert.ok(target.body.includes(`id="${url.hash.slice(1)}"`), `Anchor ${url.hash} from ${path}`);

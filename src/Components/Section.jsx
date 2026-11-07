@@ -5,7 +5,7 @@ import { LocalizedLink as Link } from "../i18n/LanguageContext";
 import { navLinks } from "../data/site";
 import { projects } from "../data/projects";
 import Icon from "./Icons";
-import { img } from "../utils/image";
+import { img, srcSet } from "../utils/image";
 
 export function Eyebrow({ children, center }) {
   const { t } = useLanguage();
@@ -32,7 +32,8 @@ export function PageHero({ eyebrow, title, intro, image }) {
 export function StoryBanner() {
   const { t } = useLanguage();
   return (
-    <section className="story-banner" style={{ "--banner-img": `url("${img("/Assets/Background.jpg", { w: 2000, q: 70 })}")` }}>
+    <section className="story-banner">
+      <img className="story-banner-photo" src={img('/Assets/Background.jpg', { w: 1600, q: 70 })} srcSet={srcSet('/Assets/Background.jpg', [640, 960, 1280, 1600, 2000], { q: 70 })} sizes="100vw" width="2000" height="1333" loading="lazy" decoding="async" alt="" />
       <div className="container story-banner-inner" data-reveal>
         <p>{t(" Whether you're furnishing a cozy reading nook, upgrading a living room, or designing a statement piece, we're committed to delivering furniture that not only fits your space—but becomes a part of your story. ")}</p>
         <p className="story-quote">{t("Let's make something extraordinary—just for you.")}</p>

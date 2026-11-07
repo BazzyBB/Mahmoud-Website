@@ -38,7 +38,7 @@ export default function HeroSlider() {
     onTouchStart={e => { touch.current = e.touches[0].clientX; }}
     onTouchEnd={e => { if (touch.current !== null) { const delta = touch.current - e.changedTouches[0].clientX; if (Math.abs(delta) > 50) move(delta > 0 ? 1 : -1); } touch.current = null; }}>
     {slides.map((slide, i) => <div className={`hero-slide ${i === active ? 'is-active' : ''}`} key={slide.image} aria-hidden={i !== active} inert={i !== active ? '' : undefined} aria-roledescription="slide" aria-label={t(`${i + 1} of ${slides.length}`)}>
-      {(i === 0 || i === active) && <img loading={i === 0 ? "eager" : "lazy"} width="1920" height="1280" className="hero-photo" style={{ objectPosition: slide.position }} src={img(slide.image, { w: 1920, q: 80 })} srcSet={srcSet(slide.image, [800, 1200, 1920], { q: 80 })} sizes="100vw" alt={t(slide.alt || slide.project.imageAlts?.[0] || slide.project.title)} fetchpriority={i === 0 ? 'high' : 'auto'} />}
+      {(i === 0 || i === active) && <img loading={i === 0 ? "eager" : "lazy"} width="1920" height="1280" className="hero-photo" style={{ objectPosition: slide.position }} src={img(slide.image, { w: 1920, q: 80 })} srcSet={srcSet(slide.image, [640, 800, 960, 1200, 1600, 1920], { q: 80 })} sizes="100vw" alt={t(slide.alt || slide.project.imageAlts?.[0] || slide.project.title)} fetchpriority={i === 0 ? 'high' : 'auto'} />}
       <div className="hero-shade" />
       <div className="container hero-inner">
         <p className="eyebrow">{t("Houston, Texas · Custom Woodworking")}</p>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Components/Layout.jsx"
 import Home from "./pages/Home.jsx"
@@ -9,7 +9,6 @@ import ServiceDetail from "./pages/ServiceDetail.jsx";
 import Services from "./pages/Services.jsx";
 import Materials from "./pages/Materials.jsx";
 import Process from "./pages/Process.jsx";
-import Admin from "./pages/Admin.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import { LanguageProvider } from './i18n/LanguageContext';
 import ServiceAreas from './pages/ServiceAreas';
@@ -17,10 +16,12 @@ import ServiceAreaCity from './pages/ServiceAreaCity';
 
 import { PrivacyPolicy, Sitemap } from './pages/SiteInformation';
 
-export default function SiteRoutes() {
+const LazyAdmin = lazy(() => import('./pages/Admin.jsx'));
+
+export default function SiteRoutes({ AdminComponent = LazyAdmin }) {
   return (
     <LanguageProvider><Routes>
-      <Route path="/admin" element={<Admin />} />
+      <Route path="/admin" element={<Suspense fallback={<main aria-busy="true" />}><AdminComponent /></Suspense>} />
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="AboutUs" element={<AboutUs />} />

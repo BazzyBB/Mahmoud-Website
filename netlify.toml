@@ -2,6 +2,25 @@
   publish = "dist"
   command = "npm run build"
 
+# HTML revalidates so visitors receive the current deployment.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Vite includes content hashes in generated JS, CSS, and font filenames.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Original photographs keep stable URLs and revalidate after one week.
+# These source headers also apply to Netlify Image CDN transformations.
+[[headers]]
+  for = "/Assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
 # Preserve shared image links after descriptive filename updates.
 [[redirects]]
   from = "/Assets/DS1.JPG"
