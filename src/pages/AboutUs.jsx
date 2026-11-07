@@ -11,6 +11,30 @@ import { SITE } from "../data/site.js";
 
 const materials = ["American black walnut", "White oak", "Red oak", "Hard maple", "Cherry", "Mahogany", "Metallic & clear epoxy", "Tempered glass & LED"];
 
+const workshopPhotos = [
+  {
+    image: "/Assets/workshop-slab-preparation.jpg",
+    width: 1208, height: 1596,
+    title: "Preparing the slab",
+    text: "A slab on the router sled, with its natural grain and openings still visible before the surface is finished.",
+    alt: "Wood slab beneath a router sled on the workshop bench, showing natural grain and openings",
+  },
+  {
+    image: "/Assets/workshop-base-assembly.jpg",
+    width: 1290, height: 947,
+    title: "Shaping the base",
+    text: "A sculpted wooden base takes shape on the bench, showing the curved supports and angled brace up close.",
+    alt: "Unfinished wooden table base with curved supports and an angled brace on a workshop bench",
+  },
+  {
+    image: "/Assets/workshop-epoxy-tabletop.jpg",
+    width: 1271, height: 952,
+    title: "The surface detail",
+    text: "Dark epoxy follows the wood’s natural openings, while the finished surface brings out the depth of the grain.",
+    alt: "Finished wood tabletop with dark epoxy inlays resting on a padded workshop bench",
+  },
+];
+
 export default function AboutUs() {
   const { t } = useLanguage();
   const { trackButtonClick } = useAnalytics();
@@ -51,6 +75,39 @@ export default function AboutUs() {
                 height="675"
               />
             </figure>
+          </div>
+        </section>
+
+        <section id="inside-the-workshop" className="section workshop-story" aria-labelledby="workshop-heading">
+          <div className="container">
+            <div className="workshop-heading" data-reveal>
+              <div>
+                <Eyebrow>Inside the Workshop</Eyebrow>
+                <h2 id="workshop-heading">The craft behind the finished piece.</h2>
+              </div>
+              <p>A closer look at our workbench: slab preparation, a sculpted base and an epoxy tabletop. These workshop details show the work that goes into custom wood furniture.</p>
+            </div>
+            <div className="workshop-grid">
+              {workshopPhotos.map((photo, index) => (
+                <figure className="workshop-photo" key={photo.image} data-reveal>
+                  <a href={photo.image} aria-label={`View full photo: ${photo.title}`}>
+                    <img
+                      src={img(photo.image, { w: 1000 })}
+                      srcSet={srcSet(photo.image, [480, 800, 1200])}
+                      sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1000px) calc((100vw - 100px) / 2), 600px"
+                      alt={photo.alt} width={photo.width} height={photo.height}
+                      loading="lazy" decoding="async"
+                    />
+                    <span className="workshop-view">View full photo</span>
+                  </a>
+                  <figcaption>
+                    <span className="workshop-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                    <div><h3>{photo.title}</h3><p>{photo.text}</p></div>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <Link className="text-link" to="/Gallery">See the finished projects</Link>
           </div>
         </section>
 

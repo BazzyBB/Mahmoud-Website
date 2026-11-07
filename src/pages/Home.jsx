@@ -143,6 +143,7 @@ export default function Home() {
           <Eyebrow>Our craftsmanship & process</Eyebrow><h2 id="home-process-heading">From your first idea to the final detail.</h2>
           <ol className="home-process-grid">{processSteps.map(step => <li key={step.title}><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
           <Link className="text-link" to="/Process">Explore our process</Link>
+          <p className="home-workshop-link"><Link className="text-link" to="/AboutUs#inside-the-workshop">See how it’s made: inside the workshop</Link></p>
         </div></section>
         <StoryBanner />
 
