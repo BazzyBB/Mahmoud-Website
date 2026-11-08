@@ -820,7 +820,7 @@ fieldset:disabled{opacity:.65}
  .hero-showcase .hero-actions{margin-top:22px;gap:14px 20px;align-items:center}
  .hero-showcase .hero-work-link{font-size:12px}
  .hero-showcase .hero-bottom{position:relative;inset:auto;grid-area:2/1;display:flex;flex-wrap:wrap;gap:16px;margin-top:22px}
- .hero-showcase .slide-pagination{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;width:100%}
+ .hero-showcase .slide-pagination{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;width:100%}
  .hero-showcase .slide-pagination button{justify-content:center;gap:6px;border:1px solid #ffffff30;padding:8px 3px;font-size:11px}
  .hero-showcase .slide-pagination button.active{border-color:var(--gold);background:#c8a77414}
  .hero-showcase .slide-pagination i{display:none}
