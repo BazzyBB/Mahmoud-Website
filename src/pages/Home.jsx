@@ -6,7 +6,6 @@ import { LocalizedLink as Link } from "../i18n/LanguageContext";
 import { useAnalytics } from "../hooks/useAnalytics.js";
 import SEOHead from "../Components/SEOHead.jsx";
 import Icon from "../Components/Icons.jsx";
-import ProjectCard from "../Components/ProjectCard.jsx";
 import { Eyebrow, StoryBanner } from "../Components/Section.jsx";
 import { featuredProjects, services } from "../data/projects.js";
 import { dedications, faqs, SITE, processSteps } from "../data/site.js";
@@ -60,6 +59,50 @@ export default function Home() {
         <div className="craft-strip"><div className="container"><span>{t("HANDCRAFTED IN HOUSTON")}</span><span>{t("Natural hardwoods")}</span><span>{t("Made for your space")}</span><Link to="/Process">{t("From idea to heirloom")}</Link></div></div>
 
         <ContactActions />
+        {/* PHOTO GALLERY */}
+        <section id="home-gallery" className="section home-gallery" aria-labelledby="home-gallery-heading">
+          <div className="container">
+            <div className="home-gallery-heading" data-reveal>
+              <div>
+                <Eyebrow>{t("Our Work")}</Eyebrow>
+                <h2 id="home-gallery-heading">{t("Wood. Detail.")}<br /><em>{t("A space of your own.")}</em></h2>
+              </div>
+              <div className="home-gallery-intro">
+                <p>{t("A closer look at our cabinetry, furniture and the details that bring a room together. Explore a few pieces from our portfolio.")}</p>
+                <Link className="text-link" to="/Gallery" onClick={() => trackButtonClick("home_view_gallery", "/")}>
+                  {t("Explore the Full Portfolio")} <Icon name="arrow" size={18} />
+                </Link>
+              </div>
+            </div>
+            <div className="home-gallery-grid">
+              {featuredProjects.map((project, index) => (
+                <Link key={project.slug} to={`/Gallery/${project.slug}`} className="home-gallery-tile">
+                  <figure>
+                    <img
+                      src={img(project.cover, { w: index === 0 ? 1000 : 700, q: 80 })}
+                      srcSet={srcSet(project.cover, [400, 700, 1000], { q: 80 })}
+                      sizes={index === 1 || index === 2 ? "(max-width: 600px) 100vw, (max-width: 980px) 40vw, 25vw" : "(max-width: 600px) 100vw, (max-width: 980px) 60vw, 50vw"}
+                      alt={t(project.imageAlts?.[0] || `${project.shortTitle} by Live Wood Studio, Houston`)}
+                      loading="lazy"
+                      decoding="async"
+                      width="1000"
+                      height="800"
+                    />
+                    <figcaption>
+                      <span className="home-gallery-caption"><span className="home-gallery-tag">{t(project.tag)}</span><span className="home-gallery-title">{t(project.shortTitle)}</span></span>
+                      <span className="home-gallery-arrow" aria-hidden="true"><Icon name="arrow" size={20} /></span>
+                    </figcaption>
+                  </figure>
+                </Link>
+              ))}
+            </div>
+            <div className="home-gallery-footer">
+              <span>{t("Natural materials. Thoughtful details. Made for your space.")}</span>
+              <Link className="text-link" to="/Gallery">{t("View all projects")} <Icon name="arrow" size={16} /></Link>
+            </div>
+          </div>
+        </section>
+
         {/* SERVICES */}
         <section className="section services" aria-labelledby="services-heading">
           <div className="container">
@@ -89,26 +132,6 @@ export default function Home() {
                   </div>
                 </article>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* OUR WORK */}
-        <section className="section work-preview" aria-labelledby="work-heading">
-          <div className="container">
-            <div className="section-head center" data-reveal>
-              <Eyebrow center>{t("Our Work")}</Eyebrow>
-              <h2 id="work-heading">{t("Custom Pieces, Lasting Impressions")}</h2>
-              <p>{t("A selection of tables, cabinetry and display pieces we've designed and built in our Houston studio.")}</p>
-            </div>
-            <div className="project-grid">
-              {featuredProjects.map((p) => (
-                <ProjectCard key={p.slug} project={p} sizes={p === featuredProjects[0] ? "100vw" : "(max-width: 980px) 100vw, 50vw"} />
-              ))}
-            </div>
-            <div className="center mt-lg">
-              <Link className="btn btn-dark" to="/Gallery" onClick={() => trackButtonClick("home_view_gallery", "/")}>{t(" Explore the Full Portfolio ")}<Icon name="arrow" size={18} />
-              </Link>
             </div>
           </div>
         </section>
