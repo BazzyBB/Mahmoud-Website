@@ -9,6 +9,7 @@ function getSlides(t) { return [
   { project: getProject('hallway-library-shelving'), label: 'Built-ins', category: 'Built-in Cabinets & Shelving', image: '/Assets/residential/hallway-library.jpg', position: '40% center', title: <>{t("A place for everything.")}<br /><em>{t("Made for your home.")}</em></>, text: 'Libraries, fitted cabinets, floating shelves and seating with storage. Turn an unused wall into a useful, considered part of your home.', link: 'Explore built-in storage' },
   { project: getProject('live-edge-walnut-epoxy-river-dining-table'), label: 'Tables', category: 'Live-edge & Epoxy Tables', image: '/Assets/walnut-epoxy-river-table-1.jpg', position: 'center', alt: 'Handcrafted walnut dining table with a dark epoxy river and sculpted wood base', title: <>{t("Distinctive grain.")}<br /><em>{t("A table of your own.")}</em></>, text: 'Live-edge walnut, expressive hardwoods and epoxy details. Explore custom dining and statement tables built around the character of the wood.', link: 'Explore custom tables' },
   { project: getProject('custom-jewelry-display-cabinet-system'), label: 'Retail', category: 'Retail Displays & Showcases', image: '/Assets/jewelry-display-cabinets-1.jpg', position: '65% center', title: <>{t("Let your products shine.")}<br /><em>{t("We build the setting.")}</em></>, text: 'Custom jewelry showcases, display cabinets and retail furniture. Thoughtful woodwork that presents your products and supports your everyday work.', link: 'Explore retail displays' },
+  { project: { shortTitle: 'Custom Wood Bunk Beds' }, label: 'Bunk Beds', category: 'Custom Wood Bunk Beds', image: '/Assets/custom-wood-bunk-beds.jpg', position: 'center', alt: 'Custom wooden bunk beds with three sleeping levels, a central ladder and wood guardrails', title: <>{t("Room to rest.")}<br /><em>{t("Built to share.")}</em></>, text: 'Custom wood bunk beds designed around your room. Warm wood, thoughtful details and a layout that makes the most of your space.', link: 'Explore custom furniture', href: '/Services' },
 ]; }
 
 export default function HeroSlider() {
@@ -44,7 +45,7 @@ export default function HeroSlider() {
         <p className="eyebrow">{t(slide.category)}<span className="hero-location">{t("Houston, TX")}</span></p>
         {i === 0 ? <h1>{t(slide.title)}</h1> : <h2 className="hero-title">{t(slide.title)}</h2>}
         <p className="lead">{t(slide.text)}</p>
-        <div className="hero-actions"><Link to="/ContactUs#quote-request" className="btn btn-primary" tabIndex={i === active ? 0 : -1}>{t("Get a Quote")}</Link><Link to={`/Gallery/${slide.project.slug}`} className="hero-work-link" tabIndex={i === active ? 0 : -1}>{t(slide.link)}{' '}<span>→</span></Link></div>
+        <div className="hero-actions"><Link to="/ContactUs#quote-request" className="btn btn-primary" tabIndex={i === active ? 0 : -1}>{t("Get a Quote")}</Link><Link to={slide.href || `/Gallery/${slide.project.slug}`} className="hero-work-link" tabIndex={i === active ? 0 : -1}>{t(slide.link)}{' '}<span>→</span></Link></div>
       </div>
     </div>)}
     <div className="container hero-bottom">
