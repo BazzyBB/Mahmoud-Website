@@ -18,7 +18,7 @@ export default async (req: Request) => {
     await getDb().insert(quotes).values(values).onConflictDoNothing({ target: quotes.submissionId });
     return json({ success: true }, 201);
   } catch {
-    return json({ error: 'Your request could not be saved. Please try again or call (469) 888-1330.' }, 503);
+    return json({ error: 'Your request could not be saved. Please try again or call 1 (281) 250-4799.' }, 503);
   }
 };
 

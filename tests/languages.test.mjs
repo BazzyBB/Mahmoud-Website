@@ -17,8 +17,8 @@ try {
     assert.ok(english.body.includes('lang="en" dir="ltr"'));
     assert.ok(!english.body.includes('language-switcher'));
     assert.ok(!/Dallas|DFW|Fort Worth/.test(english.body+english.head));
-    assert.ok(english.body.includes('href="sms:+14698881330"'));
-    assert.ok(english.body.includes('href="tel:+14698881330"'));
+    assert.ok(english.body.includes('href="sms:+12812504799"'));
+    assert.ok(english.body.includes('href="tel:+12812504799"'));
     assert.ok(english.body.includes('href="/ContactUs#quote-request"'));
   }
   assert.equal(localizedTo('/Services#service-2','ar'),'/Services#service-2');

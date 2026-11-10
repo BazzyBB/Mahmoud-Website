@@ -34,14 +34,14 @@ try {
     }
     assert.equal((body.match(/<h1\b/g) || []).length, 1);
     assert.ok(body.includes('href="/ContactUs#quote-request"'));
-    assert.ok(body.includes('href="tel:+14698881330"'));
+    assert.ok(body.includes('href="tel:+12812504799"'));
     assert.ok(body.includes('Project locations are not attributed to this city.'));
     for (const key of area.nearby) assert.ok(body.includes(`href="${areaByKey(key).path}"`));
     const schemas = [...head.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)].map(match => JSON.parse(match[1]));
     const graph = schemas.flatMap(schema => schema['@graph'] || [schema]);
     const business = graph.find(node => node['@type'] === 'LocalBusiness');
     assert.ok(!business.address, 'No unverified office address');
-    assert.equal(business.telephone, '+14698881330');
+    assert.equal(business.telephone, '+12812504799');
     assert.ok(business.areaServed.some(area => area.name === 'Houston'), 'Confirmed Houston coverage is included');
     assert.ok(!JSON.stringify(graph).includes('Dallas'));
     assert.ok(!graph.some(node => node.aggregateRating || node.review), 'No fabricated reviews');
