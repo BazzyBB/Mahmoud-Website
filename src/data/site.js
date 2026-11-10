@@ -2,9 +2,9 @@ export const SITE = {
   name: "Live Wood Studio",
   tagline: "Custom Woodworking & Cabinets",
   url: "https://livewoodstudio.com",
-  phoneDisplay: "(469) 888-1330",
-  phoneHref: "tel:+14698881330",
-  smsHref: "sms:+14698881330",
+  phoneDisplay: "1 (281) 250-4799",
+  phoneHref: "tel:+12812504799",
+  smsHref: "sms:+12812504799",
   city: "Houston",
   region: "TX",
   serviceAreas: ["Houston", "Houston Heights", "La Porte", "Galveston", "Magnolia", "Kingwood", "Richmond", "Katy", "Sugar Land", "The Woodlands", "Spring", "Cypress", "Tomball", "Conroe", "Pearland", "Friendswood", "League City", "Webster", "Pasadena", "Missouri City", "Stafford", "Rosenberg", "Fulshear", "Bellaire", "Memorial"],
@@ -96,6 +96,6 @@ export const faqs = [
   },
   {
     q: "How do I get a quote?",
-    a: "Call (469) 888-1330 or send us a message through the contact form with a few details about your project. Consultations and quotes are free.",
+    a: "Call 1 (281) 250-4799 or send us a message through the contact form with a few details about your project. Consultations and quotes are free.",
   },
 ];

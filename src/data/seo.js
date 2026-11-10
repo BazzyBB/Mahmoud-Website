@@ -10,7 +10,7 @@ export const SEO_PAGES = {
   '/AboutUs': { title: 'About Our Houston Woodworking Studio', description: 'Meet Live Wood Studio, crafting custom tables, cabinetry and display furniture for homeowners, designers and businesses throughout Greater Houston.' },
   '/Process': { title: 'Custom Furniture Design & Build Process', description: 'See how a custom woodworking project moves from consultation and wood selection to handcrafting, finishing and installation in Greater Houston.' },
   '/Materials': { title: 'Walnut vs White Oak: Furniture Wood Guide', description: 'Compare walnut, white oak and mixed hardwoods through real furniture projects. Explore grain, epoxy and finish choices with Live Wood Studio in Houston.' },
-  '/ContactUs': { title: 'Custom Furniture Quotes in Houston', description: 'Discuss your custom furniture, cabinets or display project with Live Wood Studio in Houston. Call (469) 888-1330 or send your dimensions and ideas.' },
+  '/ContactUs': { title: 'Custom Furniture Quotes in Houston', description: 'Discuss your custom furniture, cabinets or display project with Live Wood Studio in Houston. Call 1 (281) 250-4799 or send your dimensions and ideas.' },
 };
 const projectDescriptions = [
   'Explore a custom walnut dining table with live edges and a metallic epoxy river. See project photos and discuss a made-to-order table in Houston.',

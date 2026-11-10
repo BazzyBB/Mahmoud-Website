@@ -137,7 +137,7 @@ self.addEventListener('fetch', (event) => {
                   <h1>LiveWood Studio</h1>
                   <h2>You're Currently Offline</h2>
                   <p>Please check your internet connection and try again.</p>
-                  <p>Call us at (469) 888-1330 for immediate assistance.</p>
+                  <p>Call us at 1 (281) 250-4799 for immediate assistance.</p>
                 </body>
                 </html>`,
                 { 
